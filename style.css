@@ -1,129 +1,146 @@
-/* ============================
-   GLOBAL STYLES
-============================ */
+/* GLOBAL */
 body {
-    font-family: Arial, sans-serif;
-    background-color: lavender;
-    color: deeppink;
     margin: 0;
     padding: 0;
-    font-size: 18px;
-}
-
-img {
-    max-width: 100%;
-    height: auto;
-}
-
-/* Remove global div background */
-div {
-    color: deeppink;
-    font-size: inherit;
-    background: none;
-}
-
-/* ============================
-   HEADER
-============================ */
-.main-header {
-    background: linear-gradient(to right, #ffb6c1, #ffd6e8);
-    text-align: center;
-    padding: 30px 15px;
-    border-bottom: 4px solid deeppink;
-}
-
-.logo-icon {
-    font-size: 45px;
-}
-
-.site-title {
-    font-size: 40px;
-}
-
-.tagline {
-    font-size: 20px;
-}
-
-/* NAVIGATION */
-.navbar a {
-    padding: 10px 20px;
-    font-size: 18px;
-}
-
-/* ============================
-   CONTENT
-============================ */
-.content-wrapper {
-    max-width: 1000px;
-    margin: auto;
-    padding: 30px;
-}
-
-.intro-box {
-    background: white;
-    padding: 25px;
-    border-radius: 15px;
-}
-
-.intro-box h2 {
-    font-size: 32px;
-}
-
-.intro-box p {
-    font-size: 18px;
+    font-family: "Poppins", Arial, sans-serif;
+    background: #f8e8ff;
     color: #333;
 }
 
-/* Boxes */
-.box {
-    background: #77b5ff;
+h1, h2 {
+    margin: 0;
+}
+
+/* HEADER */
+.header {
+    background: linear-gradient(90deg, #ff9ecf, #ffc7e6);
+    text-align: center;
+    padding: 40px 20px;
     color: white;
-    padding: 25px;
-    border-radius: 15px;
-    margin: 35px 0;
-    font-size: 20px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
 }
 
-.box h2 {
-    font-size: 30px;
+.logo {
+    font-size: 42px;
+    font-weight: 700;
 }
 
-/* Forms */
-.main-form input,
-.main-form button {
+.tagline {
+    margin-top: 10px;
     font-size: 18px;
+    font-style: italic;
 }
 
-/* Buttons with images */
-.btn-img img {
-    width: 250px;
-}
-
-.btn-img {
-    font-size: 20px;
-    color: deeppink;
-}
-
-/* Footer */
-.main-footer {
-    padding: 20px;
-    font-size: 16px;
-}
-
-/* Side image removed or responsive */
-.side-img {
-    width: 100%;
-    float: none;
+/* NAVBAR */
+.navbar {
     margin-top: 20px;
 }
 
-/* Responsive Fixes */
-@media (max-width: 768px) {
-    .site-title {
-        font-size: 28px;
-    }
-    .navbar a {
-        font-size: 16px;
-        padding: 8px 15px;
-    }
+.navbar a {
+    text-decoration: none;
+    color: #ff2d8a;
+    background: white;
+    padding: 10px 20px;
+    border-radius: 25px;
+    font-weight: bold;
+    margin: 5px;
+    transition: 0.3s ease;
+}
+
+.navbar a:hover {
+    background: #ff2d8a;
+    color: white;
+}
+
+/* HERO SECTION */
+.hero {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    padding: 60px 10%;
+    flex-wrap: wrap;
+}
+
+.hero-img {
+    width: 350px;
+    border-radius: 20px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.hero-content {
+    max-width: 500px;
+}
+
+.hero-content h2 {
+    font-size: 32px;
+    color: #ff2d8a;
+}
+
+.hero-content p {
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+.btn {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 12px 25px;
+    background: #ff2d8a;
+    color: white;
+    border-radius: 25px;
+    text-decoration: none;
+    font-size: 18px;
+    transition: 0.3s ease;
+}
+
+.btn:hover {
+    background: #d60063;
+}
+
+/* CONTENT CARDS */
+.card {
+    background: white;
+    margin: 40px auto;
+    padding: 35px;
+    max-width: 900px;
+    border-radius: 20px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+.card h2 {
+    color: #ff2d8a;
+    font-size: 30px;
+    margin-bottom: 15px;
+}
+
+/* LEARN BOX */
+.learn-box {
+    background: #ffd8ef;
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 35px;
+    border-radius: 20px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.learn-box h2 {
+    text-align: center;
+    color: #ff2d8a;
+    margin-bottom: 20px;
+}
+
+.learn-box ul {
+    font-size: 20px;
+    line-height: 1.8;
+}
+
+/* FOOTER */
+.footer {
+    background: #ff9ecf;
+    text-align: center;
+    padding: 20px;
+    color: white;
+    margin-top: 50px;
 }
