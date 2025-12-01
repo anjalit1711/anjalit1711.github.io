@@ -1,53 +1,145 @@
-
-        body{
-            background-color: lavender;
-        }
-       div{
-            color:deeppink;
-            font-size:40px;
-           background-color:white;
-
-        }
-
-
-      h2{
-          color: black;
-          font-size:50px;
-      }
-
-        img { width: 30%;
-            height: 40%;
-        }
-body { font-size: 50px;
-    background-color: lavender;
-    color: deeppink;
-
-}
-header { padding: 15px;
-    margin: 20px;
-a:link{ background-color: red;
-     cursor: auto;
+/* General */
+body {
+    font-family: Arial, sans-serif;
+    background: aliceblue;
+    margin: 0;
+    padding: 0;
 }
 
-a:hover {
-    color:white;
-    background-color:lightblue;
+h1 {
+    font-size: 60px;
+    color: black;
 }
-#hairstyles {
-    background-color: deepskyblue;
-    font-size: 50px;
+
+.flower {
+    font-size: 100px;
+}
+
+header {
+    background: lightpink;
+    text-align: center;
     padding: 20px;
-     text-align: center;
-
 }
-   
 
+header .quote {
+    font-size: 40px;
+    color: black;
+}
 
+header .subtext {
+    font-size: 40px;
+    color: white;
+}
 
+nav a {
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 5px;
+    background: lightblue;
+    color: white;
+    font-size: 40px;
+    border-radius: 5px;
+    transition: .3s;
+    text-decoration: none;
+}
 
+nav a:hover {
+    background: pink;
+}
 
+/* Buttons with Images */
+.btn-img {
+    display: inline-block;
+    font-size: 40px;
+    text-align: center;
+    color: black;
+    text-decoration: none;
+}
 
+.btn-img img {
+    width: 300px;
+    display: block;
+}
 
+/* Form */
+.main-form {
+    font-size: 40px;
+    margin: 20px;
+}
 
+.main-form button {
+    font-size: 30px;
+    padding: 5px 20px;
+    margin-left: 10px;
+}
 
+/* Boxes */
+.container {
+    margin: 20px;
+}
 
+.box {
+    background: lightblue;
+    color: white;
+    padding: 20px;
+    margin-bottom: 20px;
+    font-size: 40px;
+}
+
+.box h2 {
+    color: black;
+    font-size: 60px;
+}
+
+.icon {
+    font-size: 100px;
+}
+
+/* Back Link */
+.back {
+    font-size: 40px;
+    margin-left: 20px;
+    text-decoration: none;
+    color: black;
+}
+
+/* Side Image */
+.side-img {
+    float: right;
+    width: 80%;
+}
+
+/* Footwear Info */
+.heading {
+    font-size: 60px;
+    color: black;
+}
+
+.footwear-box {
+    background: lightblue;
+    color: white;
+    padding: 20px;
+    font-size: 50px;
+}
+
+/* Center Align */
+.center {
+    text-align: center;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 20px;
+    background: lightpink;
+    font-size: 30px;
+}
+
+footer a {
+    background: black;
+    color: white;
+    padding: 5px 10px;
+    margin: 5px;
+    border-radius: 5px;
+    text-decoration: none;
+}
