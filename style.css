@@ -1,9 +1,38 @@
-/* General */
+/* ===============================
+   GLOBAL STYLES
+=================================*/
+
 body {
     font-family: Arial, sans-serif;
-    background: aliceblue;
+    background-color: lavender;   /* Your added color */
+    color: deeppink;              /* Your added color */
     margin: 0;
     padding: 0;
+    font-size: 50px;              /* Your custom size */
+}
+
+/* Default div styling you added */
+div {
+    color: deeppink;
+    font-size: 40px;
+    background-color: white;
+}
+
+/* Image styling you added */
+img {
+    width: 30%;
+    height: 40%;
+}
+
+/* ===============================
+   HEADER & NAVIGATION
+=================================*/
+
+header {
+    background: lightpink;
+    text-align: center;
+    padding: 15px;
+    margin: 20px;
 }
 
 h1 {
@@ -13,12 +42,6 @@ h1 {
 
 .flower {
     font-size: 100px;
-}
-
-header {
-    background: lightpink;
-    text-align: center;
-    padding: 20px;
 }
 
 header .quote {
@@ -43,16 +66,36 @@ nav a {
     text-decoration: none;
 }
 
-nav a:hover {
-    background: pink;
+/* Fixed link styles you added */
+a:link {
+    background-color: red;
+    cursor: auto;
 }
 
-/* Buttons with Images */
+nav a:hover,
+a:hover {
+    color: white;
+    background-color: lightblue;
+}
+
+/* ===============================
+   HEADINGS
+=================================*/
+
+h2 {
+    color: black;     /* Your added color */
+    font-size: 50px;  /* Your added size */
+}
+
+/* ===============================
+   BUTTON WITH IMAGES
+=================================*/
+
 .btn-img {
     display: inline-block;
     font-size: 40px;
     text-align: center;
-    color: black;
+    color: deeppink;
     text-decoration: none;
 }
 
@@ -61,10 +104,14 @@ nav a:hover {
     display: block;
 }
 
-/* Form */
+/* ===============================
+   FORM
+=================================*/
+
 .main-form {
     font-size: 40px;
     margin: 20px;
+    color: deeppink;
 }
 
 .main-form button {
@@ -73,7 +120,10 @@ nav a:hover {
     margin-left: 10px;
 }
 
-/* Boxes */
+/* ===============================
+   CONTENT BOXES
+=================================*/
+
 .container {
     margin: 20px;
 }
@@ -95,7 +145,18 @@ nav a:hover {
     font-size: 100px;
 }
 
-/* Back Link */
+/* Special ID styling you added */
+#hairstyles {
+    background-color: deepskyblue;
+    font-size: 50px;
+    padding: 20px;
+    text-align: center;
+}
+
+/* ===============================
+   EXTRA COMPONENTS
+=================================*/
+
 .back {
     font-size: 40px;
     margin-left: 20px;
@@ -103,13 +164,11 @@ nav a:hover {
     color: black;
 }
 
-/* Side Image */
 .side-img {
     float: right;
     width: 80%;
 }
 
-/* Footwear Info */
 .heading {
     font-size: 60px;
     color: black;
@@ -122,12 +181,14 @@ nav a:hover {
     font-size: 50px;
 }
 
-/* Center Align */
 .center {
     text-align: center;
 }
 
-/* Footer */
+/* ===============================
+   FOOTER
+=================================*/
+
 footer {
     text-align: center;
     padding: 20px;
