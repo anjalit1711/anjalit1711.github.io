@@ -1,139 +1,150 @@
-/* ===============================
+/* ============================
    GLOBAL STYLES
-=================================*/
+============================ */
 
 body {
     font-family: Arial, sans-serif;
-    background-color: lavender;   /* Your added color */
-    color: deeppink;              /* Your added color */
+    background-color: lavender;
+    color: deeppink;
     margin: 0;
     padding: 0;
-    font-size: 50px;              /* Your custom size */
+    font-size: 50px;
 }
 
-/* Default div styling you added */
 div {
     color: deeppink;
     font-size: 40px;
     background-color: white;
 }
 
-/* Image styling you added */
 img {
     width: 30%;
     height: 40%;
 }
 
-/* ===============================
-   HEADER & NAVIGATION
-=================================*/
+/* ============================
+   HEADER
+============================ */
 
-header {
-    background: lightpink;
+.main-header {
+    background: linear-gradient(to right, #ffb6c1, #ffd6e8);
     text-align: center;
-    padding: 15px;
-    margin: 20px;
+    padding: 40px 20px;
+    border-bottom: 4px solid deeppink;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
 
-h1 {
-    font-size: 60px;
-    color: black;
+.logo-area {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
 }
 
-.flower {
-    font-size: 100px;
+.logo-icon {
+    font-size: 70px;
 }
 
-header .quote {
-    font-size: 40px;
-    color: black;
-}
-
-header .subtext {
-    font-size: 40px;
-    color: white;
-}
-
-nav a {
-    display: inline-block;
-    padding: 10px 20px;
-    margin: 5px;
-    background: lightblue;
-    color: white;
-    font-size: 40px;
-    border-radius: 5px;
-    transition: .3s;
-    text-decoration: none;
-}
-
-/* Fixed link styles you added */
-a:link {
-    background-color: red;
-    cursor: auto;
-}
-
-nav a:hover,
-a:hover {
-    color: white;
-    background-color: lightblue;
-}
-
-/* ===============================
-   HEADINGS
-=================================*/
-
-h2 {
-    color: black;     /* Your added color */
-    font-size: 50px;  /* Your added size */
-}
-
-/* ===============================
-   BUTTON WITH IMAGES
-=================================*/
-
-.btn-img {
-    display: inline-block;
-    font-size: 40px;
-    text-align: center;
+.site-title {
+    font-size: 65px;
     color: deeppink;
-    text-decoration: none;
+    font-weight: bold;
+    text-shadow: 2px 2px 5px white;
 }
 
+.tagline {
+    font-size: 32px;
+    margin-top: 15px;
+    color: #660033;
+    font-style: italic;
+}
+
+/* NAVIGATION */
+
+.navbar {
+    margin-top: 25px;
+}
+
+.navbar a {
+    text-decoration: none;
+    padding: 12px 25px;
+    margin: 5px;
+    background: white;
+    color: deeppink;
+    border-radius: 30px;
+    font-size: 28px;
+    font-weight: bold;
+    border: 2px solid deeppink;
+    transition: 0.4s;
+}
+
+.navbar a:hover {
+    background: deeppink;
+    color: white;
+    box-shadow: 0 0 15px #ff99c8;
+    transform: translateY(-3px);
+}
+
+/* ============================
+   CONTENT
+============================ */
+
+.content-wrapper {
+    padding: 60px;
+    max-width: 1200px;
+    margin: auto;
+}
+
+/* INTRO BOX */
+
+.intro-box {
+    background: white;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    border-left: 10px solid deeppink;
+}
+
+.intro-box h2 {
+    font-size: 55px;
+    color: deeppink;
+    margin-bottom: 20px;
+}
+
+.intro-box p {
+    font-size: 32px;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* BUTTON IMAGE LINKS */
 .btn-img img {
     width: 300px;
-    display: block;
 }
-
-/* ===============================
-   FORM
-=================================*/
-
-.main-form {
+.btn-img {
     font-size: 40px;
-    margin: 20px;
+    text-decoration: none;
     color: deeppink;
 }
 
+/* MAIN FORM */
+.main-form input {
+    font-size: 40px;
+}
 .main-form button {
     font-size: 30px;
-    padding: 5px 20px;
-    margin-left: 10px;
+    padding: 10px 20px;
+    margin: 10px;
 }
 
-/* ===============================
-   CONTENT BOXES
-=================================*/
-
-.container {
-    margin: 20px;
-}
-
+/* CONTENT BOXES */
 .box {
     background: lightblue;
+    padding: 40px;
+    border-radius: 20px;
+    margin: 40px 0;
     color: white;
-    padding: 20px;
-    margin-bottom: 20px;
-    font-size: 40px;
+    font-size: 35px;
 }
 
 .box h2 {
@@ -145,35 +156,11 @@ h2 {
     font-size: 100px;
 }
 
-/* Special ID styling you added */
-#hairstyles {
-    background-color: deepskyblue;
-    font-size: 50px;
-    padding: 20px;
-    text-align: center;
-}
-
-/* ===============================
-   EXTRA COMPONENTS
-=================================*/
-
-.back {
+ul {
     font-size: 40px;
-    margin-left: 20px;
-    text-decoration: none;
-    color: black;
 }
 
-.side-img {
-    float: right;
-    width: 80%;
-}
-
-.heading {
-    font-size: 60px;
-    color: black;
-}
-
+/* FOOTWEAR SECTION */
 .footwear-box {
     background: lightblue;
     color: white;
@@ -181,26 +168,55 @@ h2 {
     font-size: 50px;
 }
 
-.center {
-    text-align: center;
+.heading {
+    font-size: 60px;
+    color: black;
 }
 
-/* ===============================
-   FOOTER
-=================================*/
-
-footer {
-    text-align: center;
-    padding: 20px;
-    background: lightpink;
-    font-size: 30px;
+/* SIDE IMAGE */
+.side-img {
+    float: right;
+    width: 80%;
 }
 
-footer a {
-    background: black;
-    color: white;
-    padding: 5px 10px;
-    margin: 5px;
-    border-radius: 5px;
+/* BACK LINK */
+.back {
+    font-size: 40px;
+    color: black;
     text-decoration: none;
+}
+
+/* ============================
+   FOOTER
+============================ */
+
+.main-footer {
+    background: deeppink;
+    color: white;
+    text-align: center;
+    padding: 30px;
+    border-top: 4px solid hotpink;
+    margin-top: 50px;
+}
+
+.footer-links a {
+    text-decoration: none;
+    background: white;
+    color: deeppink;
+    padding: 10px 20px;
+    margin: 10px;
+    border-radius: 30px;
+    font-size: 25px;
+    transition: 0.3s;
+}
+
+.footer-links a:hover {
+    background: #ffb6c1;
+    color: white;
+}
+
+.footer-text {
+    margin-top: 20px;
+    font-size: 25px;
+    line-height: 1.8;
 }
