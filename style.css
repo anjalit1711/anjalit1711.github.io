@@ -1,18 +1,18 @@
 
-    <style>
+    
        body { background-color: aliceblue;
          color: white;
         font-size:40px;
 
 
        }
-       </style>
-<style>
+       
+
     h1,h2,h3{color: black;
               font-size:40px;
     }
-    </style>
-<style>
+    
+
     div.class{
         background-color: lightblue;
         color: white;
@@ -20,55 +20,46 @@
         width:fit-content;
         margin:10px
 }
-    </style>
-<style>
+
+
     header{ background-color: lightpink;
             color: black;
             font-size:50px;
             text-align:center;
     }
-    </style>
-<style>
+    
     footer{ background-color:lightpink;
             color: black;
             font-size:30px;
             text-align:center;
     }
-    </style>
-<style>
+
     p {
         background-color:lightblue;
         color: white;
         font-size:30px;
       }
-    </style>
-<style>
+
     ul,li{ background-color: lightblue;
            color: white;
            width:fit-content;
            text-align:left;
            margin:10px
     }
-    </style>
-<style>
+
     .keypoints{font-size:40px;
                background-color:lightblue;
                color:black;
     }
-    </style>
-<style>
+
     a:hover {color:pink;}
-    </style>
-<style>
+
     a{
     color:black;
     text-decoration:none;
     font-size:50px;
     font-weight:bold;
     background-color:deeppink;
-    }
-</style>
-<style>
      img{
     background-image:url("image/im.jpg");
     background-cover;
@@ -78,6 +69,6 @@
 
 
     }
-    </style>
+    
 
 
