@@ -1,222 +1,129 @@
 /* ============================
    GLOBAL STYLES
 ============================ */
-
 body {
     font-family: Arial, sans-serif;
     background-color: lavender;
     color: deeppink;
     margin: 0;
     padding: 0;
-    font-size: 50px;
-}
-
-div {
-    color: deeppink;
-    font-size: 40px;
-    background-color: white;
+    font-size: 18px;
 }
 
 img {
-    width: 30%;
-    height: 40%;
+    max-width: 100%;
+    height: auto;
+}
+
+/* Remove global div background */
+div {
+    color: deeppink;
+    font-size: inherit;
+    background: none;
 }
 
 /* ============================
    HEADER
 ============================ */
-
 .main-header {
     background: linear-gradient(to right, #ffb6c1, #ffd6e8);
     text-align: center;
-    padding: 40px 20px;
+    padding: 30px 15px;
     border-bottom: 4px solid deeppink;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-}
-
-.logo-area {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 15px;
 }
 
 .logo-icon {
-    font-size: 70px;
+    font-size: 45px;
 }
 
 .site-title {
-    font-size: 65px;
-    color: deeppink;
-    font-weight: bold;
-    text-shadow: 2px 2px 5px white;
+    font-size: 40px;
 }
 
 .tagline {
-    font-size: 32px;
-    margin-top: 15px;
-    color: #660033;
-    font-style: italic;
+    font-size: 20px;
 }
 
 /* NAVIGATION */
-
-.navbar {
-    margin-top: 25px;
-}
-
 .navbar a {
-    text-decoration: none;
-    padding: 12px 25px;
-    margin: 5px;
-    background: white;
-    color: deeppink;
-    border-radius: 30px;
-    font-size: 28px;
-    font-weight: bold;
-    border: 2px solid deeppink;
-    transition: 0.4s;
-}
-
-.navbar a:hover {
-    background: deeppink;
-    color: white;
-    box-shadow: 0 0 15px #ff99c8;
-    transform: translateY(-3px);
+    padding: 10px 20px;
+    font-size: 18px;
 }
 
 /* ============================
    CONTENT
 ============================ */
-
 .content-wrapper {
-    padding: 60px;
-    max-width: 1200px;
+    max-width: 1000px;
     margin: auto;
+    padding: 30px;
 }
-
-/* INTRO BOX */
 
 .intro-box {
     background: white;
-    padding: 40px;
-    border-radius: 20px;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-    border-left: 10px solid deeppink;
+    padding: 25px;
+    border-radius: 15px;
 }
 
 .intro-box h2 {
-    font-size: 55px;
-    color: deeppink;
-    margin-bottom: 20px;
+    font-size: 32px;
 }
 
 .intro-box p {
-    font-size: 32px;
+    font-size: 18px;
     color: #333;
-    line-height: 1.6;
 }
 
-/* BUTTON IMAGE LINKS */
-.btn-img img {
-    width: 300px;
-}
-.btn-img {
-    font-size: 40px;
-    text-decoration: none;
-    color: deeppink;
-}
-
-/* MAIN FORM */
-.main-form input {
-    font-size: 40px;
-}
-.main-form button {
-    font-size: 30px;
-    padding: 10px 20px;
-    margin: 10px;
-}
-
-/* CONTENT BOXES */
+/* Boxes */
 .box {
-    background: lightblue;
-    padding: 40px;
-    border-radius: 20px;
-    margin: 40px 0;
+    background: #77b5ff;
     color: white;
-    font-size: 35px;
+    padding: 25px;
+    border-radius: 15px;
+    margin: 35px 0;
+    font-size: 20px;
 }
 
 .box h2 {
-    color: black;
-    font-size: 60px;
+    font-size: 30px;
 }
 
-.icon {
-    font-size: 100px;
+/* Forms */
+.main-form input,
+.main-form button {
+    font-size: 18px;
 }
 
-ul {
-    font-size: 40px;
+/* Buttons with images */
+.btn-img img {
+    width: 250px;
 }
 
-/* FOOTWEAR SECTION */
-.footwear-box {
-    background: lightblue;
-    color: white;
-    padding: 20px;
-    font-size: 50px;
-}
-
-.heading {
-    font-size: 60px;
-    color: black;
-}
-
-/* SIDE IMAGE */
-.side-img {
-    float: right;
-    width: 80%;
-}
-
-/* BACK LINK */
-.back {
-    font-size: 40px;
-    color: black;
-    text-decoration: none;
-}
-
-/* ============================
-   FOOTER
-============================ */
-
-.main-footer {
-    background: deeppink;
-    color: white;
-    text-align: center;
-    padding: 30px;
-    border-top: 4px solid hotpink;
-    margin-top: 50px;
-}
-
-.footer-links a {
-    text-decoration: none;
-    background: white;
+.btn-img {
+    font-size: 20px;
     color: deeppink;
-    padding: 10px 20px;
-    margin: 10px;
-    border-radius: 30px;
-    font-size: 25px;
-    transition: 0.3s;
 }
 
-.footer-links a:hover {
-    background: #ffb6c1;
-    color: white;
+/* Footer */
+.main-footer {
+    padding: 20px;
+    font-size: 16px;
 }
 
-.footer-text {
+/* Side image removed or responsive */
+.side-img {
+    width: 100%;
+    float: none;
     margin-top: 20px;
-    font-size: 25px;
-    line-height: 1.8;
+}
+
+/* Responsive Fixes */
+@media (max-width: 768px) {
+    .site-title {
+        font-size: 28px;
+    }
+    .navbar a {
+        font-size: 16px;
+        padding: 8px 15px;
+    }
 }
