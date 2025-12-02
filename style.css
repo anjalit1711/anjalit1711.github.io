@@ -38,6 +38,7 @@
         background-color:lightblue;
         color: white;
         font-size:30px;
+        width:fit-content;
       }
 
     ul,li{ background-color: lightblue;
