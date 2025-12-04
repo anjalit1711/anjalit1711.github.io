@@ -3,8 +3,18 @@
        body { background-color: aliceblue;
          color: white;
         font-size:40px;
-
-       }
+        animation:upMotion 1.5s ease-in-out;
+            }
+@keyframes upMotion{
+    from{
+        transform:translateY(100%);
+        opacity:0;
+    }
+    to{
+        transform:translateY(0);
+        opacity:1;
+    }
+}
        
     h1,h2,h3{color: black;
               font-size:50px;
