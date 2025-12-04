@@ -27,6 +27,7 @@
     }
     nav{  text-align:center;
           padding:12px;
+          
        }
 
 nav a{ 
@@ -42,7 +43,6 @@ nav a{
 
 nav a:hover{
          color:white;
-         background:hotpink;
          transition:0.3s;
 }
 
