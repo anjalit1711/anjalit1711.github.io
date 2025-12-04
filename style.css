@@ -43,7 +43,9 @@ nav a{
 
 nav a:hover{
          color:white;
-         transition:0.3s;
+         transform:translateX(100px)
+         animation:slideln 0.8s ease forwards;
+         
 }
 
     footer{ background-color:lightpink;
@@ -55,7 +57,7 @@ nav a:hover{
     p {
         background-color:lightblue;
         color: white;
-        font-size:30px;
+        font-size:40px;
         width:fit-content;
       }
 
