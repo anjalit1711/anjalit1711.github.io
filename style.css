@@ -44,8 +44,6 @@ nav a{
 nav a:hover{
          color:white;
          background:hotpink;
-         padding:6px 12px;
-         border-radius:6px;
          transition:0.3s;
 }
 
