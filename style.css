@@ -1,4 +1,19 @@
-
+#homePage {
+    display:none;
+}
+#homePage:target{
+    display:block;
+}
+#homePage:target~ #formPage{
+    display:none;
+}
+.btn{
+    padding:10px 20px;
+    background-color:hotpink;
+    color:white;
+    text-decoration:none;
+    border-radius:5px;
+}
     
        body { background-color: aliceblue;
          color: white;
