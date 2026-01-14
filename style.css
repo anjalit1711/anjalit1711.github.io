@@ -127,6 +127,10 @@ nav a:hover{
     top:15px;
     right:15px;
 }
+.dark.dark-btn{
+    background-color:white;
+    color:black;
+}
     
 
 
