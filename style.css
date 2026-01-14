@@ -108,13 +108,7 @@ nav a:hover{
     display:block;
         
     }
-.dark {
-    background-color: black;
-    color: white;
-}
-.dark a{
-    color:black;
-}
+
 .dark-btn{
     padding:15px 30px;
     font-size:18px;
