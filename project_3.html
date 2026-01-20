@@ -1,1 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Image Switcher</title>
+
+<style>
+body{
+    font-family:Arial;
+    text-align:center;
+    background:#f4f6f9;
+    padding:40px;
+}
+img{
+    width:300px;
+    height:auto;
+    border-radius:15px;
+    box-shadow:0 5px 15px rgba(0,0,0,0.3);
+}
+button{
+    padding:10px 20px;
+    margin:10px;
+    font-size:18px;
+    cursor:pointer;
+}
+</style>
+</head>
+
+<body>
+
+<h2>Click Button to Change Image</h2>
+
+<img id="myImage" src="img1.jpg" alt="Image">
+
+<br><br>
+
+<button onclick="showImage('img1.jpg')">1</button>
+<button onclick="showImage('img2.jpg')">2</button>
+
+<script>
+function showImage(imageName){
+    document.getElementById("myImage").src = imageName;
+}
+</script>
+
+</body>
+</html>
 
