@@ -1,1 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Project 1 - Dark Mode</title>
+
+<style>
+body{
+    font-family:Arial;
+    background:#f5f5f5;
+    padding:30px;
+    transition:0.3s;
+}
+.dark{
+    background:#121212;
+    color:white;
+}
+</style>
+</head>
+
+<body>
+
+<h2>Project 1 – Dark Mode Example</h2>
+<p>Is project me dark mode ka demo hai</p>
+
+<button onclick="toggleDark()">Toggle Dark Mode</button>
+
+<br><br>
+<button onclick="window.location='new_project.html'">⬅ Go Back</button>
+
+<script>
+function toggleDark(){
+    document.body.classList.toggle("dark");
+}
+</script>
+
+</body>
+</html>
 
