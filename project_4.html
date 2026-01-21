@@ -72,16 +72,23 @@ textarea{
 
     
 </div>
+    <button onclick="window.location='newproject.html'">⬅ Go Back</button>
 
 <script>
 let textBox = document.getElementById("textBox");
 let count = document.getElementById("count");
 
 textBox.addEventListener("input", function(){
-    count.innerText = textBox.value.length;
+    let length = textBox.value.length;
+    count.innerText = length;
+
+    if(length > 50){
+        alert("You can type only 50 characters!");
+        textBox.value = textBox.value.substring(0,50);
+        count.innerText = 50;
+    }
 });
 </script>
-    <button onclick="window.location='newproject.html'">⬅ Go Back</button>
 
 
 </body>
