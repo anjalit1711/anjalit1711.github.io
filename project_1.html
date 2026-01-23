@@ -12,6 +12,7 @@ body{
     text-align:center;
     font-size:40px;
 }
+
 .dark{
     background:brown;
     color:white;
@@ -19,8 +20,8 @@ body{
 
 /* BIG BUTTON */
 button{
-    font-size:30px;        /* text bada */
-    padding:20px 35px;     /* button bada */
+    font-size:30px;
+    padding:20px 35px;
     margin:15px;
     border-radius:12px;
     cursor:pointer;
@@ -31,7 +32,12 @@ button{
 <body>
 
 <h2>Project 1 – Dark Mode Example</h2>
-<p>Is project me dark mode ka demo hai</p>
+<p>Is project me dark mode ON hone par music bajega 🎵</p>
+
+<!-- 🎵 Hidden Music -->
+<audio id="darkMusic" loop>
+    <source src= "phonk-music-30-sec-440133.mp3 " type="audio/mpeg">
+</audio>
 
 <button onclick="toggleDark()">Toggle Dark Mode</button>
 
@@ -40,7 +46,16 @@ button{
 
 <script>
 function toggleDark(){
+    let music = document.getElementById("darkMusic");
+
     document.body.classList.toggle("dark");
+
+    if(document.body.classList.contains("dark")){
+        music.play();   // 🎵 dark mode ON → music start
+    }else{
+        music.pause(); // 🔇 dark mode OFF → music stop
+        music.currentTime = 0;
+    }
 }
 </script>
 
