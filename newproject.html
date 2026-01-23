@@ -29,10 +29,7 @@ body{
 
 <h1>Our Projects</h1>
 
-<!-- 🎵 Background Music -->
-<audio id="bgMusic" loop>
-    <source src="phonk-music-30-sec-440133.mp3 " type="audio/mpeg">
-</audio>
+
 
 <button class="btn" onclick="openProject('project_1.html')">Project 1</button>
 <button class="btn" onclick="openProject('project_2.html')">Project 2</button>
@@ -48,16 +45,7 @@ body{
 ⬅ Back to Home
 </button>
 
-<script>
-function openProject(page){
-    let music = document.getElementById("bgMusic");
-    music.play();   // 🎵 music start
 
-    setTimeout(function(){
-        window.location = page;   // project open
-    }, 300);
-}
-</script>
 
 </body>
 </html>
