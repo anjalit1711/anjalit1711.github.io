@@ -77,3 +77,48 @@ function blueToggle(){
 
 </body>
 </html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Age Image Checker</title>
+  <style>
+    body {
+      font-family: Arial;
+      text-align: center;
+      margin-top: 50px;
+    }
+    img {
+      margin-top: 20px;
+      width: 250px;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Enter Your Age</h2>
+
+  <input type="number" id="age" placeholder="Enter age">
+  <br><br>
+  <button onclick="checkAge()">Submit</button>
+
+  <br>
+  <img id="oldman" src="https://i.imgur.com/3GvwNBf.png" alt="Old Man Image">
+
+  <script>
+    function checkAge() {
+      let age = document.getElementById("age").value;
+      let image = document.getElementById("oldman");
+
+      if (age >= 70) {
+        image.style.display = "block";
+      } else {
+        image.style.display = "none";
+        alert("Age 70 se kam hai");
+      }
+    }
+  </script>
+
+</body>
+</html>
