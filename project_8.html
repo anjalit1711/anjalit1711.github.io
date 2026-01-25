@@ -1,1 +1,83 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>project 8</title>
+    <style>
+    body{
+    background-color:lightblue;
+    text-align:center;
+    }
+        input{
+        padding:20px;
+        margin:20px;
+        font-size:20px;
+        }
+        header{
+        background-color:gray;
+        font-size:30px;
+        }
+        button{
+        padding:20px;
+        margin:15px;
+        font-size:20px;
+        background-color:lightblue;
+        }
+        p{
+        font-size:40px;
+        background-color:white;
+        padding:70px;
+        width:600px;
+        margin:20px;
+
+        }
+        div{
+        background:white;
+        font-size:40px;
+
+      }
+        img{
+        width:600px;
+        margin-top:20px;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <h2>Searching image</h2>
+    <input type="number" id="age" placeholder="Enter your age to view img.">
+    <button onclick="showImg()">Search</button>
+</header>
+<p>→ If you enter your age between 1 and 10, you will see a kid’s picture.</p>
+<p>→ If you enter your age between 30 and 50, you will see a middle-aged person’s picture.</p>
+<p>→ If you enter your age between 70 and 85, you will see an old person’s picture.</p>
+<img id="img">
+<div id="name"></div>
+<script>
+    function showImg(){
+   let age=Number(document.getElementById("age").value);
+   let name=document.getElementById("name");
+   let img=document.getElementById("img");
+   if (age >=1 &&age <=10){
+      img.src = "aaa.jpg";
+      name.innerHTML="kid";
+      }
+      else if(age >=30 &&age <=50){
+      img.src= "dd.jpg";
+      name.innerHTML="Adult";
+      }
+      else if(age >=70 &&age <=85){
+             img.src="ccc.jpg";
+             name.innerHTML="Old men";
+      }
+      else{img.src="";
+      name.innerHTML="Please enter a valid age";
+      }
+
+
+    }
+</script>
+</body>
+
+</html>
