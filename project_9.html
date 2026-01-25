@@ -1,1 +1,66 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Project-9<br>Text show app</title>
+    <style>
+        body{
+        background:lightblue;
+        }
+        .box{
+        background:gray;
+        padding:20px;
+        text-align:center;
+        }
+        h2{
+        background:gray;
+        font-size:30px;
+        }
+        input{
+        padding:8px;
+        width:200px;
+        font-size:20px;
+        }
+        button{
+        padding:20px;
+        margin-top:10px;
+        cursor:pointer;
+        background:lightblue;
+        }
+        p{
+        margin-top:15px;
+        font-size:30px;
+        }
+    </style>
+</head>
+<body>
+<div class="box">
+    <h2>Project-9<br>Text Show App</h2>
+    <input type="text" id="textinput"
+           placeholder="Type Your name">
+    <br>
+    <button onclick="showText()">Hello.</button>
+    <p id="output"></p>
+</div>
+<script>
+    function showText(){
+    let text=document.getElementById("textinput").value;
+    let hour= new Date().getHours();
+     let msg="";
+
+    if(hour<12){
+    msg="good Morning";
+    }
+    else if(hour<17){
+     msg="good Afternoon";
+    }
+    else {
+    msg="good Evening";
+    }
+    document.getElementById("output").innerText=msg+","+text;
+}
+</script>
+
+</body>
+</html>
