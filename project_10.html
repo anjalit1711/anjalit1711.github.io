@@ -1,38 +1,68 @@
-
 <!DOCTYPE html>
 <html>
-  <head>
-    <style>
-      body{
-        background-color:lightblue;
-        font-size:30px;
-      }
-    iframe{padding:50px;
-           iframe{
-  padding:50px;
-  height:100vh;   
-  width:100%ovh;
-          }
-      button{padding:20px;
-             margin:10px;
-             font-size:20px;
-             background-color:gray;
-            }
-    
-    </style>
-  </head>
+<head>
+    <title>Face Beauty</title>
+    <link rel="stylesheet" href="style.css">
+</head>
 <body>
 
-<h3>YouTube Video</h3>
+    <!-- Navigation Bar -->
+    <div class="navbar">
+        <h1 class="logo">Face Beauty</h1>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Tips</a></li>
+            <li><a href="#">Products</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </div>
 
-<iframe
-  width="300"
-  height="200"
-  src="https://www.youtube.com/embed/1Zcvyft5-dQ"
-  frameborder="0"
-  allowfullscreen>
-</iframe>
-<button onclick="window.location='newproject.html'">⬅ Go Back</button>
+    <!-- Hero Section -->
+    <div class="hero">
+        <h2>Glow Naturally ✨</h2>
+        <p>Enhance your natural beauty with simple skincare tips.</p>
+        <button>Explore More</button>
+    </div>
+
+    <!-- Beauty Tips Section -->
+    <div class="container">
+        <h2>Daily Face Beauty Tips</h2>
+
+        <ul class="tips">
+            <li>Drink 8 glasses of water</li>
+            <li>Cleanse twice daily</li>
+            <li>Use sunscreen</li>
+            <li>Apply natural face pack</li>
+        </ul>
+    </div>
+
+    <!-- Products Table -->
+    <div class="container">
+        <h2>Recommended Products</h2>
+
+        <table>
+            <tr>
+                <th>Product</th>
+                <th>Type</th>
+                <th>Price</th>
+            </tr>
+            <tr>
+                <td>Face Wash</td>
+                <td>Cleanser</td>
+                <td>₹299</td>
+            </tr>
+            <tr>
+                <td>Moisturizer</td>
+                <td>Cream</td>
+                <td>₹399</td>
+            </tr>
+        </table>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        <p>© 2026 Face Beauty | All Rights Reserved</p>
+    </div>
 
 </body>
 </html>
