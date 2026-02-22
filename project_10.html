@@ -1,68 +1,200 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Face Beauty</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Face Beauty Advanced</title>
+
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+        }
+
+        body{
+            font-family:Arial, sans-serif;
+            background:linear-gradient(pink,white);
+        }
+
+        /* Sticky Header */
+        header{
+            background:#ff4d88;
+            padding:15px;
+            position:sticky;
+            top:0;
+            z-index:1000;
+            display:flex;
+            justify-content:space-between;
+        }
+
+        header h1{
+            color:white;
+            text-shadow:2px 2px 5px black;
+        }
+
+        nav ul{
+            list-style:none;
+        }
+
+        nav ul li{
+            display:inline-block;
+            margin:0 10px;
+        }
+
+        nav ul li a{
+            color:white;
+            text-decoration:none;
+        }
+
+        nav ul li a:hover{
+            color:yellow;
+        }
+
+        /* Hero Section */
+        .hero{
+            text-align:center;
+            padding:60px;
+            background:rgba(255,182,193,0.6);
+            opacity:0.95;
+            border-bottom:4px dashed #ff4d88;
+        }
+
+        /* Relative + Absolute Example */
+        .beauty-box{
+            width:300px;
+            height:200px;
+            background:white;
+            margin:30px auto;
+            border:4px solid #ff4d88;
+            border-radius:15px;
+            position:relative;
+            box-shadow:0 4px 10px gray;
+            overflow:hidden;
+        }
+
+        .beauty-box h3{
+            text-align:center;
+            margin-top:20px;
+        }
+
+        .badge{
+            position:absolute;
+            top:10px;
+            right:10px;
+            background:red;
+            color:white;
+            padding:5px 10px;
+            border-radius:20px;
+        }
+
+        /* Outline */
+        .outline-box{
+            width:250px;
+            margin:20px auto;
+            padding:20px;
+            border:3px dotted purple;
+            outline:4px solid pink;
+            outline-offset:5px;
+            text-align:center;
+        }
+
+        /* Table */
+        table{
+            width:80%;
+            margin:30px auto;
+            border-collapse:collapse;
+        }
+
+        th, td{
+            border:2px solid #ff4d88;
+            padding:10px;
+            text-align:center;
+        }
+
+        th{
+            background:#ffb6c1;
+        }
+
+        /* Fixed Position */
+        .fixed-btn{
+            position:fixed;
+            bottom:20px;
+            right:20px;
+            background:#ff4d88;
+            color:white;
+            padding:10px 15px;
+            border:none;
+            cursor:pointer;
+            border-radius:5px;
+        }
+
+        .fixed-btn:hover{
+            opacity:0.8;
+        }
+
+        footer{
+            background:#ff4d88;
+            color:white;
+            text-align:center;
+            padding:15px;
+            margin-top:30px;
+        }
+
+    </style>
 </head>
+
 <body>
 
-    <!-- Navigation Bar -->
-    <div class="navbar">
-        <h1 class="logo">Face Beauty</h1>
+<header>
+    <h1>Face Beauty</h1>
+    <nav>
         <ul>
             <li><a href="#">Home</a></li>
             <li><a href="#">Tips</a></li>
             <li><a href="#">Products</a></li>
-            <li><a href="#">Contact</a></li>
         </ul>
-    </div>
+    </nav>
+</header>
 
-    <!-- Hero Section -->
-    <div class="hero">
-        <h2>Glow Naturally ✨</h2>
-        <p>Enhance your natural beauty with simple skincare tips.</p>
-        <button>Explore More</button>
-    </div>
+<div class="hero">
+    <h2>Glow Naturally ✨</h2>
+    <p>Enhance your natural beauty with simple skincare tips.</p>
+</div>
 
-    <!-- Beauty Tips Section -->
-    <div class="container">
-        <h2>Daily Face Beauty Tips</h2>
+<!-- Relative & Absolute -->
+<div class="beauty-box">
+    <span class="badge">New</span>
+    <h3>Natural Face Care</h3>
+</div>
 
-        <ul class="tips">
-            <li>Drink 8 glasses of water</li>
-            <li>Cleanse twice daily</li>
-            <li>Use sunscreen</li>
-            <li>Apply natural face pack</li>
-        </ul>
-    </div>
+<!-- Outline Example -->
+<div class="outline-box">
+    Beauty starts with healthy skin 💖
+</div>
 
-    <!-- Products Table -->
-    <div class="container">
-        <h2>Recommended Products</h2>
+<!-- Table -->
+<table>
+    <tr>
+        <th>Product</th>
+        <th>Type</th>
+        <th>Price</th>
+    </tr>
+    <tr>
+        <td>Face Wash</td>
+        <td>Cleanser</td>
+        <td>₹299</td>
+    </tr>
+    <tr>
+        <td>Moisturizer</td>
+        <td>Cream</td>
+        <td>₹399</td>
+    </tr>
+</table>
 
-        <table>
-            <tr>
-                <th>Product</th>
-                <th>Type</th>
-                <th>Price</th>
-            </tr>
-            <tr>
-                <td>Face Wash</td>
-                <td>Cleanser</td>
-                <td>₹299</td>
-            </tr>
-            <tr>
-                <td>Moisturizer</td>
-                <td>Cream</td>
-                <td>₹399</td>
-            </tr>
-        </table>
-    </div>
+<button class="fixed-btn">Contact Us</button>
 
-    <!-- Footer -->
-    <div class="footer">
-        <p>© 2026 Face Beauty | All Rights Reserved</p>
-    </div>
+<footer>
+    © 2026 Face Beauty | All Rights Reserved
+</footer>
 
 </body>
 </html>
