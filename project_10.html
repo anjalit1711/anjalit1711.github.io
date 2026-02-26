@@ -9,17 +9,31 @@
 
 <style>
 
+/* ================= CSS VARIABLES (Optimization) ================= */
+:root{
+  --primary:#0d47a1;
+  --secondary:#1565c0;
+  --accent:#ff9800;
+}
+
+/* ================= RESET ================= */
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
 }
 
+/* ================= BODY ================= */
+body{
+  font-family:Arial, sans-serif;
+  counter-reset:section;
+}
+
 /* ---------------- STICKY HEADER ---------------- */
 .header{
     position:sticky;
     top:0;
-    background:#0d47a1;
+    background:var(--primary);
     color:white;
     text-align:center;
     padding:20px;
@@ -31,7 +45,7 @@
 
 /* ---------------- NAVBAR ---------------- */
 .navbar{
-    background:#1565c0;
+    background:var(--secondary);
 }
 
 .navbar ul{
@@ -49,9 +63,13 @@
     text-decoration:none;
 }
 
-/* Hover Pseudo Class */
+/* Specificity Example */
+.navbar a{ color:yellow; }
+.navbar ul li a{ color:white !important; }
+
+/* Hover */
 .navbar ul li:hover{
-    background:#0d47a1;
+    background:var(--primary);
 }
 
 /* SIMPLE DROPDOWN */
@@ -93,7 +111,7 @@
 .hero{
     position:relative;
     width:100%;
-    height:350px;
+    height:calc(300px + 5vh); /* Math Function */
 }
 
 .hero img{
@@ -101,6 +119,7 @@
     height:200%;
     object-fit:cover;
     opacity:0.4;
+    border:5px solid black;
 }
 
 .center-text{
@@ -108,94 +127,37 @@
     top:50%;
     left:50%;
     transform:translate(-50%,-50%);
-    font-size:28px;
+    font-size:2rem;
     text-transform:uppercase;
     letter-spacing:8px;
 }
 
-/* ---------------- SECTION 1 ---------------- */
-.section1{
-    border:2px solid black;
-    outline:4px solid blue;
-    outline-offset:10px;
-    margin:40px;
-    padding:30px;
-    text-align-last:right;
-    text-decoration:overline;
-    text-decoration-color:brown;
-    text-transform:uppercase;
-    line-height:1.8;
+/* ---------------- SECTION COUNTER ---------------- */
+.section1, .section2, .section3{
+  counter-increment:section;
 }
 
-/* ---------------- SECTION 2 ---------------- */
-.section2{
-    border:2px solid red;
-    outline:3px dotted aqua;
-    margin:40px;
-    padding:30px;
-    text-align-last:center;
-    text-decoration:overline underline;
-    text-transform:lowercase;
-    line-height:2.5;
-}
-
-/* ---------------- SECTION 3 ---------------- */
-.section3{
-    border:4px solid orange;
-    outline:5px outset grey;
-    margin:40px;
-    padding:30px;
-    text-align-last:justify;
-    text-decoration:line-through;
-    text-transform:capitalize;
+.section1::before,
+.section2::before,
+.section3::before{
+  content:"Section " counter(section) " - ";
+  color:var(--accent);
 }
 
 /* ---------------- COMBINATORS ---------------- */
-.container p{
-    color:green;
-}
-
-.container > h3{
-    color:blue;
-}
-
-h2 + p{
-    color:red;
-}
-
-h2 ~ span{
-    color:purple;
-}
+.container p{ color:green; }
+.container > h3{ color:blue; }
+h2 + p{ color:red; }
+h2 ~ span{ color:purple; }
 
 /* ---------------- PSEUDO CLASSES ---------------- */
-button:hover{
-    background:black;
-    color:white;
-}
+button:hover{ background:black; color:white; }
+input:focus{ border:3px solid blue; }
+li:first-child{ color:yellow; }
 
-input:focus{
-    border:3px solid blue;
-}
-
-li:first-child{
-    color:yellow;
-}
-
-/* ---------------- PSEUDO ELEMENTS ---------------- */
-.section1::first-letter{
-    font-size:35px;
-    color:orange;
-}
-
-.section2::before{
-    content:"★ ";
-    color:red;
-}
-
-.section3::after{
-    content:" ✔";
-    color:green;
-}
+/* ---------------- ATTRIBUTE SELECTORS ---------------- */
+input[type="text"]{ background:#f1f1f1; }
+input[required]{ border:2px solid red; }
 
 /* ---------------- SCROLL BOX ---------------- */
 .scroll-box{
@@ -208,13 +170,6 @@ li:first-child{
     margin:40px;
 }
 
-.scroll-box img{
-    width:80px;
-    height:50px;
-    float:right;
-    margin-left:10px;
-}
-
 /* ---------------- IMAGE GALLERY ---------------- */
 .gallery{
     display:flex;
@@ -224,16 +179,144 @@ li:first-child{
 }
 
 .gallery img{
-    width:100%;
-    height:100%;
+    width:250px;
+    height:200px;
     object-fit:cover;
     transition:0.5s;
+    border:4px solid black;
+    border-radius:10px;
 }
 
 .gallery img:hover{
     transform:scale(1.2);
+    border-color:var(--accent);
 }
- .dropdown {
+
+/* ---------------- FORM STYLING ---------------- */
+.form-section{
+  margin:40px;
+  padding:20px;
+  border:3px solid var(--primary);
+}
+
+.form-section input,
+.form-section select,
+.form-section textarea{
+  width:100%;
+  padding:10px;
+  margin:10px 0;
+}
+
+/* Input focus icon */
+.form-section input:focus{
+  background:url("https://cdn-icons-png.flaticon.com/512/709/709612.png") no-repeat right center;
+  background-size:18px;
+}
+
+/* ---------------- UNITS DEMO ---------------- */
+.unit-box{
+  font-size:2rem;
+  margin:2em;
+  padding:5vh;
+  border:2px dashed purple;
+}
+
+/* ---------------- INHERITANCE ---------------- */
+.parent{
+  color:blue;
+}
+.parent p{
+  color:inherit;
+}
+
+/* ---------------- ACCESSIBILITY ---------------- */
+img{
+  max-width:100%;
+  height:auto;
+}
+button:focus{
+  outline:3px solid orange;
+}
+    /* ===============================
+   TEXT DECORATION
+=================================*/
+
+.text-decoration-example {
+    text-decoration: underline;
+    text-decoration-color: red;
+    text-decoration-style: wavy;
+}
+
+
+/* ===============================
+   TEXT TRANSFORMATION
+=================================*/
+
+.text-transform-uppercase {
+    text-transform: uppercase;
+}
+
+.text-transform-lowercase {
+    text-transform: lowercase;
+}
+
+.text-transform-capitalize {
+    text-transform: capitalize;
+}
+
+
+/* ===============================
+   TEXT SHADOW
+=================================*/
+
+.text-shadow-example {
+    font-size: 30px;
+    text-shadow: 3px 3px 5px gray;
+}
+
+
+/* ===============================
+   OUTLINE
+=================================*/
+
+.outline-example {
+    border: 2px solid black;
+    outline: 4px solid blue;
+    outline-offset: 8px;
+    padding: 20px;
+    margin: 20px 0;
+}
+
+
+/* ===============================
+   Z-INDEX
+=================================*/
+
+.zindex-container {
+    position: relative;
+    height: 200px;
+}
+
+.box1 {
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    background: red;
+    top: 20px;
+    left: 20px;
+    z-index: 1;
+}
+
+.box2 {
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    background: blue;
+    top: 60px;
+    left: 60px;
+    z-index: 2; /* This will appear above box1 */
+}
+    .dropdown {
   position: relative;
 }
 
@@ -252,6 +335,7 @@ li:first-child{
   padding: 15px;
   text-align: center;
 }
+
 </style>
 </head>
 
@@ -261,18 +345,18 @@ li:first-child{
 
 <div class="navbar">
 <ul>
-<li><a href="  https://anjalit1711.github.io/fashion-hub/index.html">Home</a></li>
+<li><a href="https://anjalit1711.github.io/fashion-hub/index.html">Home</a></li>
 
 <li class="dropdown">
 <a href="https://en.wikipedia.org/wiki/Skin_care">Services</a>
 <div class="dropdown-content">
-<a href=" https://www.herzindagi.com/hindi/beauty/products-you-should-include-in-your-skin-care-routine-article-249494">Skin Care</a>
-<a href=" https://www.oliviabeauty.in/collections/hair-care-products?srsltid=AfmBOoo_M6lpqNFPcFZFbGjWWVTok-MCei98Wu3wGgeClXU9cyg1aJub">Hair Care</a>
+<a href="#">Skin Care</a>
+<a href="#">Hair Care</a>
 </div>
 </li>
 
 <li class="dropdown">
-<a href="  https://www.simpleskincare.in/?srsltid=AfmBOopRIzoqW26NkrL7P3Ov2VFYrzXZg26QKUp5VnFqoEeg-AIACAT4">Products</a>
+<a href="#">Products</a>
 <div class="mega-menu">
 <p>Face Wash</p>
 <p>Serum</p>
@@ -294,53 +378,70 @@ Face glow refers to natural radiance and brightness of skin.
 <div class="section2">
 gentle exfoliation improves skin texture.
 </div>
-    <div class="dropdown">
-
-
-
-
- <img src=" galary 7.jpeg     " alt="Cinque Terre" width="100" height="50">
-  <div class="dropdown-content">
-    <img src=" ch.jpg " alt="Cinque Terre" width="300" height="200">
-    <div class="desc">  beautiful  child</div>
-  </div>
-
 
 <div class="section3">
 hey anjal tell me about yourself.
 </div>
 
-<div class="container" style="margin:40px;">
-<h3>Child Combinator Example</h3>
-<p>Descendant example</p>
-<div>
-<p>Inside div descendant.</p>
+<div class="form-section">
+<h3>Contact Form</h3>
+<form>
+<input type="text" placeholder="Your Name" required>
+<input type="email" placeholder="Your Email" required>
+<select>
+<option>Male</option>
+<option>Female</option>
+</select>
+<textarea placeholder="Message"></textarea>
+<button type="submit">Submit</button>
+</form>
 </div>
 
-<h2>Sibling Example</h2>
-<p>Adjacent sibling paragraph</p>
-<span>General sibling span</span>
+<div class="unit-box">
+This box uses REM, EM, VH units.
 </div>
 
-<div style="margin:40px;">
-<button>Hover Me</button>
-<br><br>
-<input type="text" placeholder="Click to focus">
-<ul>
-<li>First Item</li>
-<li>Second Item</li>
-</ul>
+<div class="parent" style="margin:40px;">
+<h3>Inheritance Example</h3>
+<p>This paragraph inherits blue color.</p>
 </div>
 
 <div class="scroll-box">
 <img src="ll.jpg">
-Healthy habits like water, sleep, and skincare improve face beauty.
+Healthy habits like water, sleep improve beauty.
 </div>
 
 <div class="gallery">
 <img src="dd.jpg">
 <img src="kk.jpg">
 <img src="jj.jpg">
+</div>
+<h2 class="text-decoration-example">Text Decoration Example</h2>
+
+<h2 class="text-transform-uppercase">uppercase text</h2>
+<h2 class="text-transform-lowercase">LOWERCASE TEXT</h2>
+<h2 class="text-transform-capitalize">capitalize text example</h2>
+
+<h2 class="text-shadow-example">Text Shadow Example</h2>
+
+<div class="outline-example">
+Outline Property Example
+</div>
+
+<div class="zindex-container">
+    <div class="box1"> hello check 1 its Z index</div>
+    <div class="box2"> hello check 2</div>
+</div>
+
+<h2>Dropdown Image</h2>
+<p>Move the mouse over the image below to open the dropdown content.</p>
+
+<div class="dropdown">
+  <img src="  galary 7.jpeg  " width="300" height="100">
+  <div class="dropdown-content">
+    <img src="  galary8.jpg  " width="200" height="100">
+    <div class="desc"> yes this is drop down image </div>
+  </div>
 </div>
 
 </body>
