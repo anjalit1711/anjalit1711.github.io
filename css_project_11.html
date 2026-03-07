@@ -28,6 +28,7 @@ display:flex;
 justify-content:center;
 gap:30px;
 margin-top:50px;
+perspective:1000px;  
 }
 
 /* Card */
@@ -44,6 +45,9 @@ transition:0.5s;
 .card:hover{
 transform:scale(1.1);
 }
+    .card:active{
+      transform:rotate Y(180deg);
+    }
 
 /* Image Styling */
 .card img{
