@@ -1,1 +1,178 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>CSS Image Examples</title>
 
+<style>
+
+/* =====================
+   1. Image Styling
+===================== */
+.styled-img{
+  width:250px;
+  border:5px solid black;
+  border-radius:20px;
+  box-shadow:0 0 15px gray;
+}
+
+/* =====================
+   2. Image Centering
+===================== */
+.center{
+  display:block;
+  margin:auto;
+}
+
+/* =====================
+   3. Image Filters
+===================== */
+.filter-img{
+  width:250px;
+  filter: grayscale(100%) blur(2px);
+}
+
+/* =====================
+   4. Image Shapes
+===================== */
+.circle{
+  width:200px;
+  height:200px;
+  border-radius:50%;
+}
+
+/* =====================
+   5. object-fit
+===================== */
+.fit-box{
+  width:250px;
+  height:150px;
+  border:2px solid red;
+}
+
+.fit-box img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+/* =====================
+   6. object-position
+===================== */
+.position-box img{
+  object-fit:cover;
+  object-position:top;
+}
+
+/* =====================
+   7. Image Modal
+===================== */
+.modal-img{
+  width:200px;
+  cursor:pointer;
+}
+
+.modal{
+  display:none;
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background:rgba(0,0,0,0.8);
+}
+
+.modal img{
+  display:block;
+  margin:5% auto;
+  width:60%;
+}
+
+/* =====================
+   8. Masking PNG
+===================== */
+.mask-png{
+  width:250px;
+  -webkit-mask-image: url("https://www.w3schools.com/css/w3logo.png");
+  mask-image: url("https://www.w3schools.com/css/w3logo.png");
+  mask-size:cover;
+}
+
+/* =====================
+   9. Masking Gradient
+===================== */
+.mask-gradient{
+  width:250px;
+  mask-image: linear-gradient(black, transparent);
+}
+
+/* =====================
+   10. Masking SVG
+===================== */
+.mask-svg{
+  width:250px;
+  mask: url(#svgmask);
+}
+
+</style>
+</head>
+
+<body>
+
+<h2>1. Image Styling</h2>
+<img src="https://picsum.photos/300" class="styled-img">
+
+<h2>2. Image Centering</h2>
+<img src="https://picsum.photos/301" class="styled-img center">
+
+<h2>3. Image Filters</h2>
+<img src="https://picsum.photos/302" class="filter-img">
+
+<h2>4. Image Shape (Circle)</h2>
+<img src="https://picsum.photos/303" class="circle">
+
+<h2>5. object-fit</h2>
+<div class="fit-box">
+  <img src="https://picsum.photos/500/300">
+</div>
+
+<h2>6. object-position</h2>
+<div class="fit-box position-box">
+  <img src="https://picsum.photos/500/300">
+</div>
+
+<h2>7. Image Modal</h2>
+<img src="https://picsum.photos/304" class="modal-img" onclick="openModal(this.src)">
+
+<div class="modal" id="modal">
+  <img id="modalImg">
+</div>
+
+<h2>8. Masking PNG</h2>
+<img src="https://picsum.photos/305" class="mask-png">
+
+<h2>9. Masking Gradient</h2>
+<img src="https://picsum.photos/306" class="mask-gradient">
+
+<h2>10. Masking SVG</h2>
+
+<svg width="0" height="0">
+  <mask id="svgmask">
+    <circle cx="125" cy="125" r="100" fill="white"/>
+  </mask>
+</svg>
+
+<img src="https://picsum.photos/307" class="mask-svg">
+
+<script>
+function openModal(src){
+  document.getElementById("modal").style.display="block";
+  document.getElementById("modalImg").src=src;
+}
+
+document.getElementById("modal").onclick=function(){
+  this.style.display="none";
+}
+</script>
+
+</body>
+</html>
