@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,19 +6,83 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>CSS Image Examples</title>
   <style>
-    body {
-      background: black;
-      text-align: center;
-      margin-top: 100px;
-      font-family: Arial, sans-serif;
-      color: white;
-    }
+   
+
+body{
+  margin:0;
+  height:100vh;
+  text-align:center;
+  font-family:Arial;
+  color:white;
+
+  background: linear-gradient(
+    135deg,
+    var(--color1),
+    var(--color2),
+    var(--color3)
+  );
+
+  animation: flow 6s ease infinite;
+}
+
+@keyframes flow{
+
+  0%{
+    --color1:#ff6ec7;
+    --color2:#7ec8ff;
+    --color3:#9b59ff;
+  }
+
+  50%{
+    --color1:#ff9ad5;
+    --color2:#87ceeb;
+    --color3:#b084ff;
+  }
+
+  100%{
+    --color1:#ff6ec7;
+    --color2:#7ec8ff;
+    --color3:#9b59ff;
+  }
+
+}
+
+@property --startColor {
+  syntax: "<color>";
+  initial-value: #EADEDB;
+  inherits: false;
+}
+
+@property --color1 {
+  syntax: "<color>";
+  initial-value: #ff6ec7;
+  inherits: false;
+}
+
+@property --color2 {
+  syntax: "<color>";
+  initial-value: #7ec8ff;
+  inherits: false;
+}
+
+@property --color3 {
+  syntax: "<color>";
+  initial-value: #9b59ff;
+  inherits: false;
+}
+
+h1{
+  margin-top:200px;
+  font-size:80%px;
+}
+
+
 
     /* =====================
        0. Text Masking
     ===================== */
     .mask-text {
-      font-size: 120px;
+      font-size: 700px;
       font-weight: bold;
       font-family: Arial, sans-serif;
       background-image: url("https://picsum.photos/800/400");
@@ -26,6 +91,7 @@
       -webkit-background-clip: text;
       background-clip: text;
       -webkit-text-fill-color: transparent;
+       
     }
 
     /* =====================
@@ -145,7 +211,7 @@
 <body>
 
   <!-- Text Masking -->
-  <h1 class="mask-text">ANU</h1>
+  <h1 class="mask-text">ANJALI</h1>
 
   <!-- 1. Image Styling -->
   <h2>1. Image Styling</h2>
