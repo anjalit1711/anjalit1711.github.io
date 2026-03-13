@@ -1,210 +1,266 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>CSS Feature Project</title>
-  <style >
-    
-    body{
-font-family: Arial;
-background: linear-gradient(to right, #74ebd5, #ACB6E5);
-text-align:center;
+  <title>CSS Project - Unique Animated Background</title>
+  <style>
+/* =====================
+   Body Styling
+===================== */
+body{
+  font-family: Arial;
+  margin:0;
+  padding:20px;
+  text-align:center;
+  overflow: hidden;
+  position: relative;
+  background: #0d0d0d;
+  color: white;
 }
 
-/* Text Effect + Animation */
+/* =====================
+   Animated Color Blobs Background
+===================== */
+body::before, body::after {
+  content: "";
+  position: fixed;
+  width: 200%;
+  height: 200%;
+  top: -50%;
+  left: -50%;
+  border-radius: 50%;
+  background: radial-gradient(circle at center, #ff3cac, #784ba0, #2b86c5);
+  animation: blob1 20s linear infinite alternate;
+  z-index: -2;
+  filter: blur(120px);
+  opacity: 0.7;
+}
+
+body::after {
+  background: radial-gradient(circle at center, #ff6b6b, #fbc531, #1e90ff);
+  animation: blob2 25s linear infinite alternate-reverse;
+  filter: blur(150px);
+}
+
+/* Blob Animations */
+@keyframes blob1{
+  0% { transform: translate(0%,0%) scale(1); }
+  50% { transform: translate(20%,10%) scale(1.2); }
+  100% { transform: translate(-10%,20%) scale(1); }
+}
+
+@keyframes blob2{
+  0% { transform: translate(0%,0%) scale(1); }
+  50% { transform: translate(-15%,25%) scale(1.1); }
+  100% { transform: translate(10%,-20%) scale(1); }
+}
+
+/* =====================
+   Neon Glowing Heading
+===================== */
 .title{
-font-size:40px;
-color:#333;
-text-shadow:2px 2px 5px gray;
-animation:move 3s infinite alternate;
+  font-size:70px;
+  color:#ff1a1a;
+  text-shadow:
+    0 0 5px #ff1a1a,
+    0 0 10px #ff1a1a,
+    0 0 20px #ff1a1a,
+    0 0 40px #ff4d4d,
+    0 0 80px #ff6666,
+    0 0 90px #ff6666,
+    0 0 100px #ff6666,
+    0 0 150px #ff6666;
+  animation: neonPulse 2s ease-in-out infinite alternate,
+             shadowMove 3s ease-in-out infinite alternate;
 }
 
-@keyframes move{
-from{letter-spacing:2px;}
-to{letter-spacing:10px;}
+@keyframes neonPulse{
+  0%{ text-shadow:0 0 5px #ff1a1a,0 0 10px #ff1a1a,0 0 20px #ff1a1a,0 0 40px #ff4d4d,0 0 80px #ff6666,0 0 90px #ff6666,0 0 100px #ff6666,0 0 150px #ff6666;}
+  100%{ text-shadow:0 0 10px #ff1a1a,0 0 20px #ff1a1a,0 0 30px #ff1a1a,0 0 50px #ff4d4d,0 0 100px #ff6666,0 0 120px #ff6666,0 0 150px #ff6666,0 0 200px #ff6666;}
 }
 
+@keyframes shadowMove{
+  0% { text-shadow: 2px 2px 5px #ff0000, -2px -2px 5px #000000; }
+  50% { text-shadow: 5px 5px 15px #ff0000, -5px -5px 15px #000000; }
+  100% { text-shadow: 2px 2px 5px #ff0000, -2px -2px 5px #000000; }
+}
+
+/* =====================
+   Flex Container
+===================== */
 .container{
-display:flex;
-justify-content:center;
-gap:30px;
-margin-top:50px;
-perspective:1000px;
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:40px;
+  margin-top:50px;
+  position: relative;
+  z-index: 1;
 }
 
-/* Card */
-.card{
-background:white;
-width:220px;
-padding:20px;
-border-radius:15px;
-box-shadow:0 4px 10px rgba(0,0,0,0.3);
-transition:1s;
+/* =====================
+   Zoom Card
+===================== */
+.zoom-card{
+  background:white;
+  width:220px;
+  padding:20px;
+  border-radius:15px;
+  box-shadow:0 4px 10px rgba(0,0,0,0.3);
+  transition:0.5s;
+  position: relative;
+  z-index:1;
 }
 
-/* 2D Transform + Skew + Zoom */
-.card:hover{
-transform: scale(1.2) skewX(10deg) skewY(10deg);
+.zoom-card:hover{
+  transform: scale(1.3);
 }
 
-/* Image Styling + Zoom */
-.card img{
-width:100%;
-border-radius:10px;
-transition:0.5s;
-}
-
-.card img:hover{
-transform:scale(1.3);
-}
-
-/* Matrix Transform */
+/* =====================
+   Matrix Box
+===================== */
 .matrix-box{
-width:200px;
-height:200px;
-background:red;
-margin:40px auto;
-transition:1s;
+  width:200px;
+  height:200px;
+  background:red;
+  margin:20px auto;
+  transition:1s;
+  position: relative;
+  z-index:1;
 }
 
 .matrix-box:hover{
-transform:matrix(1.2,0.2,0.2,1.2,20,20);
+  transform:matrix(1.2,0.2,0.2,1.2,20,20);
 }
 
-/* 3D Rotate */
-.rotate3d{
-width:200px;
-height:200px;
-background:orange;
-margin:40px auto;
-transition:1s;
+/* =====================
+   3D Rotate Box
+===================== */
+.rotate-box{
+  width:200px;
+  height:200px;
+  background:orange;
+  margin:20px auto;
+  transition:1s;
+  position: relative;
+  z-index:1;
 }
 
-.rotate3d:hover{
-transform:rotateX(180deg) rotateY(180deg);
+.rotate-box:hover{
+  transform:rotateX(180deg) rotateY(180deg);
 }
 
-/* Flip Card */
+/* =====================
+   Flip Card
+===================== */
 .flip-card{
-background:transparent;
-width:220px;
-height:250px;
-perspective:1000px;
-margin:40px auto;
+  width:220px;
+  height:250px;
+  perspective:1000px;
+  margin:20px auto;
+  position: relative;
+  z-index:1;
 }
 
 .flip-inner{
-position:relative;
-width:100%;
-height:100%;
-transition:1s;
-transform-style:preserve-3d;
+  position:relative;
+  width:100%;
+  height:100%;
+  transition:1s;
+  transform-style:preserve-3d;
 }
 
 .flip-card:hover .flip-inner{
-transform:rotateY(180deg);
+  transform:rotateY(180deg);
 }
 
 .flip-front, .flip-back{
-position:absolute;
-width:100%;
-height:100%;
-backface-visibility:hidden;
-border-radius:15px;
-box-shadow:0 4px 10px rgba(0,0,0,0.3);
-display:flex;
-align-items:center;
-justify-content:center;
-font-size:20px;
+  position:absolute;
+  width:100%;
+  height:100%;
+  backface-visibility:hidden;
+  border-radius:15px;
+  box-shadow:0 4px 10px rgba(0,0,0,0.3);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:20px;
 }
 
 .flip-front{
-background:white;
+  background:purple;
+  color:white;
 }
 
 .flip-back{
-background:purple;
-color:white;
-transform:rotateY(180deg);
+  background:darkblue;
+  color:white;
+  transform:rotateY(180deg);
 }
 
-/* Button */
-.btn{
-background:blue;
-color:white;
-border:none;
-padding:10px 15px;
-border-radius:8px;
-cursor:pointer;
-position:relative;
-transition:0.5s;
+/* =====================
+   Grid Example
+===================== */
+.grid-container{
+  display:grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap:30px;
+  margin-top:50px;
+  position: relative;
+  z-index:1;
 }
 
-.btn:hover{
-background:darkblue;
+/* Responsive */
+@media (max-width:900px){
+  .container, .grid-container{
+    flex-direction:column;
+    grid-template-columns: 1fr;
+  }
 }
-
-/* Tooltip */
-.tooltip{
-visibility:hidden;
-background:black;
-color:white;
-padding:5px;
-border-radius:5px;
-position:absolute;
-top:-30px;
-left:20px;
-}
-
-.btn:hover .tooltip{
-visibility:visible;
-}
-   </style>
+  </style>
 </head>
 
 <body>
 
 <h1 class="title">My CSS Project</h1>
 
+<!-- Flex Container with Zoom Cards -->
 <div class="container">
+  <div class="zoom-card">
+    <img src="https://picsum.photos/200" style="width:100%; border-radius:10px;">
+    <h2>Zoom Card</h2>
+  </div>
 
-<div class="card">
-<img src="https://picsum.photos/200">
-<h2>Beautiful Nature</h2>
-<p>CSS Effects Example</p>
-<button class="btn">Hover Me
-<span class="tooltip">Click Here</span>
-</button>
-</div>
-
-<div class="card">
-<img src="https://picsum.photos/201">
-<h2>Mountains</h2>
-<p>CSS Animation Demo</p>
-<button class="btn">Hover Me
-<span class="tooltip">Hello</span>
-</button>
-</div>
-
-</div>
   <div class="matrix-box"></div>
 
-<div class="rotate3d"></div>
+  <div class="rotate-box"></div>
 
-<div class="flip-card">
-  <div class="flip-inner">
-  
-    <div class="flip-front">
-      Front Side
+  <div class="flip-card">
+    <div class="flip-inner">
+      <div class="flip-front">Front</div>
+      <div class="flip-back">Back</div>
     </div>
-
-    <div class="flip-back">
-      Back Side
-    </div>
-
   </div>
 </div>
-  <button onclick="window.location.href='css_project_12.html'" style= "font-size:20px; cursor:pointer; float:right; padding:12px 25px;">Go to Css Project 12</button>
-  <button onclick="window.location.href='newproject.html'" style= "font-size:20px; cursor:pointer; float:right; padding:12px 25px;">Back to Projects</button>
+
+<!-- Grid Example -->
+<div class="grid-container">
+  <div class="zoom-card">
+    <img src="https://picsum.photos/201" style="width:100%; border-radius:10px;">
+    <h2>Forest</h2>
+  </div>
+  <div class="zoom-card">
+    <img src="https://picsum.photos/202" style="width:100%; border-radius:10px;">
+    <h2>River</h2>
+  </div>
+  <div class="zoom-card">
+    <img src="https://picsum.photos/203" style="width:100%; border-radius:10px;">
+    <h2>Desert</h2>
+  </div>
+  <div class="zoom-card">
+    <img src="https://picsum.photos/204" style="width:100%; border-radius:10px;">
+    <h2>Ocean</h2>
+  </div>
+</div>
 
 </body>
 </html>
