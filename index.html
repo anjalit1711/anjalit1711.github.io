@@ -1,64 +1,122 @@
-here<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Anjali Tripathi | Web Designer</title>
-    <link rel="stylesheet" href="style.css"> <!-- Root folder CSS -->
+    <!-- <link rel="stylesheet" href="style.css"> <!-- Root folder CSS --> -->
     <style>
+        /* Base Styles */
         body{
-            font-family: Arial, sans-serif;
-            background-color: #f0f8ff;
-            color: #333;
+            font-family: 'Arial', sans-serif;
+            background-color: #eef2f7; /* light soft background */
+            color: #2c3e50; /* dark blue-gray text */
             margin:0;
             padding:0;
         }
+
         header{
             text-align:center;
-            padding:50px 20px 20px 20px;
+            padding:60px 20px 30px 20px;
+            background: linear-gradient(135deg, #6a11cb, #2575fc); /* modern gradient */
+            color: white;
         }
+
         h1{
             font-size:60px;
-            color: deeppink;
+            color: #fff; /* white text for header */
             margin-bottom:10px;
         }
+
         h3{
             font-size:28px;
             margin-bottom:20px;
+            color:#f1f1f1;
         }
+
         p{
             font-size:20px;
             margin-bottom:30px;
         }
+
         .btn{
             display:inline-block;
-            padding:20px 40px;
-            font-size:24px;
+            padding:16px 36px;
+            font-size:20px;
             margin:10px;
             border-radius:12px;
             text-decoration:none;
             color:white;
-            background-color: hotpink;
+            background-color: #2575fc; /* bright blue buttons */
             font-weight:bold;
             cursor:pointer;
+            transition:0.3s;
         }
+
+        .btn:hover{
+            background-color: #6a11cb; /* hover gradient color effect */
+        }
+
         section{
             max-width:1000px;
             margin:auto;
             padding:50px 20px;
         }
+
+        .skills{
+            background-color: #fff;
+            border-radius:12px;
+            box-shadow:0 5px 15px rgba(0,0,0,0.05);
+            padding:30px;
+            margin-bottom:40px;
+        }
+
+        .skills ul{
+            list-style:none;
+            padding:0;
+        }
+
+        .skills li{
+            font-size:20px;
+            padding:8px 0;
+            border-bottom:1px solid #ddd;
+        }
+
         .projects a{
             display:block;
             font-size:22px;
             margin:15px 0;
             text-decoration:none;
-            color:#0077cc;
+            color:#2575fc;
+            transition:0.3s;
         }
+
+        .projects a:hover{
+            color:#6a11cb;
+        }
+
+        .contact{
+            background-color:#f9fafc;
+            border-radius:12px;
+            padding:30px;
+            box-shadow:0 5px 15px rgba(0,0,0,0.05);
+        }
+
+        .contact a{
+            color:#2575fc;
+            text-decoration:none;
+        }
+
+        .contact a:hover{
+            color:#6a11cb;
+        }
+
         footer{
             text-align:center;
             padding:20px;
-            background:#f8f8f8;
-            margin-top:50px;
+            background:#2c3e50;
+            color:white;
             font-size:16px;
+            margin-top:50px;
         }
     </style>
 </head>
@@ -72,8 +130,7 @@ here<!DOCTYPE html>
     
     <a href="fashion-hub/index.html" class="btn">Fashion Hub Project</a>
     <a href="calculator.html" class="btn">Calculator Project</a>
-   <a href="to do-list-project.html" class="btn">To-DO-List Project</a>
-  
+    <a href="to do-list-project.html" class="btn">To-DO-List Project</a>
 </header>
 
 <section class="skills">
@@ -88,7 +145,7 @@ here<!DOCTYPE html>
 
 <section class="contact">
     <h2>Contact Me</h2>
-    <p>Email: at9422879@gmail.com</p>
+    <p>Email: <a href="mailto:at9422879@gmail.com">at9422879@gmail.com</a></p>
     <p>GitHub: <a href="https://github.com/anjalit1711" target="_blank">github.com/anjalit1711</a></p>
 </section>
 
