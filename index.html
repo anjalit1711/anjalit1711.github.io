@@ -1,157 +1,218 @@
+```html
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>Mini Chat App</title>
+<meta charset="UTF-8">
+<title>Anjali Tripathi | Web Designer</title>
+
 <style>
+
+/* Base Styles */
 body{
-    font-family:Arial;
-    background:#f0f0f0;
-    padding:20px;
+    font-family: 'Arial', sans-serif;
+    background-color: #eef2f7;
+    color: #2c3e50;
+    margin:0;
+    padding:0;
 }
-.container{
-    width:500px;
-    margin:auto;
-    background:white;
-    padding:20px;
-    border-radius:10px;
-    box-shadow:0 5px 15px rgba(0,0,0,0.2);
-}
-input, textarea{
-    width:100%;
-    padding:10px;
-    margin:8px 0;
-    border-radius:5px;
-    border:1px solid #ccc;
-}
-button{
-    padding:10px;
-    background:#4CAF50;
+
+/* HEADER WITH IMAGE SLIDER */
+header{
+    text-align:center;
+    padding:60px 20px 30px 20px;
     color:white;
-    border:none;
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
+    position:relative;
+    transition:background-image 1s ease-in-out;
+}
+
+/* overlay so text stays visible */
+header::before{
+content:"";
+position:absolute;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.4);
+}
+
+header *{
+position:relative;
+z-index:1;
+}
+
+h1{
+    font-size:60px;
+    color:#fff;
+    margin-bottom:10px;
+}
+
+h3{
+    font-size:28px;
+    margin-bottom:20px;
+    color:#f1f1f1;
+}
+
+p{
+    font-size:20px;
+    margin-bottom:30px;
+}
+
+.btn{
+    display:inline-block;
+    padding:16px 36px;
+    font-size:20px;
+    margin:10px;
+    border-radius:12px;
+    text-decoration:none;
+    color:white;
+    background-color:#2575fc;
+    font-weight:bold;
     cursor:pointer;
-    margin-top:5px;
+    transition:0.3s;
 }
-#chatBox{
-    max-height:300px;
-    overflow-y:auto;
-    border:1px solid #ccc;
-    padding:10px;
-    margin-top:10px;
-    border-radius:5px;
-    background:#fafafa;
+
+.btn:hover{
+    background-color:#6a11cb;
 }
-.message{
-    background:#eee;
-    padding:8px;
-    margin:5px 0;
-    border-radius:5px;
+
+section{
+    max-width:1000px;
+    margin:auto;
+    padding:50px 20px;
 }
-.message strong{
-    color:#4CAF50;
+
+.skills{
+    background-color:#fff;
+    border-radius:12px;
+    box-shadow:0 5px 15px rgba(0,0,0,0.05);
+    padding:30px;
+    margin-bottom:40px;
 }
-.error{color:red;}
+
+.skills ul{
+    list-style:none;
+    padding:0;
+}
+
+.skills li{
+    font-size:20px;
+    padding:8px 0;
+    border-bottom:1px solid #ddd;
+}
+
+.contact{
+    background-color:#f9fafc;
+    border-radius:12px;
+    padding:30px;
+    box-shadow:0 5px 15px rgba(0,0,0,0.05);
+}
+
+.contact a{
+    color:#2575fc;
+    text-decoration:none;
+}
+
+.contact a:hover{
+    color:#6a11cb;
+}
+
+footer{
+    text-align:center;
+    padding:20px;
+    background:#2c3e50;
+    color:white;
+    font-size:16px;
+    margin-top:50px;
+}
+
 </style>
 </head>
+
 <body>
 
-<div class="container">
+<header>
+<h1>Anjali Tripathi</h1>
+<h3>Web Designer | Frontend Developer (Fresher)</h3>
 
-<h2>Mini Chat Application</h2>
+<p>
+HTML • CSS • JavaScript (Basic)<br>
+Open for Internship / Fresher Role
+</p>
 
-<div id="loginSection">
-    <input id="username" placeholder="Enter your username">
-    <button onclick="login()">Login</button>
-    <p id="loginError" class="error"></p>
-</div>
+<a href="fashion-hub/index.html" class="btn">Fashion Hub Project</a>
+<a href="calculator.html" class="btn">Calculator Project</a>
+<a href="to-do-list-project.html" class="btn">To-DO-List Project</a>
 
-<div id="chatSection" style="display:none;">
-    <h3>Welcome, <span id="currentUser"></span>!</h3>
-    <textarea id="message" placeholder="Type your message..."></textarea>
-    <button onclick="sendMessage()">Send</button>
-    <p id="messageError" class="error"></p>
-    <input id="search" placeholder="Search messages..." onkeyup="searchMessages()">
-    <div id="chatBox"></div>
-</div>
+</header>
 
-</div>
+<section class="skills">
+<h2>Skills</h2>
+
+<ul>
+<li>HTML</li>
+<li>CSS</li>
+<li>JavaScript (Basic)</li>
+<li>Responsive Design</li>
+</ul>
+
+</section>
+
+<section class="contact">
+
+<h2>Contact Me</h2>
+
+<p>Email:
+<a href="mailto:at9422879@gmail.com">
+at9422879@gmail.com
+</a>
+</p>
+
+<p>
+GitHub:
+<a href="https://github.com/anjalit1711" target="_blank">
+github.com/anjalit1711
+</a>
+</p>
+
+</section>
+
+<footer>
+© 2026 Anjali Tripathi • All Rights Reserved
+</footer>
 
 <script>
-let messages=[];
-let currentUser="";
 
-// Simple bad words list
-let badWords=["badword1","badword2"];
+/* HEADER IMAGE SLIDER */
 
-// Login function
-function login(){
-    let username=document.getElementById("username").value.trim();
-    let error=document.getElementById("loginError");
-    error.innerText="";
-    if(username===""){
-        error.innerText="Username required";
-        return;
-    }
-    currentUser=username;
-    document.getElementById("currentUser").innerText=currentUser;
-    document.getElementById("loginSection").style.display="none";
-    document.getElementById("chatSection").style.display="block";
+const images=[
+"https://picsum.photos/1200/600?1",
+"https://picsum.photos/1200/600?2",
+"https://picsum.photos/1200/600?3",
+"https://picsum.photos/1200/600?4"
+];
+
+let index=0;
+
+const header=document.querySelector("header");
+
+function changeHeaderImage(){
+
+header.style.backgroundImage=`url(${images[index]})`;
+
+index=(index+1)%images.length;
+
 }
 
-// Send message function
-function sendMessage(){
-    let msg=document.getElementById("message").value.trim();
-    let error=document.getElementById("messageError");
-    error.innerText="";
+changeHeaderImage();
 
-    // Validate message
-    if(msg===""){
-        error.innerText="Message cannot be empty";
-        return;
-    }
-    // Check for bad words using RegExp
-    let pattern=new RegExp(badWords.join("|"),"i");
-    if(pattern.test(msg)){
-        error.innerText="Message contains inappropriate words";
-        return;
-    }
+setInterval(changeHeaderImage,4000);
 
-    // Add message to array
-    let messageObj={user:currentUser,text:msg};
-    messages.push(messageObj);
-    displayMessages();
-    document.getElementById("message").value="";
-}
-
-// Display messages
-function displayMessages(){
-    let chatBox=document.getElementById("chatBox");
-    chatBox.innerHTML="";
-    messages.forEach((msg)=>{
-        let div=document.createElement("div");
-        div.className="message";
-        div.innerHTML=`<strong>${msg.user}:</strong> ${msg.text}`;
-        chatBox.appendChild(div);
-    });
-    chatBox.scrollTop=chatBox.scrollHeight;
-}
-
-// Search messages using RegExp
-function searchMessages(){
-    let text=document.getElementById("search").value;
-    let pattern=new RegExp(text,"i");
-    let chatBox=document.getElementById("chatBox");
-    chatBox.innerHTML="";
-    messages.forEach((msg)=>{
-        if(pattern.test(msg.user) || pattern.test(msg.text)){
-            let div=document.createElement("div");
-            div.className="message";
-            div.innerHTML=`<strong>${msg.user}:</strong> ${msg.text}`;
-            chatBox.appendChild(div);
-        }
-    });
-}
 </script>
-
 
 </body>
 </html>
+```
