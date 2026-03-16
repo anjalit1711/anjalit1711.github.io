@@ -1,1 +1,201 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>To-Do List</title>
+<style>
+/* Base Reset */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #eef2f7;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Header */
+header {
+    text-align: center;
+    padding: 30px 20px;
+    background: linear-gradient(135deg, #6a11cb, #2575fc);
+    color: white;
+    font-size: 2rem;
+    font-weight: bold;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+/* Main container */
+.container {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 30px;
+}
+
+/* To-Do Card */
+.todo-card {
+    background-color: #fff;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+    width: 100%;
+    max-width: 400px;
+}
+
+.todo-card h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #2575fc;
+}
+
+#taskInput {
+    width: 100%;
+    padding: 12px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+    margin-bottom: 15px;
+}
+
+.add-btn {
+    width: 100%;
+    padding: 12px;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 10px;
+    background-color: #2575fc;
+    color: white;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.add-btn:hover {
+    background-color: #6a11cb;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin-top: 20px;
+}
+
+li {
+    background: #eef2f7;
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+li button {
+    background-color: #ff4d4d;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 5px 10px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+li button:hover {
+    background-color: #ff1a1a;
+}
+
+/* Back to Home */
+.back-home {
+    display: block;
+    width: 200px;
+    margin: 20px auto 0 auto;
+    padding: 10px;
+    text-align: center;
+    border-radius: 10px;
+    background: #2575fc;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.back-home:hover {
+    background: #6a11cb;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 20px;
+    background: #2c3e50;
+    color: white;
+    font-size: 16px;
+    box-shadow: 0 -4px 10px rgba(0,0,0,0.2);
+}
+
+/* Responsive */
+@media(max-width:500px){
+    .todo-card { padding:20px; }
+    #taskInput, .add-btn { font-size:1rem; padding:10px; }
+}
+</style>
+</head>
+<body>
+
+<header>To-Do List</header>
+
+<div class="container">
+    <div class="todo-card">
+        <h2>My Tasks</h2>
+        <input type="text" id="taskInput" placeholder="Enter a task">
+        <button class="add-btn" onclick="addTask()">Add Task</button>
+        <ul id="taskList"></ul>
+    </div>
+</div>
+
+<a href="../index.html" class="back-home">← Back to Home</a>
+
+<footer>
+    © 2026 Anjali Tripathi • All Rights Reserved
+</footer>
+
+<script>
+let tasks = [];
+
+function addTask() {
+    const input = document.getElementById('taskInput');
+    const task = input.value.trim();
+    if(task === "") return;
+    tasks.push(task);
+    renderTasks();
+    input.value = '';
+}
+
+function renderTasks() {
+    const list = document.getElementById('taskList');
+    list.innerHTML = '';
+    tasks.forEach((task, index) => {
+        const li = document.createElement('li');
+        li.innerHTML = `${task} <button onclick="deleteTask(${index})">Delete</button>`;
+        list.appendChild(li);
+    });
+}
+
+function deleteTask(i) {
+    tasks.splice(i, 1);
+    renderTasks();
+}
+</script>
+  
+  
+
+</body>
+</html>
