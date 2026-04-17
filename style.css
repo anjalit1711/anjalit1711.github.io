@@ -1,37 +1,25 @@
-/* Page Toggle */
-#homePage {
-    display: none;
-}
-
-#homePage:target {
-    display: block;
-}
-
-#homePage:target ~ #formPage {
-    display: none;
-}
-
-/* Button */
-.btn {
-    padding: 10px 20px;
-    background-color: #0d6efd; /* blue */
-    color: white;
-    text-decoration: none;
-    border-radius: 5px;
+/* Root Colors (Easy change later) */
+:root {
+    --bg: #0f172a;          /* dark navy */
+    --card: #1e293b;        /* soft dark */
+    --accent: #6366f1;      /* soft violet-blue */
+    --accent-hover: #818cf8;
+    --text: #f1f5f9;        /* off white */
 }
 
 /* Body */
 body {
-    background-color: black;
-    color: white;
-    font-size: 40px;
-    animation: upMotion 1.5s ease-in-out;
+    background: linear-gradient(135deg, #020617, #0f172a);
+    color: var(--text);
+    font-size: 22px;
+    font-family: 'Segoe UI', sans-serif;
+    animation: upMotion 1.2s ease-in-out;
 }
 
 /* Animation */
 @keyframes upMotion {
     from {
-        transform: translateY(100%);
+        transform: translateY(60px);
         opacity: 0;
     }
     to {
@@ -40,105 +28,104 @@ body {
     }
 }
 
-/* Headings */
-h1, h2, h3 {
-    color: white;
-    font-size: 50px;
-}
-
-/* Div */
-div.class {
-    background-color: #0d6efd;
-    color: white;
-    font-size: 40px;
-    width: fit-content;
-    margin: 30px;
-}
-
 /* Header */
 header {
-    background-color: #0d6efd;
-    color: white;
-    font-size: 50px;
+    background: rgba(30, 41, 59, 0.8);
+    backdrop-filter: blur(10px);
+    color: var(--text);
     text-align: center;
+    padding: 20px;
     position: sticky;
     top: 0;
 }
 
 /* Navigation */
-nav {
-    text-align: center;
-    padding: 12px;
-}
-
 nav a {
-    color: white;
+    color: var(--text);
     text-decoration: none;
-    font-size: 40px;
+    font-size: 18px;
     font-weight: bold;
-    margin: 3px 18px;
-    background-color: #0d6efd;
+    margin: 8px;
+    padding: 10px 18px;
+    background: var(--accent);
+    border-radius: 8px;
     display: inline-block;
-    padding: 10px;
-    border-radius: 5px;
+    transition: 0.3s;
 }
 
 nav a:hover {
-    color: black;
-    background-color: white;
-    transform: translateX(10px);
+    background: var(--accent-hover);
+    transform: translateY(-3px);
 }
 
-/* Footer */
-footer {
-    background-color: #0d6efd;
+/* Buttons */
+.btn, .new-project-btn, .dark-btn, .big-btn {
+    background: var(--accent);
     color: white;
-    font-size: 30px;
-    text-align: center;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    margin: 5px;
+    transition: 0.3s;
+}
+
+.btn:hover, .new-project-btn:hover, .dark-btn:hover, .big-btn:hover {
+    background: var(--accent-hover);
+    transform: scale(1.05);
+}
+
+/* Headings */
+h1, h2, h3 {
+    color: var(--text);
+}
+
+/* Cards / Div */
+div.class {
+    background: var(--card);
+    padding: 20px;
+    margin: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.4);
 }
 
 /* Paragraph */
 p {
-    background-color: #0d6efd;
-    color: white;
-    font-size: 40px;
-    width: fit-content;
+    background: var(--card);
+    padding: 15px;
+    border-radius: 10px;
 }
 
 /* List */
-ul, li {
-    background-color: #0d6efd;
-    color: white;
-    width: fit-content;
-    text-align: left;
-    margin: 10px;
+ul {
+    background: var(--card);
+    padding: 15px;
+    border-radius: 10px;
 }
 
-/* Keypoints */
-.keypoints {
-    font-size: 40px;
-    background-color: #0d6efd;
-    color: white;
+li {
+    margin: 8px 0;
 }
 
 /* Image */
 img {
     width: 70%;
-    height: auto;
-    margin: auto;
+    border-radius: 12px;
+    margin: 20px auto;
     display: block;
+    box-shadow: 0 4px 25px rgba(0,0,0,0.6);
 }
 
-/* Textarea */
-textarea {
-    width: 100%;
-    height: 120px;
-    padding: 10px;
-    font-size: 16px;
+/* Footer */
+footer {
+    background: #020617;
+    text-align: center;
+    padding: 20px;
+    margin-top: 30px;
 }
 
-/* Dark Mode */
+/* Dark Mode (extra) */
 .dark {
     background: black;
-    color: white;
 }
