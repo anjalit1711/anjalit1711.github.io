@@ -1,25 +1,25 @@
-/* Root Colors (Easy change later) */
+/* Root Colors */
 :root {
-    --bg: #0f172a;          /* dark navy */
-    --card: #1e293b;        /* soft dark */
-    --accent: #6366f1;      /* soft violet-blue */
-    --accent-hover: #818cf8;
-    --text: #f1f5f9;        /* off white */
+    --bg: #0a0a0a;
+    --card: #1a1a1a;
+    --accent: #ff4da6;      /* fashion pink */
+    --accent-hover: #ff80bf;
+    --text: #ffffff;
 }
 
 /* Body */
 body {
-    background: linear-gradient(135deg, #020617, #0f172a);
+    background: linear-gradient(135deg, #000000, #1a1a1a);
     color: var(--text);
     font-size: 22px;
     font-family: 'Segoe UI', sans-serif;
-    animation: upMotion 1.2s ease-in-out;
+    animation: upMotion 1s ease-in-out;
 }
 
 /* Animation */
 @keyframes upMotion {
     from {
-        transform: translateY(60px);
+        transform: translateY(50px);
         opacity: 0;
     }
     to {
@@ -30,18 +30,18 @@ body {
 
 /* Header */
 header {
-    background: rgba(30, 41, 59, 0.8);
-    backdrop-filter: blur(10px);
-    color: var(--text);
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(8px);
     text-align: center;
     padding: 20px;
     position: sticky;
     top: 0;
+    border-bottom: 2px solid var(--accent);
 }
 
 /* Navigation */
 nav a {
-    color: var(--text);
+    color: white;
     text-decoration: none;
     font-size: 18px;
     font-weight: bold;
@@ -78,16 +78,16 @@ nav a:hover {
 
 /* Headings */
 h1, h2, h3 {
-    color: var(--text);
+    color: var(--accent);
 }
 
-/* Cards / Div */
+/* Cards */
 div.class {
     background: var(--card);
     padding: 20px;
     margin: 20px;
     border-radius: 12px;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+    box-shadow: 0 0 20px rgba(255, 77, 166, 0.3);
 }
 
 /* Paragraph */
@@ -114,18 +114,50 @@ img {
     border-radius: 12px;
     margin: 20px auto;
     display: block;
-    box-shadow: 0 4px 25px rgba(0,0,0,0.6);
+    box-shadow: 0 0 25px rgba(255, 77, 166, 0.4);
 }
 
 /* Footer */
 footer {
-    background: #020617;
+    background: #000;
     text-align: center;
     padding: 20px;
     margin-top: 30px;
+    border-top: 2px solid var(--accent);
 }
 
-/* Dark Mode (extra) */
+/* Modal (Popup) */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.8);
+}
+
+/* Modal Content */
+.modal-content {
+    background: #1a1a1a;
+    margin: 10% auto;
+    padding: 20px;
+    width: 60%;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 0 20px rgba(255, 77, 166, 0.5);
+}
+
+/* Close Button */
+.close {
+    color: #ff4da6;
+    float: right;
+    font-size: 28px;
+    cursor: pointer;
+}
+
+/* Dark Mode */
 .dark {
     background: black;
 }
