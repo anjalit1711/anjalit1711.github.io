@@ -1,94 +1,127 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>fashion</title>
-     <link rel="icon" type="image/jpg" href="img/nnn.jpg">
+<meta charset="UTF-8">
+<title>fashion</title>
+
+<link rel="icon" type="image/jpg" href="img/nnn.jpg">
 <link rel="stylesheet" href="./style.css">
-    
+
+<style>
+/* Background Image */
+body {
+    background-image: url("./img/nnn.jpg");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    color: white;
+}
+
+/* Overlay for readability */
+.overlay {
+    background: rgba(0,0,0,0.6);
+    padding: 12px;
+    margin: 15px;
+    border-radius: 10px;
+    width: fit-content;
+}
+
+/* Hide image tag */
+img {
+    display: none;
+}
+
+/* Footer fix */
+footer {
+    background: rgba(0,0,0,0.7);
+    text-align: center;
+    padding: 20px;
+    margin-top: 40px;
+    width: 100%;
+    border-top: 2px solid hotpink;
+}
+</style>
+
 </head>
-      <body> <button onclick="toggleDarkMode()"
-             class="dark-btn">
-              🌙DarkMode</button>
-          <header>
-        
-        <h1 style="font-size:90px;color:deeppink;border-bottom:4px solid hotpink;padding-bottom:10px;
-                              width:fit-content;margin:auto;">   <b>🌸 ANJALI FASHION HUB 🌸</b></h1> <br>
-    
-      <b>"Fashion is not just style-it's confidence.<br>
-       Wear what makes you beautiful."</b><br>
 
-    <b>🌸Style that Defines you🌸</b><br>
-    <br>
-        <nav>
-            <a href="./index.html">Why us</a>
-            <a href="./fashion.html">Fashion</a>
-            <a href="./cloths.html">CLOTHS</a>
-            <a href="./accessories.html">ACCESSORIES</a>
-            <a href="./makeup.html">MAKEUP</a>
-            <a href="./hairstyle.html">HAIRSTYLE</a>
-           <a href="./contact.html">CONTACT</a>
-           <a href="./web.html">WEB DESIGNING</a>
-        </nav>
-    </header>
-      <p style="color:black">  <form action="./index.html">
- First name: <input type="text" name="Cloths">
-  <button type="submit">Submit</button>
-  <button type="reset">Reset Form</button>
-</form></p>
-        <img src="../img/nnn.jpg">
+<body>
 
+<button onclick="toggleDarkMode()" class="dark-btn">🌙 DarkMode</button>
 
+<header>
+<h1 style="font-size:90px;color:deeppink;border-bottom:4px solid hotpink;padding-bottom:10px;width:fit-content;margin:auto;">
+<b>🌸 ANJALI FASHION HUB 🌸</b></h1>
 
-  <h1><u>Dressingsense</u></h1>   
-         <div class="class">
-Rojana dressing simple lekin smart honi chahiye
-Tshirt with jeans ya kurti with leggings best<br>
-comfortable choice hai,Small watch and small earing 
-se daily look stylish lagta hai.<br></div>
-        <h1><U><b>COLOR GUIDE</b></U></h1>
-        <div class="class"><u>Har season ke hisab se kon sa color trend me hai<br></u>
-                              1-SUMMER: Pastel Pink,Mint green ,Sky blue,Black<br>
-                              2-WINTER: Maroon,Olive,color combination ke 
-                                sath.</div>
-    <h2>            
+<br>
 
-<U>BODY SHAPE STYLING</U></h2>
+<b>"Fashion is not just style-it's confidence.<br>
+Wear what makes you beautiful."</b><br>
 
-<div class="class">
- 1-PEAR SHAPE-   A-line skirt<br>
- 2-RECTANGLE-    Beleted dresses<br>
- 3-HOURGLASS-    Fit outfits<br>   
+<b>🌸Style that Defines you🌸</b><br><br>
+
+<nav>
+<a href="./index.html">Why us</a>
+<a href="./fashion.html">Fashion</a>
+<a href="./cloths.html">CLOTHS</a>
+<a href="./accessories.html">ACCESSORIES</a>
+<a href="./makeup.html">MAKEUP</a>
+<a href="./hairstyle.html">HAIRSTYLE</a>
+<a href="./contact.html">CONTACT</a>
+<a href="./web.html">WEB DESIGNING</a>
+</nav>
+</header>
+
+<form action="./index.html" class="overlay">
+First name: <input type="text" name="Cloths">
+<button type="submit">Submit</button>
+<button type="reset">Reset</button>
+</form>
+
+<h1 class="overlay"><u>Dressingsense</u></h1>
+
+<div class="overlay">
+Rojana dressing simple lekin smart honi chahiye...
 </div>
-<h1><u> IS WEBSITE ME AAP KYA SIKHOGE?   </u></h1>
-<ul type="square;">
-    <li>Daily outfit ko kese style bnaye</li>
-    <li>Trendy fashion look kese creat karen</li>
-    <li>Budge me wardrobe kese ready kren</li>
-    <li> Accessories ko outfits ke sath kese match karen</li>
-    <li>Foot wear ki right choices</li>
-    <li>Makeup+fashion perfect combination</li>
-</ul> 
-        
-<button onclick="window.location='./index.html'">
-  ← Back to Home
-</button>
- 
-    
-    <footer>
-        <a href="#">Instagram</a>
-        <a href="#">Facebook</a>
-        <a href="#">YouTube</a><br>
-         © 2025 Anjal Fashion website|All Rights Reserved<br>
-           👜👛Fashion & Makeup website|Made by Anjal Tripathi👛👜<br>
-            Email:at9422879@gmail.com<br>
-            #Your Fashion💖your style#
-    </footer>
-          <script src="./darkmode.js"></script>
 
-    
+<h1 class="overlay"><u>COLOR GUIDE</u></h1>
+
+<div class="overlay">
+Summer: Pastel Pink, Mint green, Sky blue<br>
+Winter: Maroon, Olive
+</div>
+
+<h2 class="overlay"><u>BODY SHAPE STYLING</u></h2>
+
+<div class="overlay">
+Pear Shape - A-line skirt<br>
+Rectangle - Beleted dresses<br>
+Hourglass - Fit outfits
+</div>
+
+<h1 class="overlay"><u>WHAT YOU WILL LEARN</u></h1>
+
+<ul class="overlay">
+<li>Daily outfit styling</li>
+<li>Trendy fashion looks</li>
+<li>Budget wardrobe building</li>
+<li>Accessories matching</li>
+<li>Makeup + fashion combo</li>
+</ul>
+
+<button onclick="window.location='./index.html'">← Back to Home</button>
+
+<footer>
+<a href="#">Instagram</a>
+<a href="#">Facebook</a>
+<a href="#">YouTube</a><br>
+© 2025 Anjal Fashion website | All Rights Reserved<br>
+Fashion & Makeup website | Made by Anjal Tripathi<br>
+Email: at9422879@gmail.com<br>
+#Your Fashion 💖 your style#
+</footer>
+
+<script src="./darkmode.js"></script>
 
 </body>
 </html>
-
-    
