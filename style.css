@@ -1,128 +1,144 @@
+/* Page Toggle */
 #homePage {
-    display:none;
+    display: none;
 }
-#homePage:target{
-    display:block;
+
+#homePage:target {
+    display: block;
 }
-#homePage:target~ #formPage{
-    display:none;
+
+#homePage:target ~ #formPage {
+    display: none;
 }
+
+/* Button */
 .btn {
-    padding:10px 20px;
-    background-color:hotpink;
-    color:white;
-    text-decoration:none;
-    border-radius:5px;
-}
-    
-       body { background-color: aliceblue;
-         color: white;
-        font-size:40px;
-        animation:upMotion 1.5s ease-in-out;
-            }
-@keyframes upMotion{
-    from{
-        transform:translateY(100%);
-        opacity:0;
-    }
-    to{
-        transform:translateY(0);
-        opacity:1;
-    }
-}
-       
-    h1,h2,h3{color: black;
-              font-size:50px;
-    }
-    
-
-    div.class{
-        background-color:lightblue;
-        color: white;
-        font-size:40px;
-        width:fit-content;
-        margin:30px;
+    padding: 10px 20px;
+    background-color: #0d6efd; /* blue */
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
 }
 
-
-    header{ background-color: lightpink;
-            color: black;
-            font-size:50px;
-            text-align:center;
-           position:sticky;
-           top:0;
-    }
-    nav{  text-align:center;
-          padding:12px;
-          
-       }
-
-nav a{ 
-    color:black;
-    text-decoration:none;
-    color:black;
-    font-size:40px;
-    font-weight:bold;
-    margin:3px 18px;
-    background-color:hotpink;
-    display:inline-block;
-    }
-
-nav a:hover{
-         color:white;
-         transform:translateX(100px);
-         animation:slideln 0.20s ease forwards;
-         
+/* Body */
+body {
+    background-color: black;
+    color: white;
+    font-size: 40px;
+    animation: upMotion 1.5s ease-in-out;
 }
 
-    footer{ background-color:lightpink;
-            color: black;
-            font-size:30px;
-            text-align:center;
+/* Animation */
+@keyframes upMotion {
+    from {
+        transform: translateY(100%);
+        opacity: 0;
     }
-
-    p {
-        background-color:lightblue;
-        color: white;
-        font-size:40px;
-        width:fit-content;
-      }
-
-    ul,li{ background-color: lightblue;
-           color: white;
-           width:fit-content;
-           text-align:left;
-           margin:10px
+    to {
+        transform: translateY(0);
+        opacity: 1;
     }
+}
 
-    .keypoints{font-size:40px;
-               background-color:lightblue;
-               color:black;
-    }
+/* Headings */
+h1, h2, h3 {
+    color: white;
+    font-size: 50px;
+}
 
+/* Div */
+div.class {
+    background-color: #0d6efd;
+    color: white;
+    font-size: 40px;
+    width: fit-content;
+    margin: 30px;
+}
 
-     img{
-    
-    background-cover;     
-    width:70%;
-    height:auto;
-    margin:auto;
-    display:block;
-        
-    }
-    
-textarea{width:100%;
-         height:120px;
-         padding:10px;
-         font-size:16px;
-        }
+/* Header */
+header {
+    background-color: #0d6efd;
+    color: white;
+    font-size: 50px;
+    text-align: center;
+    position: sticky;
+    top: 0;
+}
+
+/* Navigation */
+nav {
+    text-align: center;
+    padding: 12px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 40px;
+    font-weight: bold;
+    margin: 3px 18px;
+    background-color: #0d6efd;
+    display: inline-block;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+nav a:hover {
+    color: black;
+    background-color: white;
+    transform: translateX(10px);
+}
+
+/* Footer */
+footer {
+    background-color: #0d6efd;
+    color: white;
+    font-size: 30px;
+    text-align: center;
+}
+
+/* Paragraph */
+p {
+    background-color: #0d6efd;
+    color: white;
+    font-size: 40px;
+    width: fit-content;
+}
+
+/* List */
+ul, li {
+    background-color: #0d6efd;
+    color: white;
+    width: fit-content;
+    text-align: left;
+    margin: 10px;
+}
+
+/* Keypoints */
+.keypoints {
+    font-size: 40px;
+    background-color: #0d6efd;
+    color: white;
+}
+
+/* Image */
+img {
+    width: 70%;
+    height: auto;
+    margin: auto;
+    display: block;
+}
+
+/* Textarea */
+textarea {
+    width: 100%;
+    height: 120px;
+    padding: 10px;
+    font-size: 16px;
+}
+
+/* Dark Mode */
 .dark {
-  background: black;
-  color: white;
+    background: black;
+    color: white;
 }
-
-    
-
-    
-
-
