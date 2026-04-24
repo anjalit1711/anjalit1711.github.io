@@ -1,269 +1,40 @@
-<!DOCTYPE html>
+<DOCTYPE! html>
 <html>
 <head>
-  <title>CSS Project - Unique Animated Background</title>
-  <style>
-/* =====================
-   Body Styling
-===================== */
-body{
-  font-family: Arial;
-  margin:0;
-  padding:20px;
-  text-align:center;
-  overflow: hidden;
-  position: relative;
-  background: #0d0d0d;
-  color: white;
-}
-
-/* =====================
-   Animated Color Blobs Background
-===================== */
-body::before, body::after {
-  content: "";
-  position: fixed;
-  width: 200%;
-  height: 200%;
-  top: -50%;
-  left: -50%;
-  border-radius: 50%;
-  background: radial-gradient(circle at center, #ff3cac, #784ba0, #2b86c5);
-  animation: blob1 20s linear infinite alternate;
-  z-index: -2;
-  filter: blur(120px);
-  opacity: 0.7;
-}
-
-body::after {
-  background: radial-gradient(circle at center, #ff6b6b, #fbc531, #1e90ff);
-  animation: blob2 25s linear infinite alternate-reverse;
-  filter: blur(150px);
-}
-
-/* Blob Animations */
-@keyframes blob1{
-  0% { transform: translate(0%,0%) scale(1); }
-  50% { transform: translate(20%,10%) scale(1.2); }
-  100% { transform: translate(-10%,20%) scale(1); }
-}
-
-@keyframes blob2{
-  0% { transform: translate(0%,0%) scale(1); }
-  50% { transform: translate(-15%,25%) scale(1.1); }
-  100% { transform: translate(10%,-20%) scale(1); }
-}
-
-/* =====================
-   Neon Glowing Heading
-===================== */
-.title{
-  font-size:70px;
-  color:#ff1a1a;
-  text-shadow:
-    0 0 5px #ff1a1a,
-    0 0 10px #ff1a1a,
-    0 0 20px #ff1a1a,
-    0 0 40px #ff4d4d,
-    0 0 80px #ff6666,
-    0 0 90px #ff6666,
-    0 0 100px #ff6666,
-    0 0 150px #ff6666;
-  animation: neonPulse 2s ease-in-out infinite alternate,
-             shadowMove 3s ease-in-out infinite alternate;
-}
-
-@keyframes neonPulse{
-  0%{ text-shadow:0 0 5px #ff1a1a,0 0 10px #ff1a1a,0 0 20px #ff1a1a,0 0 40px #ff4d4d,0 0 80px #ff6666,0 0 90px #ff6666,0 0 100px #ff6666,0 0 150px #ff6666;}
-  100%{ text-shadow:0 0 10px #ff1a1a,0 0 20px #ff1a1a,0 0 30px #ff1a1a,0 0 50px #ff4d4d,0 0 100px #ff6666,0 0 120px #ff6666,0 0 150px #ff6666,0 0 200px #ff6666;}
-}
-
-@keyframes shadowMove{
-  0% { text-shadow: 2px 2px 5px #ff0000, -2px -2px 5px #000000; }
-  50% { text-shadow: 5px 5px 15px #ff0000, -5px -5px 15px #000000; }
-  100% { text-shadow: 2px 2px 5px #ff0000, -2px -2px 5px #000000; }
-}
-
-/* =====================
-   Flex Container
-===================== */
-.container{
-  display:flex;
-  justify-content:center;
-  flex-wrap:wrap;
-  gap:40px;
-  margin-top:50px;
-  position: relative;
-  z-index: 1;
-}
-
-/* =====================
-   Zoom Card
-===================== */
-.zoom-card{
-  background:white;
-  width:220px;
-  padding:20px;
-  border-radius:15px;
-  box-shadow:0 4px 10px rgba(0,0,0,0.3);
-  transition:0.5s;
-  position: relative;
-  z-index:1;
-}
-
-.zoom-card:hover{
-  transform: scale(1.3);
-}
-
-/* =====================
-   Matrix Box
-===================== */
-.matrix-box{
-  width:200px;
-  height:200px;
-  background:red;
-  margin:20px auto;
-  transition:1s;
-  position: relative;
-  z-index:1;
-}
-
-.matrix-box:hover{
-  transform:matrix(1.2,0.2,0.2,1.2,20,20);
-}
-
-/* =====================
-   3D Rotate Box
-===================== */
-.rotate-box{
-  width:200px;
-  height:200px;
-  background:orange;
-  margin:20px auto;
-  transition:1s;
-  position: relative;
-  z-index:1;
-}
-
-.rotate-box:hover{
-  transform:rotateX(180deg) rotateY(180deg);
-}
-
-/* =====================
-   Flip Card
-===================== */
-.flip-card{
-  width:220px;
-  height:250px;
-  perspective:1000px;
-  margin:20px auto;
-  position: relative;
-  z-index:1;
-}
-
-.flip-inner{
-  position:relative;
-  width:100%;
-  height:100%;
-  transition:1s;
-  transform-style:preserve-3d;
-}
-
-.flip-card:hover .flip-inner{
-  transform:rotateY(180deg);
-}
-
-.flip-front, .flip-back{
-  position:absolute;
-  width:100%;
-  height:100%;
-  backface-visibility:hidden;
-  border-radius:15px;
-  box-shadow:0 4px 10px rgba(0,0,0,0.3);
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-size:20px;
-}
-
-.flip-front{
-  background:purple;
-  color:white;
-}
-
-.flip-back{
-  background:darkblue;
-  color:white;
-  transform:rotateY(180deg);
-}
-
-/* =====================
-   Grid Example
-===================== */
-.grid-container{
-  display:grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap:30px;
-  margin-top:50px;
-  position: relative;
-  z-index:1;
-}
-
-/* Responsive */
-@media (max-width:900px){
-  .container, .grid-container{
-    flex-direction:column;
-    grid-template-columns: 1fr;
-  }
-}
-  </style>
+<title>
+</title>
 </head>
 
-<body>
-
-<h1 class="title">My CSS Project</h1>
-
-<!-- Flex Container with Zoom Cards -->
-<div class="container">
-  <div class="zoom-card">
-    <img src="https://picsum.photos/200" style="width:100%; border-radius:10px;">
-    <h2>Zoom Card</h2>
-  </div>
-
-  <div class="matrix-box"></div>
-
-  <div class="rotate-box"></div>
-
-  <div class="flip-card">
-    <div class="flip-inner">
-      <div class="flip-front">Front</div>
-      <div class="flip-back">Back</div>
-    </div>
-  </div>
-</div>
-
-<!-- Grid Example -->
-<div class="grid-container">
-  <div class="zoom-card">
-    <img src="https://picsum.photos/201" style="width:100%; border-radius:10px;">
-    <h2>Forest</h2>
-  </div>
-  <div class="zoom-card">
-    <img src="https://picsum.photos/202" style="width:100%; border-radius:10px;">
-    <h2>River</h2>
-  </div>
-  <div class="zoom-card">
-    <img src="https://picsum.photos/203" style="width:100%; border-radius:10px;">
-    <h2>Desert</h2>
-  </div>
-  <div class="zoom-card">
-    <img src="https://picsum.photos/204" style="width:100%; border-radius:10px;">
-    <h2>Ocean</h2>
-  </div>
-</div>
-  <button onclick="window.location.href='css_project_12.html'" style= "font-size:20px; cursor:pointer; float:right; padding:12px 25px;">Go to Css Project 12</button>
-  <button onclick="window.location.href='newproject.html'" style= "font-size:20px; cursor:pointer; float:right; padding:12px 25px;">Back to Projects</button>
-</body>
-
-</body>
-</html>
+<body >
+<font size="10">
+                                                                  ANJALI THIS SIDE,
+<hr size="50px" color="red"></hr>
+	<q ><font size="10">DIFFICULTIES IN YOUR LIFE DO NOT COME TO DESTROY YOU BUT ITS COMES TO REALIZE YOUR HIDDEN POTENTIAL</q>
+<br>
+<abbr title ="STATE BANK OF INDIA">SBI</abbr>
+<br>
+<br>
+<address>New sannoth colony, Ghogha mod, Pincod/110040/North Delhi</address>
+<br>
+<h><a href= "https://anjalit1711.github.io/">About my website</h></a>
+<hr size="50px" color="red"></hr>
+<br>
+<br>
+<br>
+<marquee bgcolor="white" scrollamount="8px" scrolldelay="1" direction="up">
+<a href="g.jpg">   <img src="g.jpg" width="500" alt="car"></a>
+<a href= "f.jpg">  <img src="f.jpg" width="500" alt="car"></a>
+<a href= "d.jpg"> <img src="d.jpg" width="500" alt="car"></a>
+<a href= "e.jpg"> <img src="e.jpg" width="500" alt="car"></a></marquee>
+<hr size="50px" color="red"></hr>
+<br>
+<marquee bgcolor="white" scrollamount="10px"  direction="left" > 
+Trending:1) HII IT 'S' ANJALI THIS SIDE, <font color="red"> THIS IS MY CAR'S COLLECTION</marquee>
+<hr size="50px" color="red"></hr>
+<br>
+<marquee  scrollamount="20px"  direction="right"  > 
+<img src="h.gif" width="300" alt="Buterfly">
+<img src="h.gif" width="400" alt="Buterfly">
+<img src="h.gif" width="600" alt="Buterfly">
+</marquee>
+<hr size="50px" color="black"></hr>
