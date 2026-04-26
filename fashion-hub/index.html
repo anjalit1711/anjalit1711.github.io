@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Anjali Fashion Hub</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
 *{
@@ -15,34 +15,91 @@ box-sizing:border-box;
 }
 
 body{
-background:#0b0b0f;
+background:#07070c;
 color:#fff;
 font-family:'Inter',sans-serif;
 overflow-x:hidden;
 }
 
-/* NAV */
+/* BIG ANIMATED BACKGROUND */
+.bg{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+z-index:-4;
+background:linear-gradient(120deg,#0a0a0f,#120a1f,#0a0f1f);
+animation:shift 10s ease-in-out infinite;
+background-size:300% 300%;
+}
+
+@keyframes shift{
+0%{background-position:0% 50%; transform:scale(1);}
+50%{background-position:100% 50%; transform:scale(1.1);}
+100%{background-position:0% 50%; transform:scale(1);}
+}
+
+/* GLOW ORBS */
+.glow{
+position:fixed;
+width:650px;
+height:650px;
+border-radius:50%;
+filter:blur(140px);
+opacity:0.5;
+z-index:-3;
+animation:float 12s infinite alternate ease-in-out;
+}
+
+.g1{background:#ff2d95; top:-180px; left:-180px;}
+.g2{background:#6c63ff; bottom:-200px; right:-180px; animation-delay:2s;}
+.g3{background:#00d4ff; top:35%; left:35%; animation-delay:4s;}
+
+@keyframes float{
+from{transform:translateY(0px) scale(1);}
+to{transform:translateY(-120px) scale(1.2);}
+}
+
+/* PARTICLES */
+.particle{
+position:fixed;
+width:10px;
+height:10px;
+background:white;
+border-radius:50%;
+opacity:0.25;
+animation:rise 12s linear infinite;
+z-index:-2;
+}
+
+@keyframes rise{
+0%{transform:translateY(100vh) scale(0.5); opacity:0;}
+50%{opacity:0.4;}
+100%{transform:translateY(-20vh) scale(1.2); opacity:0;}
+}
+
 nav{
 display:flex;
 justify-content:space-between;
 align-items:center;
-padding:18px 40px;
+padding:20px 60px;
 position:fixed;
 top:0;
 width:100%;
-background:rgba(0,0,0,0.55);
+background:rgba(0,0,0,0.4);
 backdrop-filter:blur(12px);
 z-index:10;
 }
 
 nav h2{
-font-size:18px;
+font-size:20px;
 letter-spacing:3px;
 }
 
 nav a{
 color:#ddd;
-margin-left:18px;
+margin-left:20px;
 text-decoration:none;
 font-size:14px;
 }
@@ -51,114 +108,158 @@ nav a:hover{
 color:#ff4d8d;
 }
 
-/* HERO VIDEO */
 .hero{
 height:100vh;
-position:relative;
 display:flex;
 justify-content:center;
 align-items:center;
 text-align:center;
 padding:20px;
-overflow:hidden;
+position:relative;
 }
 
-.hero video{
-position:absolute;
-top:0;
-left:0;
-width:100%;
-height:100%;
-object-fit:cover;
-z-index:-2;
+.hero-box{
+max-width:900px;
 }
 
-.hero::before{
-content:"";
-position:absolute;
-top:0;
-left:0;
-width:100%;
-height:100%;
-background:rgba(0,0,0,0.6);
-z-index:-1;
-}
-
-.hero-content{
-max-width:700px;
-}
-
-.hero h1{
+h1{
 font-family:'Playfair Display',serif;
-font-size:60px;
+font-size:80px;
+line-height:1;
 }
 
-.hero p{
-margin-top:15px;
-color:#ccc;
+h1 span{
+background:linear-gradient(90deg,#ff4d8d,#6c63ff,#00d4ff);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+}
+
+p{
+margin-top:20px;
+font-size:18px;
+color:#cfcfcf;
 line-height:1.6;
 }
 
 .btn{
-margin-top:25px;
+margin-top:30px;
 display:inline-block;
-padding:12px 26px;
+padding:14px 30px;
 background:#ff4d8d;
 color:white;
 text-decoration:none;
-border-radius:30px;
+border-radius:40px;
+font-weight:600;
 transition:0.3s;
 }
 
 .btn:hover{
-transform:scale(1.05);
+transform:scale(1.08);
 }
 
 section{
-padding:80px 40px;
+padding:100px 60px;
 }
 
 .title{
-font-size:28px;
-margin-bottom:20px;
+font-size:32px;
+margin-bottom:30px;
 font-family:'Playfair Display',serif;
 }
 
 .grid{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:20px;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:25px;
 }
 
 .card{
-background:rgba(255,255,255,0.05);
-padding:25px;
-border-radius:12px;
+background:rgba(255,255,255,0.06);
+padding:30px;
+border-radius:16px;
 border:1px solid rgba(255,255,255,0.1);
 transition:0.3s;
 }
 
 .card:hover{
-transform:translateY(-5px);
+transform:translateY(-8px);
 border-color:#ff4d8d;
-}
-
-.card h3{
-color:#ff4d8d;
-margin-bottom:10px;
 }
 
 footer{
 text-align:center;
-padding:30px;
+padding:40px;
 border-top:1px solid rgba(255,255,255,0.1);
 color:#aaa;
-font-size:13px;
+}
+
+/* FLOATING ANJALI TEXT */
+.floating-text{
+position:fixed;
+font-size:28px;
+font-weight:700;
+color:#ff4d8d;
+opacity:0.8;
+animation:flyText 8s linear infinite;
+z-index:-1;
+white-space:nowrap;
+}
+
+@keyframes flyText{
+0%{transform:translateY(100vh) translateX(0); opacity:0;}
+20%{opacity:1;}
+100%{transform:translateY(-10vh) translateX(80px); opacity:0;}
+}
+
+/* WELCOME TEXT */
+.welcome{
+position:absolute;
+top:80px;
+left:50%;
+transform:translateX(-50%);
+font-size:18px;
+letter-spacing:2px;
+color:#ffffff;
+opacity:0.8;
+}
+
+/* MUSIC BUTTON */
+.music-btn{
+position:fixed;
+bottom:20px;
+right:20px;
+background:#ff4d8d;
+color:white;
+border:none;
+padding:12px 16px;
+border-radius:50px;
+cursor:pointer;
+z-index:20;
 }
 </style>
 </head>
 
 <body>
+
+<div class="bg"></div>
+<div class="glow g1"></div>
+<div class="glow g2"></div>
+<div class="glow g3"></div>
+
+<div class="particle" style="left:10%; animation-delay:0s;"></div>
+<div class="particle" style="left:25%; animation-delay:2s;"></div>
+<div class="particle" style="left:40%; animation-delay:1s;"></div>
+<div class="particle" style="left:55%; animation-delay:3s;"></div>
+<div class="particle" style="left:70%; animation-delay:2s;"></div>
+<div class="particle" style="left:85%; animation-delay:4s;"></div>
+
+<!-- FLOATING NAME -->
+<div class="floating-text" style="left:10%; animation-delay:0s;">ANJALI</div>
+<div class="floating-text" style="left:40%; animation-delay:3s;">ANJALI</div>
+<div class="floating-text" style="left:70%; animation-delay:5s;">ANJALI</div>
+
+<!-- WELCOME TEXT -->
+<div class="welcome">✨ Welcome to Anjali Fashion Hub ✨</div>
 
 <nav>
 <h2>ANJALI FASHION</h2>
@@ -169,47 +270,33 @@ font-size:13px;
 </div>
 </nav>
 
-<!-- HERO WITH VIDEO -->
 <div class="hero">
-
-<video autoplay muted loop>
-<source src="https://cdn.coverr.co/videos/coverr-fashion-walk-4484/1080p.mp4" type="video/mp4">
-</video>
-
-<div class="hero-content">
-<h1>Fashion That Speaks Confidence</h1>
-<p>
-Discover modern fashion, timeless elegance, and your unique personal style with Anjali Fashion Hub.
-</p>
+<div class="hero-box">
+<h1>Fashion <span>That Defines You</span></h1>
+<p>A premium fashion experience with modern elegance, confidence and style.</p>
 <a href="../fashion.html" class="btn">Explore Collection</a>
 </div>
-
 </div>
 
 <section>
 <div class="title">Fashion Categories</div>
-
 <div class="grid">
-<div class="card">
-<h3>Modern Wear</h3>
-<p>Clean, trendy and everyday stylish outfits.</p>
-</div>
-
-<div class="card">
-<h3>Traditional Fusion</h3>
-<p>Ethnic + modern mix for elegant looks.</p>
-</div>
-
-<div class="card">
-<h3>Accessories</h3>
-<p>Complete your look with perfect matching items.</p>
-</div>
+<div class="card"><h3>Modern Wear</h3><p>Clean stylish daily outfits.</p></div>
+<div class="card"><h3>Traditional Fusion</h3><p>Ethnic + modern combination.</p></div>
+<div class="card"><h3>Accessories</h3><p>Complete fashion look.</p></div>
 </div>
 </section>
 
 <footer>
-© 2026 Anjali Fashion Hub • Cinematic Fashion UI
+© 2026 Anjali Fashion Hub • Animated Luxury UI
 </footer>
+
+<!-- MUSIC -->
+<audio id="bgmusic" loop autoplay>
+<source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_c8b5c7c0a2.mp3?filename=soft-piano-ambient-110397.mp3" type="audio/mp3">
+</audio>
+
+<button class="music-btn" onclick="document.getElementById('bgmusic').play()">🎵 Music</button>
 
 </body>
 </html>
