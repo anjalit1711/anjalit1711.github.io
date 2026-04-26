@@ -3,118 +3,212 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Anjali Fashion Hub | Luxury UI</title>
 
-<title>Anjali Fashion Hub</title>
-
-<link rel="stylesheet" href="../style.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
-/* Background Image */
-body {
-    background-image: url("../img/aaa.jpg");
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-    background-repeat: no-repeat;
-    color: white;
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
 }
 
-/* Dark overlay for readability */
-.overlay {
-    background: rgba(0,0,0,0.6);
-    padding: 15px;
-    border-radius: 10px;
-    margin: 15px;
-    width: fit-content;
+body{
+background:#0b0f1a;
+color:white;
+overflow-x:hidden;
 }
 
-/* Remove inline image */
-img {
-    display: none;
+/* BACKGROUND BLUR SHAPES */
+.bg-shape{
+position:fixed;
+width:300px;
+height:300px;
+border-radius:50%;
+filter:blur(120px);
+z-index:-1;
+opacity:0.6;
+animation:float 8s infinite alternate;
 }
+
+.shape1{background:#ff2d95; top:10%; left:10%;}
+.shape2{background:#6c63ff; bottom:10%; right:10%;}
+
+@keyframes float{
+from{transform:translateY(0px) scale(1);}
+to{transform:translateY(-30px) scale(1.1);}
+}
+
+/* NAVBAR */
+nav{
+position:fixed;
+top:0;
+width:100%;
+display:flex;
+justify-content:center;
+gap:15px;
+padding:12px;
+background:rgba(255,255,255,0.05);
+backdrop-filter:blur(10px);
+z-index:1000;
+}
+
+nav a{
+color:white;
+text-decoration:none;
+padding:8px 14px;
+border-radius:25px;
+background:rgba(255,255,255,0.08);
+transition:0.3s;
+font-size:13px;
+}
+
+nav a:hover{
+background:#ff2d95;
+transform:scale(1.05);
+}
+
+button{
+padding:8px 14px;
+border:none;
+border-radius:25px;
+cursor:pointer;
+font-weight:600;
+transition:0.3s;
+}
+
+.big-btn{background:#ff2d95;color:white;}
+.dark-btn{background:#222;color:white;}
+
+button:hover{transform:scale(1.05);}
+
+/* HERO */
+header{
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+text-align:center;
+padding:20px;
+}
+
+.hero{
+background:rgba(255,255,255,0.05);
+backdrop-filter:blur(20px);
+padding:50px;
+border-radius:20px;
+box-shadow:0 20px 60px rgba(0,0,0,0.5);
+animation:fade 1.5s ease;
+}
+
+@keyframes fade{
+from{opacity:0;transform:translateY(30px);}
+to{opacity:1;transform:translateY(0);}
+}
+
+h1{
+font-size:52px;
+color:#ff2d95;
+text-shadow:0 0 20px rgba(255,45,149,0.6);
+}
+
+p{
+margin-top:10px;
+color:#ccc;
+}
+
+/* SECTIONS */
+section{
+max-width:900px;
+margin:60px auto;
+padding:20px;
+}
+
+.card{
+background:rgba(255,255,255,0.05);
+backdrop-filter:blur(12px);
+padding:25px;
+border-radius:15px;
+box-shadow:0 15px 40px rgba(0,0,0,0.4);
+margin-bottom:20px;
+animation:fade 1s ease;
+}
+
+h2{
+color:#ff2d95;
+margin-bottom:15px;
+}
+
+ul{
+padding-left:20px;
+}
+
+li{
+margin:8px 0;
+color:#ddd;
+}
+
+footer{
+text-align:center;
+padding:25px;
+background:rgba(0,0,0,0.4);
+font-size:13px;
+margin-top:40px;
+}
+
 </style>
-
 </head>
 
 <body>
 
+<div class="bg-shape shape1"></div>
+<div class="bg-shape shape2"></div>
+
+<nav>
+<a href="../index.html">Home</a>
+<a href="../fashion.html">Fashion</a>
+<a href="../cloths.html">Clothes</a>
+<a href="../accessories.html">Accessories</a>
+<a href="../contact.html">Contact</a>
+<button class="dark-btn">Mode</button>
+<button class="big-btn">Explore</button>
+</nav>
+
 <header>
-    <h1 style="font-size:90px;color:deeppink;border-bottom:4px solid hotpink;padding-bottom:10px;width:fit-content;margin:auto;"> 
-        <b> 🌸 ANJALI FASHION HUB 🌸</b>
-    </h1>
-
-    <br>
-
-    <b>"Fashion is not just style—it’s confidence.<br>
-       Wear what makes you beautiful."</b><br>
-
-    <b>🌸Style that Defines you🌸</b><br><br>
-
-    <nav>
-        <a href="../index.html">Why us</a>
-        <a href="../fashion.html">Fashion</a>
-        <a href="../cloths.html">Clothes</a>
-        <a href="../accessories.html">Accessories</a>
-        <a href="../makeup.html">Makeup</a>
-        <a href="../hairstyle.html">Hairstyle</a>
-        <a href="../contact.html">Contact</a>
-        <a href="../web.html">WEB DESIGNING</a>
-        <a href="/newproject.html">New Projects</a>
-        <button class="dark-btn" onclick="toggleDarkMode()">🌙 DarkMode</button>
-        <button class="new-project-btn">Back to Portfolio</button>
-        <button class="big-btn" onclick="alert('Hello! This is Anjali Fashion Hub')">Click Me</button>
-    </nav>
+<div class="hero">
+<h1>🌸 Anjali Fashion Hub</h1>
+<p>Where Style Meets Confidence</p>
+<p>Fashion • Beauty • Expression</p>
+</div>
 </header>
 
-
-
-
-<h2 class="overlay">🔷 FASHION TUTORIAL</h2>
-
-<div class="overlay">
-    Fashion sirf kapadon ka style nahi hota, balki personality express karne ka ek tarika hota hai.
+<section>
+<div class="card">
+<h2>Fashion Tutorial</h2>
+<p>Fashion is not just clothing, it is confidence and personality expression.</p>
 </div>
 
-<h2 class="overlay">🔷 WHAT YOU WILL LEARN</h2>
-
-<ul class="overlay">
-    <li>Daily outfit styling</li>
-    <li>Trendy fashion looks</li>
-    <li>Accessories & footwear matching</li>
-    <li>Budget wardrobe building</li>
-    <li>Makeup + fashion combination</li>
+<div class="card">
+<h2>What You Will Learn</h2>
+<ul>
+<li>Trendy styling</li>
+<li>Color combinations</li>
+<li>Fusion fashion</li>
+<li>Personal confidence styling</li>
 </ul>
-
-<!-- NEW ADDED TOPICS -->
-
-<h2 class="overlay">🔷 SEASONAL FASHION TRENDS</h2>
-<div class="overlay">
-Seasonal fashion trends change every year with weather and culture. Summer focuses on light fabrics, winter on layering styles, and monsoon on comfortable waterproof outfits that still look stylish and modern.
 </div>
 
-<h2 class="overlay">🔷 COLOR COMBINATION GUIDE</h2>
-<div class="overlay">
-Perfect color combinations enhance your personality and overall look. Understanding complementary colors, pastel shades, and bold contrasts helps in creating balanced outfits that look attractive, elegant, and fashion-forward in every situation.
+<div class="card">
+<h2>Style Concept</h2>
+<p>Modern + Traditional fusion with elegant and clean aesthetics for everyday fashion.</p>
 </div>
-
-<h2 class="overlay">🔷 TRADITIONAL VS MODERN FUSION</h2>
-<div class="overlay">
-Fusion fashion blends traditional wear with modern styling ideas. Pairing ethnic kurtas with jeans or sarees with crop tops creates a unique trendy look that respects culture while staying fashionable and fresh.
-</div>
-
-<h2 class="overlay">🔷 PERSONAL STYLING CONFIDENCE</h2>
-<div class="overlay">
-True fashion is about confidence in your own style. Wearing outfits that suit your personality, body type, and comfort level helps you feel confident, expressive, and naturally attractive in every occasion.
-</div>
+</section>
 
 <footer>
-    © 2025 Anjali Fashion Hub • All Rights Reserved<br>
-    Fashion & Makeup website | Made by Anjali Tripathi<br>
-    Email: at9422879@gmail.com<br>
-    #Your fashion 💖 your style#
+© 2025 Anjali Fashion Hub • Designed with Elegance 💖
 </footer>
-
-<script src="../darkmode.js"></script>
 
 </body>
 </html>
