@@ -3,159 +3,135 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Anjali Fashion Hub | Luxury UI</title>
+<title>Anjali Fashion Hub | Modal Luxury UI</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
 *{
 margin:0;
 padding:0;
 box-sizing:border-box;
-font-family:'Poppins',sans-serif;
+font-family:'Inter', sans-serif;
 }
 
 body{
-background:#0b0f1a;
-color:white;
-overflow-x:hidden;
-}
-
-/* BACKGROUND BLUR SHAPES */
-.bg-shape{
-position:fixed;
-width:300px;
-height:300px;
-border-radius:50%;
-filter:blur(120px);
-z-index:-1;
-opacity:0.6;
-animation:float 8s infinite alternate;
-}
-
-.shape1{background:#ff2d95; top:10%; left:10%;}
-.shape2{background:#6c63ff; bottom:10%; right:10%;}
-
-@keyframes float{
-from{transform:translateY(0px) scale(1);}
-to{transform:translateY(-30px) scale(1.1);}
-}
-
-/* NAVBAR */
-nav{
-position:fixed;
-top:0;
-width:100%;
-display:flex;
-justify-content:center;
-gap:15px;
-padding:12px;
-background:rgba(255,255,255,0.05);
-backdrop-filter:blur(10px);
-z-index:1000;
-}
-
-nav a{
-color:white;
-text-decoration:none;
-padding:8px 14px;
-border-radius:25px;
-background:rgba(255,255,255,0.08);
-transition:0.3s;
-font-size:13px;
-}
-
-nav a:hover{
-background:#ff2d95;
-transform:scale(1.05);
-}
-
-button{
-padding:8px 14px;
-border:none;
-border-radius:25px;
-cursor:pointer;
-font-weight:600;
-transition:0.3s;
-}
-
-.big-btn{background:#ff2d95;color:white;}
-.dark-btn{background:#222;color:white;}
-
-button:hover{transform:scale(1.05);}
-
-/* HERO */
-header{
-height:100vh;
+min-height:100vh;
 display:flex;
 justify-content:center;
 align-items:center;
-text-align:center;
-padding:20px;
+background:linear-gradient(135deg,#0f172a,#111827,#0b1220);
+overflow:hidden;
+color:#e5e7eb;
 }
 
-.hero{
-background:rgba(255,255,255,0.05);
+/* SOFT COLOR BLOBS */
+.blob{
+position:absolute;
+width:400px;
+height:400px;
+border-radius:50%;
+filter:blur(120px);
+opacity:0.5;
+animation:float 10s infinite alternate ease-in-out;
+z-index:-1;
+}
+
+.blob1{background:#ff4d8d; top:-100px; left:-120px;}
+.blob2{background:#6366f1; bottom:-120px; right:-120px; animation-delay:2s;}
+
+@keyframes float{
+from{transform:translateY(0px) scale(1);}
+to{transform:translateY(-40px) scale(1.1);}
+}
+
+/* MODAL CARD LAYOUT */
+.modal{
+width:90%;
+max-width:900px;
+background:rgba(255,255,255,0.06);
 backdrop-filter:blur(20px);
-padding:50px;
-border-radius:20px;
-box-shadow:0 20px 60px rgba(0,0,0,0.5);
-animation:fade 1.5s ease;
+border:1px solid rgba(255,255,255,0.1);
+border-radius:25px;
+box-shadow:0 30px 80px rgba(0,0,0,0.6);
+padding:40px;
+animation:pop 0.8s ease;
+text-align:center;
 }
 
-@keyframes fade{
-from{opacity:0;transform:translateY(30px);}
-to{opacity:1;transform:translateY(0);}
+@keyframes pop{
+from{transform:scale(0.8);opacity:0;}
+to{transform:scale(1);opacity:1;}
 }
 
 h1{
-font-size:52px;
-color:#ff2d95;
-text-shadow:0 0 20px rgba(255,45,149,0.6);
+font-size:44px;
+background:linear-gradient(90deg,#ff4d8d,#6366f1);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+margin-bottom:10px;
 }
 
 p{
-margin-top:10px;
-color:#ccc;
+color:#cbd5e1;
+margin:8px 0;
+font-size:15px;
 }
 
-/* SECTIONS */
-section{
-max-width:900px;
-margin:60px auto;
-padding:20px;
+/* NAV BUTTONS */
+.nav{
+display:flex;
+justify-content:center;
+gap:12px;
+margin-top:25px;
+flex-wrap:wrap;
+}
+
+.nav a{
+text-decoration:none;
+padding:10px 18px;
+border-radius:999px;
+background:rgba(255,255,255,0.08);
+color:#e5e7eb;
+transition:0.3s;
+font-size:14px;
+}
+
+.nav a:hover{
+background:#ff4d8d;
+transform:translateY(-2px);
+}
+
+/* HIGHLIGHT CARDS */
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+gap:15px;
+margin-top:30px;
 }
 
 .card{
 background:rgba(255,255,255,0.05);
-backdrop-filter:blur(12px);
-padding:25px;
+padding:20px;
 border-radius:15px;
-box-shadow:0 15px 40px rgba(0,0,0,0.4);
-margin-bottom:20px;
-animation:fade 1s ease;
+border:1px solid rgba(255,255,255,0.08);
+transition:0.3s;
 }
 
-h2{
-color:#ff2d95;
-margin-bottom:15px;
+.card:hover{
+transform:translateY(-5px);
+background:rgba(255,255,255,0.08);
 }
 
-ul{
-padding-left:20px;
-}
-
-li{
-margin:8px 0;
-color:#ddd;
+.card h3{
+color:#ff4d8d;
+margin-bottom:8px;
 }
 
 footer{
-text-align:center;
-padding:25px;
-background:rgba(0,0,0,0.4);
-font-size:13px;
-margin-top:40px;
+margin-top:30px;
+font-size:12px;
+color:#94a3b8;
 }
 
 </style>
@@ -163,52 +139,49 @@ margin-top:40px;
 
 <body>
 
-<div class="bg-shape shape1"></div>
-<div class="bg-shape shape2"></div>
+<div class="blob blob1"></div>
+<div class="blob blob2"></div>
 
-<nav>
+<div class="modal">
+
+<h1>🌸 Anjali Fashion Hub</h1>
+<p>Minimal • Modern • Elegant Fashion Experience</p>
+<p>Where Style Meets Confidence ✨</p>
+
+<div class="nav">
 <a href="../index.html">Home</a>
 <a href="../fashion.html">Fashion</a>
-<a href="../cloths.html">Clothes</a>
-<a href="../accessories.html">Accessories</a>
-<a href="../contact.html">Contact</a>
-<button class="dark-btn">Mode</button>
-<button class="big-btn">Explore</button>
-</nav>
-
-<header>
-<div class="hero">
-<h1>🌸 Anjali Fashion Hub</h1>
-<p>Where Style Meets Confidence</p>
-<p>Fashion • Beauty • Expression</p>
 </div>
-</header>
 
-<section>
+<div class="grid">
+
 <div class="card">
-<h2>Fashion Tutorial</h2>
-<p>Fashion is not just clothing, it is confidence and personality expression.</p>
+<h3>Fashion</h3>
+<p>Modern styling with confidence-based outfits.</p>
 </div>
 
 <div class="card">
-<h2>What You Will Learn</h2>
-<ul>
-<li>Trendy styling</li>
-<li>Color combinations</li>
-<li>Fusion fashion</li>
-<li>Personal confidence styling</li>
-</ul>
+<h3>Home Style</h3>
+<p>Clean aesthetic lifestyle & personal branding.</p>
 </div>
 
 <div class="card">
-<h2>Style Concept</h2>
-<p>Modern + Traditional fusion with elegant and clean aesthetics for everyday fashion.</p>
+<h3>Color Guide</h3>
+<p>Perfect harmony of tones for outfit matching.</p>
 </div>
-</section>
+
+<div class="card">
+<h3>Fusion Look</h3>
+<p>Traditional + modern stylish combinations.</p>
+</div>
+
+</div>
 
 <footer>
-© 2025 Anjali Fashion Hub • Designed with Elegance 💖
+© 2025 Anjali Fashion Hub • Designed as Modal UI 💖
 </footer>
+
+</div>
 
 </body>
 </html>
