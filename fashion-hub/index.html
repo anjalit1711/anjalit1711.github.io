@@ -21,7 +21,6 @@ font-family:'Inter',sans-serif;
 overflow-x:hidden;
 }
 
-/* BIG ANIMATED BACKGROUND */
 .bg{
 position:fixed;
 top:0;
@@ -40,7 +39,6 @@ background-size:300% 300%;
 100%{background-position:0% 50%; transform:scale(1);}
 }
 
-/* GLOW ORBS */
 .glow{
 position:fixed;
 width:650px;
@@ -61,7 +59,6 @@ from{transform:translateY(0px) scale(1);}
 to{transform:translateY(-120px) scale(1.2);}
 }
 
-/* PARTICLES */
 .particle{
 position:fixed;
 width:10px;
@@ -118,9 +115,7 @@ padding:20px;
 position:relative;
 }
 
-.hero-box{
-max-width:900px;
-}
+.hero-box{max-width:900px;}
 
 h1{
 font-family:'Playfair Display',serif;
@@ -153,13 +148,9 @@ font-weight:600;
 transition:0.3s;
 }
 
-.btn:hover{
-transform:scale(1.08);
-}
+.btn:hover{transform:scale(1.08);}
 
-section{
-padding:100px 60px;
-}
+section{padding:100px 60px;}
 
 .title{
 font-size:32px;
@@ -193,7 +184,6 @@ border-top:1px solid rgba(255,255,255,0.1);
 color:#aaa;
 }
 
-/* FLOATING ANJALI TEXT */
 .floating-text{
 position:fixed;
 font-size:28px;
@@ -211,7 +201,6 @@ white-space:nowrap;
 100%{transform:translateY(-10vh) translateX(80px); opacity:0;}
 }
 
-/* WELCOME TEXT */
 .welcome{
 position:absolute;
 top:80px;
@@ -223,7 +212,6 @@ color:#ffffff;
 opacity:0.8;
 }
 
-/* MUSIC BUTTON */
 .music-btn{
 position:fixed;
 bottom:20px;
@@ -253,20 +241,18 @@ z-index:20;
 <div class="particle" style="left:70%; animation-delay:2s;"></div>
 <div class="particle" style="left:85%; animation-delay:4s;"></div>
 
-<!-- FLOATING NAME -->
-<div class="floating-text" style="left:10%; animation-delay:0s;">ANJALI</div>
-<div class="floating-text" style="left:40%; animation-delay:3s;">ANJALI</div>
-<div class="floating-text" style="left:70%; animation-delay:5s;">ANJALI</div>
+<div class="floating-text" style="left:10%;">ANJALI</div>
+<div class="floating-text" style="left:50%; animation-delay:3s;">ANJALI</div>
+<div class="floating-text" style="left:80%; animation-delay:5s;">ANJALI</div>
 
-<!-- WELCOME TEXT -->
 <div class="welcome">✨ Welcome to Anjali Fashion Hub ✨</div>
 
 <nav>
 <h2>ANJALI FASHION</h2>
 <div>
-<a href="../index.html">Home</a>
-<a href="../fashion.html">Fashion</a>
-<a href="../cloths.html">Clothes</a>
+<a href="#">Home</a>
+<a href="#">Fashion</a>
+<a href="#">Clothes</a>
 </div>
 </nav>
 
@@ -274,7 +260,7 @@ z-index:20;
 <div class="hero-box">
 <h1>Fashion <span>That Defines You</span></h1>
 <p>A premium fashion experience with modern elegance, confidence and style.</p>
-<a href="../fashion.html" class="btn">Explore Collection</a>
+<a href="#" class="btn">Explore Collection</a>
 </div>
 </div>
 
@@ -291,12 +277,47 @@ z-index:20;
 © 2026 Anjali Fashion Hub • Animated Luxury UI
 </footer>
 
-<!-- MUSIC -->
-<audio id="bgmusic" loop autoplay>
-<source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_c8b5c7c0a2.mp3?filename=soft-piano-ambient-110397.mp3" type="audio/mp3">
+<audio id="bgmusic" loop>
+<source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mp3">
 </audio>
 
-<button class="music-btn" onclick="document.getElementById('bgmusic').play()">🎵 Music</button>
+<button class="music-btn" onclick="toggleMusic()">🎵 Music</button>
+
+<script>
+let music = document.getElementById('bgmusic');
+let playing = false;
+
+function speakText(text){
+return new Promise(resolve => {
+let speech = new SpeechSynthesisUtterance(text);
+speech.lang = "en-US";
+speech.rate = 1;
+speech.pitch = 1;
+
+speech.onend = () => {
+setTimeout(resolve, 2000);
+};
+
+window.speechSynthesis.speak(speech);
+});
+}
+
+async function toggleMusic(){
+if(!playing){
+music.play();
+playing = true;
+
+for(let i=0; i<4; i++){
+await speakText("Welcome to Anjali Fashion Hub");
+}
+
+}else{
+music.pause();
+window.speechSynthesis.cancel();
+playing = false;
+}
+}
+</script>
 
 </body>
 </html>
