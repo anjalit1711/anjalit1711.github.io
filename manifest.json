@@ -1,4 +1,3 @@
-
 {
   "name": "Fashion Hub",
   "short_name": "FashionHub",
@@ -8,9 +7,9 @@
   "theme_color": "#000000",
   "icons": [
     {
-      "src": "icon.png",
+      "src": "f.png",
       "sizes": "192x192",
-      "type": "f.png"
+      "type": "image/png"
     }
   ]
 }
