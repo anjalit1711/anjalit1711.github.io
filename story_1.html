@@ -1,1 +1,265 @@
 
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Story Universe Ultimate</title>
+
+<style>
+body{
+  margin:0;
+  font-family:Arial;
+  background:#0a0a0a;
+  color:#fff;
+  transition:0.3s;
+}
+
+/* HEADER */
+header{
+  background:#000;
+  padding:15px;
+  text-align:center;
+  font-size:22px;
+}
+
+/* TOP CONTROLS */
+.topbar{
+  text-align:center;
+  padding:10px;
+}
+
+.topbar button{
+  margin:5px;
+  padding:8px 12px;
+  border:none;
+  cursor:pointer;
+  border-radius:5px;
+}
+
+/* STORY CARDS */
+.grid{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  padding:10px;
+}
+
+.card{
+  width:150px;
+  margin:10px;
+  background:#1a1a1a;
+  border-radius:10px;
+  overflow:hidden;
+  cursor:pointer;
+  position:relative;
+  transition:0.3s;
+}
+
+.card:hover{
+  transform:scale(1.05);
+}
+
+.card img{
+  width:100%;
+  height:100px;
+  object-fit:cover;
+}
+
+.card p{
+  text-align:center;
+  font-size:13px;
+}
+
+/* VIEW */
+.views{
+  position:absolute;
+  top:5px;
+  right:5px;
+  font-size:10px;
+  background:#000;
+  padding:3px 5px;
+  border-radius:5px;
+}
+
+/* STORY BOX */
+.story-box{
+  max-width:800px;
+  margin:15px auto;
+  padding:20px;
+  background:#1a1a1a;
+  border-radius:10px;
+  min-height:120px;
+  opacity:0;
+  transition:0.4s;
+}
+
+/* BUTTONS */
+.parts{
+  text-align:center;
+  margin:10px;
+}
+
+.parts button{
+  padding:10px;
+  margin:3px;
+  background:#ff4b2b;
+  border:none;
+  color:#fff;
+  border-radius:5px;
+}
+
+/* NEXT BUTTON */
+.next{
+  display:block;
+  margin:10px auto;
+  padding:10px;
+  background:#00c853;
+  border:none;
+  color:#fff;
+  border-radius:5px;
+}
+
+/* AD */
+.ad{
+  text-align:center;
+  margin:10px;
+  padding:10px;
+  background:#222;
+  border:1px dashed #444;
+}
+
+/* FAVORITE */
+.fav{
+  cursor:pointer;
+  font-size:18px;
+}
+
+/* DARK MODE */
+.light{
+  background:#f5f5f5;
+  color:#000;
+}
+
+/* FOOTER */
+footer{
+  text-align:center;
+  padding:10px;
+  background:#000;
+  font-size:12px;
+}
+</style>
+</head>
+
+<body>
+
+<header>📖 Story Universe Ultimate</header>
+
+<div class="topbar">
+<button onclick="toggleMode()">🌙/☀️ Mode</button>
+<button onclick="alert('Coming Soon: Favorites List')">⭐ Favorites</button>
+</div>
+
+<div class="ad">🔥 AdSense Space 1</div>
+
+<div class="grid">
+
+<div class="card" onclick="loadStory(1)">
+<img src="https://i.imgur.com/3ZQ3ZQm.jpg">
+<p>Raat 3 AM <span class="fav">⭐</span></p>
+<div class="views" id="v1">0</div>
+</div>
+
+<div class="card" onclick="loadStory(2)">
+<img src="https://i.imgur.com/9yG3Z8Q.jpg">
+<p>Mirror World <span class="fav">⭐</span></p>
+<div class="views" id="v2">0</div>
+</div>
+
+</div>
+
+<div class="parts">
+<button onclick="showPart(1)">Part 1</button>
+<button onclick="showPart(2)">Part 2</button>
+<button onclick="showPart(3)">Part 3</button>
+<button onclick="showPart(4)">Part 4</button>
+<button onclick="showPart(5)">Part 5</button>
+</div>
+
+<div class="story-box" id="storyBox"></div>
+
+<button class="next" onclick="nextPart()">➡ Next Part</button>
+
+<div class="ad">🔥 AdSense Space 2</div>
+
+<footer>© Story Universe Ultimate</footer>
+
+<script>
+
+let currentStory = 1;
+let currentPart = 1;
+
+const stories = {
+1:[
+"Raat 3 baje message aata tha...",
+"Usne reply kiya aur system activate hua...",
+"Message: main bahar hoon...",
+"Window me koi nahi tha...",
+"Phone: peeche dekho..."
+],
+2:[
+"Mirror me reflection hilta nahi tha...",
+"Ek din smile aayi...",
+"Awaaz mirror se aayi...",
+"Haath andar gaya...",
+"Wo gayab..."
+]
+};
+
+// views
+function updateViews(id){
+let v = localStorage.getItem("s"+id) || 0;
+v++;
+localStorage.setItem("s"+id,v);
+document.getElementById("v"+id).innerText = v;
+}
+
+// load story
+function loadStory(n){
+currentStory=n;
+currentPart=1;
+showPart(1);
+updateViews(n);
+}
+
+// show part
+function showPart(p){
+currentPart=p;
+let box=document.getElementById("storyBox");
+box.style.opacity=0;
+
+setTimeout(()=>{
+box.innerText=stories[currentStory][p-1]||"Coming soon...";
+box.style.opacity=1;
+},200);
+}
+
+// next button
+function nextPart(){
+if(currentPart<5){
+currentPart++;
+showPart(currentPart);
+}
+}
+
+// dark/light mode
+function toggleMode(){
+document.body.classList.toggle("light");
+}
+
+// default
+loadStory(1);
+
+</script>
+
+</body>
+</html>
