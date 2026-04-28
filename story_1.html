@@ -14,38 +14,75 @@ body{
   background:#0b0b0b;
   color:#fff;
 }
+
+/* Glowing header */
 header{
   background:#000;
   padding:15px;
   text-align:center;
   font-size:20px;
+  box-shadow:0 0 20px #ff4b2b;
+  animation:glow 2s infinite alternate;
 }
+
+@keyframes glow{
+  from{box-shadow:0 0 10px #ff4b2b;}
+  to{box-shadow:0 0 25px #00c853;}
+}
+
 .container{display:flex;flex-wrap:wrap;justify-content:center;padding:10px;}
 .card{width:160px;margin:10px;background:#1c1c1c;border-radius:10px;overflow:hidden;cursor:pointer;transition:0.3s;position:relative;}
 .card:hover{transform:scale(1.05);}
 .card img{width:100%;height:110px;object-fit:cover;}
 .card p{text-align:center;font-size:13px;}
 .views{position:absolute;top:5px;right:5px;background:#000;padding:3px 6px;font-size:10px;border-radius:5px;}
+
 .story-box{max-width:800px;margin:10px auto;background:#1a1a1a;padding:20px;border-radius:10px;min-height:120px;white-space:pre-line;opacity:0;transform:translateY(20px);transition:0.5s;}
 .story-box.show{opacity:1;transform:translateY(0);}
+
 .controls{text-align:center;margin:10px;}
 .controls button{margin:3px;padding:10px;border:none;border-radius:6px;cursor:pointer;background:#ff4b2b;color:#fff;}
 .next{display:block;margin:10px auto;padding:10px;background:#00c853;border:none;color:#fff;border-radius:6px;}
+
 .addBox{text-align:center;margin:10px;}
 .addBox input,.addBox textarea{width:90%;margin:5px;padding:8px;}
 .addBox button{padding:10px;background:#2196f3;color:#fff;border:none;border-radius:6px;}
-.soundBtn,.voiceBtn,.langBtn,.aiBtn{position:fixed;right:20px;background:#333;padding:10px;border-radius:50%;cursor:pointer;}
+
+.soundBtn,.voiceBtn,.langBtn,.aiBtn{
+position:fixed;right:20px;background:#333;padding:10px;border-radius:50%;cursor:pointer;
+}
 .soundBtn{bottom:160px;}
 .voiceBtn{bottom:120px;}
 .langBtn{bottom:80px;}
 .aiBtn{bottom:40px;}
 
 footer{text-align:center;padding:10px;background:#000;font-size:12px;}
+
+/* Logo style */
+.logo{
+  width:40px;
+  height:40px;
+  border-radius:10px;
+  margin-right:10px;
+}
+
+.headerWrap{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:10px;
+}
+
 </style>
 </head>
 <body>
 
-<header>📖 Story Universe PRO AI</header>
+<header>
+  <div class="headerWrap">
+    <img class="logo" src="https://i.imgur.com/6Q3ZQZl.png">
+    📖 Story Universe PRO AI
+  </div>
+</header>
 
 <div class="container" id="storyList"></div>
 
@@ -70,7 +107,7 @@ footer{text-align:center;padding:10px;background:#000;font-size:12px;}
 <div class="langBtn" onclick="toggleLang()">🌐</div>
 <div class="aiBtn" onclick="generateAIStory()">🤖</div>
 
-<!-- AUDIO MOOD -->
+<!-- AUDIO -->
 <audio id="bgm"></audio>
 
 <footer>© PRO AI Story Universe</footer>
@@ -109,7 +146,6 @@ window.speechSynthesis.cancel();
 window.speechSynthesis.speak(u);
 }
 
-// SIMPLE AI STORY GENERATOR
 function generateAIStory(){
 let base=[
 "A dark night changed everything",
@@ -138,8 +174,7 @@ box.innerHTML+=`<div class='card' onclick='openS(${i})'><img src='${s.img}'><p>$
 });
 }
 
-function openS(id){
-current=id;part=0;stories[id].views++;save();show();render();}
+function openS(id){current=id;part=0;stories[id].views++;save();show();render();}
 
 function show(){
 let t=stories[current].parts[part];
@@ -162,6 +197,13 @@ save();render();}
 function save(){localStorage.setItem("stories",JSON.stringify(stories));}
 
 render();
+
+// PWA SERVICE WORKER
+if('serviceWorker' in navigator){
+window.addEventListener('load',()=>{
+navigator.serviceWorker.register('sw.js');
+});
+}
 </script>
 
 </body>
