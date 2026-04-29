@@ -175,14 +175,7 @@ let stories = JSON.parse(localStorage.getItem("stories")) || {};
 let current=null, part=0;
 
 // 🔥 Render stories
-  if(Object.keys(stories).length === 0){
-stories[1] = {
-  title: "Emotional Attachment Story",
-  img: "di.jpg",
-  parts: document.getElementById("content").value.split("|")
-};
-localStorage.setItem("stories", JSON.stringify(stories));
-}
+ 
 function render(){
 let box=document.getElementById("storyList");
 box.innerHTML="";
