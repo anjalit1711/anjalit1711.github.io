@@ -128,7 +128,7 @@ header{
 <div class="addBox">
 <h3>Add Story</h3>
 <input id="title" placeholder="Emotional Attachment Story...">
-<input id="img" placeholder="Image URL">
+<input id="img" placeholder="https://www.magnific.com/free-photo/girl-sitting-alone-wooden-bridge-sea-frustrated-depression_13181488.htm#fromView=keyword&page=1&position=1&uuid=d3a54e98-7d57-4926-964e-a1cd272e1498&query=Alone">
 <textarea id="content" placeholder="Story continue here using | separator">YE STORY EK EMOTIONAL ATTACHMENT KE BARE ME HAI|
   JISE LOG KABHI KBHI PYAR SMJH LETE HI|AJ HAM BAT KRENGE EK ESE HI DO DILO KE BARE ME JO EMOTIONAL ATTACHMENT KO PYR SMJH BETHE THE|
  EK LADKA THA OR BOHOT TUTA HUA TH KHTE HAI USKI EX USE CHHOD KE CHLI GYI THI JISSE VO DILLI ME ILA TH|
@@ -169,7 +169,12 @@ AB LDKI DIN RT TENSION ME RETI KI EKTO TEACHING KRTI UPR SE ISKA PAST FIR DARU P
 TENSION KE NATE LOG USE BOLNE LGE THE KI TUM BOT DUBLI HOTI JRI HO,|</textarea>
 <button onclick="addStory()">➕ Add Story</button>
 </div>
-
+  <div class="addBox">
+<input id="title" placeholder="A Dark Night Story...">
+<input id="img" placeholder="Image URL">
+<textarea id="content" placeholder="Story continue here using | separator"></textarea>
+<button onclick="addStory()">➕ Add Story</button>
+</div>
 <script>
 let stories = JSON.parse(localStorage.getItem("stories")) || {};
 let current=null, part=0;
