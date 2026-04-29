@@ -130,7 +130,7 @@ header{
 <input id="title" placeholder="Emotional Attachment Story...">
 <input id="img" placeholder="Image URL">
 <textarea id="content" placeholder="Story continue here using | separator">YE STORY EK EMOTIONAL ATTACHMENT KE BARE ME HAI|
-  JISE LOG KABHI KBHI PYAR SMJH LETE HI|AJ HAM BAT KRENGE EK ESE HI DO DIO KE BARE ME JO EMOTIONAL ATTACHMENT KO PYR SMJH BETHE THE|
+  JISE LOG KABHI KBHI PYAR SMJH LETE HI|AJ HAM BAT KRENGE EK ESE HI DO DILO KE BARE ME JO EMOTIONAL ATTACHMENT KO PYR SMJH BETHE THE|
  EK LADKA THA OR BOHOT TUTA HUA TH KHTE HAI USKI EX USE CHHOD KE CHLI GYI THI JISSE VO DILLI ME ILA TH|
  USKA KEHNA TH KI VO 3 SAL KE RELATIONSHIP ME TTH US LDKI KE TH USNE ESA BTAYA KI VO LDKI USE SOCIAL MEDIA KE THROUGH MILI THI| 
   FIR UNKI MULAKAT DILLI ME JAKR HUI LDKI BADE GHRANE SE THI,OR LDKA CHHOTE GHRANE KA ARMY KI TEYARI KRNE VALA OR VAI LDKI MBA KRRI THI|
@@ -175,6 +175,14 @@ let stories = JSON.parse(localStorage.getItem("stories")) || {};
 let current=null, part=0;
 
 // 🔥 Render stories
+  if(Object.keys(stories).length === 0){
+stories[1] = {
+  title: "Emotional Attachment Story",
+  img: "di.jpg",
+  parts: document.getElementById("content").value.split("|")
+};
+localStorage.setItem("stories", JSON.stringify(stories));
+}
 function render(){
 let box=document.getElementById("storyList");
 box.innerHTML="";
