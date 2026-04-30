@@ -2,54 +2,56 @@
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Story Reader AI</title>
+<title>Story Universe PRO AI</title>
 
 <style>
 body{
   margin:0;
   font-family:Arial;
-  background:#0b0b0b;
-  color:#fff;
+  background:black;
+  color:white;
+  overflow:hidden;
+}
+
+.bg{
+  position:fixed;
+  width:100%;
+  height:100%;
+  background-size:cover;
+  background-position:center;
+  filter:brightness(0.35);
+  z-index:-1;
+  transition:1s;
 }
 
 header{
-  background:#000;
-  padding:15px;
   text-align:center;
-  font-size:20px;
-  box-shadow:0 0 20px #ff4b2b;
+  padding:12px;
+  background:#111;
 }
 
 .story-box{
   max-width:750px;
-  width:92%;
-  margin:20px auto;
-  background:#1a1a1a;
-  padding:20px;
+  margin:15px auto;
+  background:rgba(0,0,0,0.75);
+  padding:15px;
   border-radius:10px;
-  height:65vh;
+  height:60vh;
   overflow-y:auto;
-  line-height:1.8;
-  font-size:16px;
   white-space:pre-line;
+  font-size:16px;
 }
 
-.story-box::-webkit-scrollbar{
-  width:10px;
-}
-.story-box::-webkit-scrollbar-thumb{
-  background:#2196f3;
-  border-radius:10px;
-}
+.story-box::-webkit-scrollbar{width:8px;}
+.story-box::-webkit-scrollbar-thumb{background:#2196f3;}
 
 .controls{
   text-align:center;
-  margin:10px;
 }
 
 button{
-  margin:5px;
-  padding:10px 15px;
+  margin:4px;
+  padding:10px;
   border:none;
   border-radius:6px;
   background:#2196f3;
@@ -61,31 +63,37 @@ button{
 
 <body>
 
-<header>📖 Story Reader AI</header>
+<div class="bg" id="bg"></div>
+
+<header>📖 Story Universe PRO AI</header>
 
 <div class="controls">
-<button onclick="loadStory(1)">📖 Story 1</button>
-<button onclick="loadStory(2)">📖 Story 2</button>
+<button onclick="startStory(1)">Story 1</button>
+<button onclick="startStory(2)">Story 2</button>
 </div>
 
-<div class="story-box" id="storyBox"></div>
+<div class="story-box" id="storyBox">Select a story</div>
 
 <div class="controls">
 <button onclick="speakHindi()">🔊 Hindi</button>
 <button onclick="speakEnglish()">🔊 English</button>
 <button onclick="pauseVoice()">⏸ Pause</button>
 <button onclick="resumeVoice()">▶ Resume</button>
-<button onclick="stopVoice()">⏹ Stop</button>
+<button onclick="stopAll()">⏹ Stop</button>
 <button onclick="translateText()">🌐 Translate</button>
 <button onclick="zoomIn()">🔍 +</button>
 <button onclick="zoomOut()">🔍 -</button>
 </div>
 
 <script>
+
 let zoom = 16;
 let isHindi = true;
 
-// ✅ STORY 1 (FULL - EXACT)
+/* =========================
+   FULL STORIES (NO CUT)
+========================= */
+
 let story1 = `Raat ka waqt tha. Baarish ki halki boonden purani haveli ki tooti chhat par gir rahi thi. Aarav apni maa ki purani diary lekar us ghar mein aaya tha, jahan bachpan mein usne sab kuch kho diya tha. Diary ke aakhri panne par sirf itna likha tha — “Sach hamesha isi ghar mein chhupa hai.” Dil zor se dhadak raha tha, lekin usse lag raha tha ki aaj usse apne sawaalon ka jawab mil jayega.
 
 Haveli ke andar sab kuch sannaata tha. Jaise waqt yahin ruk gaya ho. Aarav dheere-dheere seedhiyan chadhne laga, tabhi usse kisi ke chalne ki awaaz sunayi di. Woh ruk gaya. “Koi hai?” usne dheere se poocha… lekin jawab mein sirf hawa ki cheekh thi. Tabhi diary ka ek purana panna apne aap palat gaya. Us par likha tha — “Woh ab bhi yahin hai…” Aarav ke haath kaanpne lage.
@@ -96,66 +104,152 @@ Woh uski taraf badha, lekin jaise hi paas pahucha, uski maa ne haath utha kar us
 
 Maa ki aankhon se aansu behne lage. “Main kabhi gayi hi nahi thi, Aarav… main bas is ghar mein qaid ho gayi thi… aur jisne mujhe yahan baandh rakha hai… woh tum khud ho.”
 
-Aarav ka dil jaise ruk gaya. Use yaad aaya… bachpan ki woh raat… gusse mein usne diya gira diya tha… aur aag ne sab kuch le liya. Aaj usse samajh aaya — woh sach se bhaag raha tha.
+Aarav ka dil jaise ruk gaya. Use yaad aaya… bachpan ki woh raat… gusse mein usne diya gira diya tha… aur aag ne sab kuch le liya.
 
 Aakhri baar usne maa ki taraf dekha… aur phir sab kuch andhere mein kho gaya… sirf ek awaaz gunji — “Sach se kabhi bhaagna mat…”`;
 
 
-// ✅ STORY 2 (FULL - EXACT)
-let story2 = `Andheri raat thi, aur Ramnagar ke kinaare khadi purani haveli par bijli chamak rahi thi. Log kehte the ki yeh haveli 20 saalon se khaali hai, lekin har amavas ki raat wahan se kisi ke chalne ki awaaz aati hai. Kabir, jo ek curious journalist tha, in afwaahon ko jhooth sabit karna chahta tha. Apni camera aur recorder lekar woh us haveli ke darwaze tak pahunch gaya. Darwaza dheere se khola… aur ek thandi hawa ka jhonka uske chehre se takraaya, jaise kisi ne use andar aane ka signal diya ho.
+/* =========================
+   STORY 2 (FULL)
+========================= */
 
-Haveli ke andar sab kuch dhool se dhakka hua tha. Deewaron par purani tasveeren latak rahi thi, jinme logon ke chehre dheere-dheere mit chuke the. Kabir ne apna torch jalaya aur aage badhne laga. Tabhi uski nazar ek tasveer par padi… us tasveer mein ek aadmi tha, jo bilkul uski tarah dikh raha tha. Kabir ek pal ke liye jam gaya. “Yeh kaise ho sakta hai?” usne socha. Jaise hi woh tasveer ke kareeb gaya, uske kaan ke paas kisi ne dheere se phusphusaya — “Tum wapas aa gaye…”
+let story2 = `Andheri raat thi, aur Ramnagar ke kinaare khadi purani haveli par bijli chamak rahi thi. Log kehte the ki yeh haveli 20 saalon se khaali hai, lekin har amavas ki raat wahan se kisi ke chalne ki awaaz aati hai. Kabir, jo ek curious journalist tha, in afwaahon ko jhooth sabit karna chahta tha. Apni camera aur recorder lekar woh us haveli ke darwaze tak pahunch gaya. Darwaza dheere se khola… aur ek thandi hawa ka jhonka uske chehre se takraaya.
 
-Kabir ne ghabra kar peeche mudkar dekha, lekin wahan koi nahi tha. Uska dil zor-zor se dhadakne laga. Usne jaldi se recorder on kiya aur bolne laga, “Yahan koi hai… mujhe awaaz sunayi de rahi hai…” Tabhi recorder apne aap band ho gaya. Haveli ke andar ka temperature achanak bahut thanda ho gaya. Uski saansein dikhne lagi, jaise sardiyon ki raat ho. Tabhi seedhiyon se kisi ke dheere-dheere neeche utarne ki awaaz aayi… thak… thak… thak…
+Haveli ke andar sab kuch dhool se dhakka hua tha. Deewaron par purani tasveeren latak rahi thi, jinme logon ke chehre dheere-dheere mit chuke the. Kabir ne torch jalaya aur aage badha. Tabhi ek tasveer par nazar padi… usmein ek aadmi tha jo bilkul uski tarah dikh raha tha.
 
-Kabir himmat jod kar seedhiyon ki taraf badha. Har kadam par use lag raha tha ki koi usse dekh raha hai. Jaise hi woh upar pahucha, usne ek kamra dekha jiska darwaza aadha khula tha. Andar se halki si roshni aa rahi thi. Kabir ne darwaza dhakka dekar khola… aur uski aankhen phat gayi. Kamre ke beech mein ek purana aaina tha… aur us aaine mein uska reflection khud se alag chal raha tha. Reflection usse dekh kar muskura raha tha, jabki Kabir ka chehra dara hua tha.
+“Tum wapas aa gaye…” kisi ne uske kaan ke paas kaha.
 
-“Tum yahan phir aa hi gaye…” reflection ne kaha. Kabir peeche hat gaya, lekin uska reflection aaine ke andar se bahar aane laga. Dheere-dheere woh ek alag insaan ban gaya… bilkul Kabir jaisa. “Main tum hoon… aur tum main ho,” usne thandi awaaz mein kaha. Kabir ko achanak yaad aaya — bachpan mein woh isi haveli mein kho gaya tha, aur tab se usse ajeeb sapne aate the. Shayad uska ek hissa yahin reh gaya tha… ya shayad kabhi gaya hi nahi.
+Kabir ne peeche dekha, koi nahi tha. Recorder on kiya… lekin woh bhi band ho gaya. Thandi hawa badh gayi. Saans dikhne lagi.
 
-Aakhri pal mein Kabir ne bhaagne ki koshish ki, lekin uske pair jaise jam gaye. Uska dusra roop dheere-dheere uske kareeb aaya… aur use chhoo liya. Ek tez cheekh haveli mein goonj uthi… aur phir sab kuch shaant ho gaya. Agle din logon ne dekha ki haveli ka darwaza khula hai, lekin andar koi nahi tha. Bas deewar par ek nayi tasveer latak rahi thi… usmein Kabir khada tha… aur uske peeche ek aur Kabir muskura raha tha. Tab se, har amavas ki raat, koi naya mehmaan us haveli ki taraf kheechta chala aata hai… jaise koi uska intezaar kar raha ho.`;
+Thak… thak… thak… seedhiyon se awaaz aayi.
+
+Kabir upar gaya. Ek kamra khula tha. Andar aaina tha… aur uska reflection apne aap move kar raha tha.
+
+Reflection bola — “Main tum hoon… aur tum main ho.”
+
+Aur dheere-dheere reflection bahar aa gaya… real Kabir ban gaya.
+
+Aakhri pal mein dono ek ho gaye… aur haveli phir se khamosh ho gayi.`;
 
 
-// LOAD STORY
-function loadStory(num){
-  stopVoice();
-  storyBox.innerText = (num === 1) ? story1 : story2;
+/* =========================
+   BACKGROUND MUSIC
+========================= */
+
+let audio = new Audio();
+audio.loop = true;
+audio.volume = 0.6;
+
+let sounds = {
+  1: "https://cdn.pixabay.com/download/audio/2023/03/06/audio_3b7f8d9c2c.mp3",
+  2: "https://cdn.pixabay.com/download/audio/2022/10/25/audio_946f1c0c1b.mp3"
+};
+
+
+/* =========================
+   IMAGES
+========================= */
+
+let images = {
+  1: [
+    "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee",
+    "https://images.unsplash.com/photo-1501785888041-af3ef285b470"
+  ],
+  2: [
+    "https://images.unsplash.com/photo-1495567720989-cebdbdd97913",
+    "https://images.unsplash.com/photo-1470770841072-f978cf4d019e"
+  ]
+};
+
+let imgInterval;
+
+
+/* =========================
+   STORY LOAD
+========================= */
+
+function startStory(n){
+
+  stopAll();
+
+  storyBox.innerText = (n===1)?story1:story2;
+
+  // MUSIC
+  audio = new Audio(sounds[n]);
+  audio.loop = true;
+  audio.play().catch(()=>console.log("click needed"));
+
+  // IMAGES
+  let imgs = images[n];
+  let i = 0;
+  bg.style.backgroundImage = `url(${imgs[0]})`;
+
+  clearInterval(imgInterval);
+  imgInterval = setInterval(()=>{
+    i = (i+1)%imgs.length;
+    bg.style.backgroundImage = `url(${imgs[i]})`;
+  },3000);
 }
 
-// VOICE CONTROLS
+
+/* =========================
+   VOICE
+========================= */
+
 function speakHindi(){
-  stopVoice();
-  let speech = new SpeechSynthesisUtterance(storyBox.innerText);
-  speech.lang = "hi-IN";
-  speechSynthesis.speak(speech);
+  speechSynthesis.cancel();
+  let s = new SpeechSynthesisUtterance(storyBox.innerText);
+  s.lang="hi-IN";
+  speechSynthesis.speak(s);
 }
 
 function speakEnglish(){
-  stopVoice();
-  let speech = new SpeechSynthesisUtterance(storyBox.innerText);
-  speech.lang = "en-US";
-  speechSynthesis.speak(speech);
+  speechSynthesis.cancel();
+  let s = new SpeechSynthesisUtterance(storyBox.innerText);
+  s.lang="en-US";
+  speechSynthesis.speak(s);
 }
 
-function pauseVoice(){ speechSynthesis.pause(); }
-function resumeVoice(){ speechSynthesis.resume(); }
-function stopVoice(){ speechSynthesis.cancel(); }
+function pauseVoice(){speechSynthesis.pause();}
+function resumeVoice(){speechSynthesis.resume();}
 
-// TRANSLATE
+function stopAll(){
+  speechSynthesis.cancel();
+  audio.pause();
+  clearInterval(imgInterval);
+}
+
+
+/* =========================
+   TRANSLATE (simple toggle)
+========================= */
+
 function translateText(){
-  fetch(`https://api.mymemory.translated.net/get?q=${encodeURIComponent(storyBox.innerText)}&langpair=${isHindi?'hi|en':'en|hi'}`)
-  .then(res=>res.json())
-  .then(data=>{
-    storyBox.innerText = data.responseData.translatedText;
-    isHindi = !isHindi;
+  let text = storyBox.innerText;
+
+  fetch(`https://api.mymemory.translated.net/get?q=${encodeURIComponent(text)}&langpair=${isHindi?'hi|en':'en|hi'}`)
+  .then(r=>r.json())
+  .then(d=>{
+    storyBox.innerText = d.responseData.translatedText;
+    isHindi=!isHindi;
   });
 }
 
-// ZOOM
-function zoomIn(){ zoom+=2; storyBox.style.fontSize=zoom+"px"; }
-function zoomOut(){ zoom-=2; storyBox.style.fontSize=zoom+"px"; }
 
-// DEFAULT
-loadStory(1);
+/* =========================
+   ZOOM
+========================= */
+
+function zoomIn(){
+  zoom += 2;
+  storyBox.style.fontSize = zoom+"px";
+}
+
+function zoomOut(){
+  zoom -= 2;
+  storyBox.style.fontSize = zoom+"px";
+}
+
 </script>
 
 </body>
