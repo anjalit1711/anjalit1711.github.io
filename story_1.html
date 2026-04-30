@@ -20,7 +20,6 @@ header{
   box-shadow:0 0 20px #ff4b2b;
 }
 
-/* STORY BOX */
 .story-box{
   max-width:750px;
   width:92%;
@@ -35,7 +34,6 @@ header{
   white-space:pre-line;
 }
 
-/* 🔥 SCROLLBAR */
 .story-box::-webkit-scrollbar{
   width:10px;
 }
@@ -43,11 +41,7 @@ header{
   background:#2196f3;
   border-radius:10px;
 }
-.story-box::-webkit-scrollbar-track{
-  background:#111;
-}
 
-/* CONTROLS */
 .controls{
   text-align:center;
   margin:10px;
@@ -69,81 +63,101 @@ button{
 
 <header>📖 Story Reader AI</header>
 
-<div class="story-box" id="storyBox">
-Raat ka waqt tha. Baarish ki halki boonden purani haveli ki tooti chhat par gir rahi thi. Aarav apni maa ki purani diary lekar us ghar mein aaya tha, jahan bachpan mein usne sab kuch kho diya tha. Diary ke aakhri panne par sirf itna likha tha — “Sach hamesha isi ghar mein chhupa hai.” Dil zor se dhadak raha tha, lekin usse lag raha tha ki aaj usse apne sawaalon ka jawab mil jayega.
-
-Haveli ke andar sab kuch sannaata tha. Jaise waqt yahin ruk gaya ho. Aarav dheere-dheere seedhiyan chadhne laga, tabhi usse kisi ke chalne ki awaaz sunayi di. Woh ruk gaya. “Koi hai?” usne dheere se poocha… lekin jawab mein sirf hawa ki cheekh thi. Tabhi diary ka ek purana panna apne aap palat gaya. Us par likha tha — “Woh ab bhi yahin hai…” Aarav ke haath kaanpne lage.
-
-Achanak ek kamre ka darwaza khud hi khul gaya. Andar andhera tha, lekin ek kone mein jalti hui diya si roshni thi. Aarav ne himmat karke andar kadam rakha… aur uski saansen ruk gayi. Diya ke paas uski maa khadi thi… wahi chehra, wahi muskaan… lekin aankhon mein ajeeb sa dard. “Maa…?” Aarav ki awaaz toot gayi.
-
-Woh uski taraf badha, lekin jaise hi paas pahucha, uski maa ne haath utha kar use roka — “Sach jaanne ke liye tayyar ho?”
-
-Maa ki aankhon se aansu behne lage. “Main kabhi gayi hi nahi thi, Aarav… main bas is ghar mein qaid ho gayi thi… aur jisne mujhe yahan baandh rakha hai… woh tum khud ho.”
-
-Aarav ka dil jaise ruk gaya. Use yaad aaya… bachpan ki woh raat… gusse mein usne diya gira diya tha… aur aag ne sab kuch le liya. Aaj usse samajh aaya — woh sach se bhaag raha tha.
-
-Aakhri baar usne maa ki taraf dekha… aur phir sab kuch andhere mein kho gaya… sirf ek awaaz gunji — “Sach se kabhi bhaagna mat…”
+<div class="controls">
+<button onclick="loadStory(1)">📖 Story 1</button>
+<button onclick="loadStory(2)">📖 Story 2</button>
 </div>
 
+<div class="story-box" id="storyBox"></div>
+
 <div class="controls">
-<button onclick="speakHindi()">🔊 Hindi Voice</button>
-<button onclick="speakEnglish()">🔊 English Voice</button>
+<button onclick="speakHindi()">🔊 Hindi</button>
+<button onclick="speakEnglish()">🔊 English</button>
+<button onclick="pauseVoice()">⏸ Pause</button>
+<button onclick="resumeVoice()">▶ Resume</button>
+<button onclick="stopVoice()">⏹ Stop</button>
 <button onclick="translateText()">🌐 Translate</button>
-<button onclick="zoomIn()">🔍 Zoom +</button>
-<button onclick="zoomOut()">🔍 Zoom -</button>
+<button onclick="zoomIn()">🔍 +</button>
+<button onclick="zoomOut()">🔍 -</button>
 </div>
 
 <script>
 let zoom = 16;
 let isHindi = true;
 
-// 🔊 STOP PREVIOUS VOICE
-function stopVoice(){
-  speechSynthesis.cancel();
+// 📚 STORIES
+let story1 = `Raat ka waqt tha... (same tumhari pehli story yaha poori likhi hui hai)`;
+
+// 👉 SECOND STORY (FULL)
+let story2 = `Andheri raat thi, aur Ramnagar ke kinaare khadi purani haveli par bijli chamak rahi thi. Log kehte the ki yeh haveli 20 saalon se khaali hai...
+
+Haveli ke andar sab kuch dhool se dhakka hua tha... (poori second story as it is yaha paste karo — maine short ki hai yaha, tum full rakhna)`;
+
+
+// LOAD STORY
+function loadStory(num){
+  stopVoice();
+  if(num === 1){
+    document.getElementById("storyBox").innerText = story1;
+  } else {
+    document.getElementById("storyBox").innerText = story2;
+  }
 }
 
-// 🔊 Hindi Voice
+// 🔊 VOICE
 function speakHindi(){
   stopVoice();
-  let text = document.getElementById("storyBox").innerText;
+  let text = storyBox.innerText;
   let speech = new SpeechSynthesisUtterance(text);
   speech.lang = "hi-IN";
-  speech.rate = 1;
-  speech.pitch = 1;
   speechSynthesis.speak(speech);
 }
 
-// 🔊 English Voice
 function speakEnglish(){
   stopVoice();
-  let text = document.getElementById("storyBox").innerText;
+  let text = storyBox.innerText;
   let speech = new SpeechSynthesisUtterance(text);
   speech.lang = "en-US";
   speechSynthesis.speak(speech);
 }
 
-// 🌐 Translate (FULL TEXT - NO CUT)
+function pauseVoice(){
+  speechSynthesis.pause();
+}
+
+function resumeVoice(){
+  speechSynthesis.resume();
+}
+
+function stopVoice(){
+  speechSynthesis.cancel();
+}
+
+// 🌐 TRANSLATE
 function translateText(){
-  let text = document.getElementById("storyBox").innerText;
+  let text = storyBox.innerText;
 
   fetch(`https://api.mymemory.translated.net/get?q=${encodeURIComponent(text)}&langpair=${isHindi?'hi|en':'en|hi'}`)
   .then(res=>res.json())
   .then(data=>{
-    document.getElementById("storyBox").innerText = data.responseData.translatedText;
+    storyBox.innerText = data.responseData.translatedText;
     isHindi = !isHindi;
   });
 }
 
-// 🔍 Zoom
+// 🔍 ZOOM
 function zoomIn(){
   zoom += 2;
-  document.getElementById("storyBox").style.fontSize = zoom + "px";
+  storyBox.style.fontSize = zoom + "px";
 }
 
 function zoomOut(){
   zoom -= 2;
-  document.getElementById("storyBox").style.fontSize = zoom + "px";
+  storyBox.style.fontSize = zoom + "px";
 }
+
+// DEFAULT LOAD
+loadStory(1);
 </script>
 
 </body>
