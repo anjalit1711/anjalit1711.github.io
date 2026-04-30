@@ -2,85 +2,7 @@
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Story Universe PRO AI</title>
-  <style>
-body{
-  margin:0;
-  font-family:Arial;
-  background:#0b0b0b;
-  color:#fff;
-}
-
-header{
-  background:#000;
-  padding:15px;
-  text-align:center;
-  font-size:20px;
-  box-shadow:0 0 20px #ff4b2b;
-}
-
-.container{display:flex;flex-wrap:wrap;justify-content:center;padding:10px;}
-
-.card{
-  width:160px;
-  margin:10px;
-  background:#1c1c1c;
-  border-radius:10px;
-  overflow:hidden;
-  cursor:pointer;
-}
-
-.card img{width:100%;height:110px;object-fit:cover;}
-.card p{text-align:center;font-size:13px;}
-
-.story-box{
-  max-width:600px;
-  width:65%;
-  margin:20px auto;
-  background:#1a1a1a;
-  padding:20px;
-  border-radius:10px;
-  height:50vh;
-  overflow-y:auto;
-  white-space:pre-line;
-  line-height:1.6;
-}
-
-/* 🔥 TEXTAREA FIX */
-.addBox textarea{
-  width:90%;
-  height:250px;           /* 👈 bada box */
-  margin:5px;
-  padding:10px;
-  font-size:14px;
-  resize:vertical;        /* 👈 user bhi bada kar sakta */
-  overflow-y:auto;
-}
-
-/* 🔥 SCROLLBAR STYLE */
-.addBox textarea::-webkit-scrollbar{
-  width:8px;
-}
-.addBox textarea::-webkit-scrollbar-thumb{
-  background:#2196f3;
-  border-radius:5px;
-}
-
-/* inputs same */
-.addBox input{
-  width:90%;
-  margin:5px;
-  padding:8px;
-}
-
-.addBox button{
-  padding:10px;
-  background:#2196f3;
-  color:#fff;
-  border:none;
-  border-radius:6px;
-}
-</style>
+<title>Story Reader AI</title>
 
 <style>
 body{
@@ -98,154 +20,130 @@ header{
   box-shadow:0 0 20px #ff4b2b;
 }
 
-.container{display:flex;flex-wrap:wrap;justify-content:center;padding:10px;}
-
-.card{
-  width:160px;
-  margin:10px;
-  background:#1c1c1c;
+/* STORY BOX */
+.story-box{
+  max-width:750px;
+  width:92%;
+  margin:20px auto;
+  background:#1a1a1a;
+  padding:20px;
   border-radius:10px;
-  overflow:hidden;
+  height:65vh;
+  overflow-y:auto;
+  line-height:1.8;
+  font-size:16px;
+  white-space:pre-line;
+}
+
+/* 🔥 SCROLLBAR */
+.story-box::-webkit-scrollbar{
+  width:10px;
+}
+.story-box::-webkit-scrollbar-thumb{
+  background:#2196f3;
+  border-radius:10px;
+}
+.story-box::-webkit-scrollbar-track{
+  background:#111;
+}
+
+/* CONTROLS */
+.controls{
+  text-align:center;
+  margin:10px;
+}
+
+button{
+  margin:5px;
+  padding:10px 15px;
+  border:none;
+  border-radius:6px;
+  background:#2196f3;
+  color:white;
   cursor:pointer;
 }
-
-.card img{width:100%;height:110px;object-fit:cover;}
-.card p{text-align:center;font-size:13px;}
-.views{position:absolute;top:5px;right:5px;background:#000;padding:3px 6px;font-size:10px;border-radius:5px;}
-
 </style>
-
-
 </head>
+
 <body>
 
-<header>📖 Story Universe PRO AI</header>
+<header>📖 Story Reader AI</header>
 
-<div class="container" id="storyList"></div>
+<div class="story-box" id="storyBox">
+Raat ka waqt tha. Baarish ki halki boonden purani haveli ki tooti chhat par gir rahi thi. Aarav apni maa ki purani diary lekar us ghar mein aaya tha, jahan bachpan mein usne sab kuch kho diya tha. Diary ke aakhri panne par sirf itna likha tha — “Sach hamesha isi ghar mein chhupa hai.” Dil zor se dhadak raha tha, lekin usse lag raha tha ki aaj usse apne sawaalon ka jawab mil jayega.
 
-<div class="story-box" id="storyBox">Select story</div>
+Haveli ke andar sab kuch sannaata tha. Jaise waqt yahin ruk gaya ho. Aarav dheere-dheere seedhiyan chadhne laga, tabhi usse kisi ke chalne ki awaaz sunayi di. Woh ruk gaya. “Koi hai?” usne dheere se poocha… lekin jawab mein sirf hawa ki cheekh thi. Tabhi diary ka ek purana panna apne aap palat gaya. Us par likha tha — “Woh ab bhi yahin hai…” Aarav ke haath kaanpne lage.
 
-<div class="addBox">
-<h3>Add Story</h3>
+Achanak ek kamre ka darwaza khud hi khul gaya. Andar andhera tha, lekin ek kone mein jalti hui diya si roshni thi. Aarav ne himmat karke andar kadam rakha… aur uski saansen ruk gayi. Diya ke paas uski maa khadi thi… wahi chehra, wahi muskaan… lekin aankhon mein ajeeb sa dard. “Maa…?” Aarav ki awaaz toot gayi.
 
-  
-<input id="title" placeholder="Emotional Story...">
-  <input id="img" placeholder="Image URL">
-<textarea id="content" placeholder="Story continue here using | separator">Raat ka waqt tha.| Baarish ki halki boonden purani haveli ki tooti chhat par gir rahi thi.|Aarav apni maa ki purani diary lekar us ghar mein aaya tha, jahan bachpan mein usne sab kuch kho diya tha.| Diary ke aakhri panne par sirf itna likha tha — “Sach hamesha isi ghar mein chhupa hai.|” Dil zor se dhadak raha tha, lekin usse lag raha tha ki aaj usse apne sawaalon ka jawab mil jayega.|
-Haveli ke andar sab kuch sannaata tha.| Jaise waqt yahin ruk gaya ho.| Aarav dheere-dheere seedhiyan chadhne laga,| tabhi usse kisi ke chalne ki awaaz sunayi di.| Woh ruk gaya.| “Koi hai?” usne dheere se poocha… lekin jawab mein sirf hawa ki cheekh thi.| Tabhi diary ka ek purana panna apne aap palat gaya.| Us par likha tha |— “Woh ab bhi yahin hai…”| Aarav ke haath kaanpne lage.|
+Woh uski taraf badha, lekin jaise hi paas pahucha, uski maa ne haath utha kar use roka — “Sach jaanne ke liye tayyar ho?”
 
-Achanak ek kamre ka darwaza khud hi khul gaya.| Andar andhera tha,| lekin ek kone mein jalti hui diya si roshni thi.| Aarav ne himmat karke andar kadam rakha… aur uski saansen ruk gayi.| Diya ke paas uski maa khadi thi… wahi chehra, wahi muskaan… lekin aankhon mein ajeeb sa dard. “Maa…?”| Aarav ki awaaz toot gayi.| Woh uski taraf badha,| lekin jaise hi paas pahucha,| uski maa ne haath utha kar use roka| — “Sach jaanne ke liye tayyar ho?”|
+Maa ki aankhon se aansu behne lage. “Main kabhi gayi hi nahi thi, Aarav… main bas is ghar mein qaid ho gayi thi… aur jisne mujhe yahan baandh rakha hai… woh tum khud ho.”
 
-Maa ki aankhon se aansu behne lage.| “Main kabhi gayi hi nahi thi,| Aarav… main bas is ghar mein qaid ho gayi thi…| aur jisne mujhe yahan baandh rakha hai… woh tum khud ho.” Aarav ka dil jaise ruk gaya.| Use yaad aaya… bachpan ki woh raat… gusse mein usne diya gira diya tha… aur aag ne sab kuch le liya.| Aaj usse samajh aaya — woh sach se bhaag raha tha.| Aakhri baar usne maa ki taraf dekha…| aur phir sab kuch andhere mein kho gaya… |sirf ek awaaz gunji — “Sach se kabhi bhaagna mat…”|</textarea>
-<button onclick="addStory()">➕ Add Story</button>
+Aarav ka dil jaise ruk gaya. Use yaad aaya… bachpan ki woh raat… gusse mein usne diya gira diya tha… aur aag ne sab kuch le liya. Aaj usse samajh aaya — woh sach se bhaag raha tha.
+
+Aakhri baar usne maa ki taraf dekha… aur phir sab kuch andhere mein kho gaya… sirf ek awaaz gunji — “Sach se kabhi bhaagna mat…”
 </div>
-  
-  <div class="addBox">
-<input id="title" placeholder="A Dark Night Story...">
-<input id="img" placeholder="Image URL">
-<textarea id="content" placeholder="Story continue here using | separator">Andheri raat thi, aur Ramnagar ke kinaare khadi purani haveli par bijli chamak rahi thi. Log kehte the ki yeh haveli 20 saalon se khaali hai, lekin har amavas ki raat wahan se kisi ke chalne ki awaaz aati hai. Kabir, jo ek curious journalist tha, in afwaahon ko jhooth sabit karna chahta tha. Apni camera aur recorder lekar woh us haveli ke darwaze tak pahunch gaya. Darwaza dheere se khola… aur ek thandi hawa ka jhonka uske chehre se takraaya, jaise kisi ne use andar aane ka signal diya ho.
 
-Haveli ke andar sab kuch dhool se dhakka hua tha. Deewaron par purani tasveeren latak rahi thi, jinme logon ke chehre dheere-dheere mit chuke the. Kabir ne apna torch jalaya aur aage badhne laga. Tabhi uski nazar ek tasveer par padi… us tasveer mein ek aadmi tha, jo bilkul uski tarah dikh raha tha. Kabir ek pal ke liye jam gaya. “Yeh kaise ho sakta hai?” usne socha. Jaise hi woh tasveer ke kareeb gaya, uske kaan ke paas kisi ne dheere se phusphusaya — “Tum wapas aa gaye…”
-
-Kabir ne ghabra kar peeche mudkar dekha, lekin wahan koi nahi tha. Uska dil zor-zor se dhadakne laga. Usne jaldi se recorder on kiya aur bolne laga, “Yahan koi hai… mujhe awaaz sunayi de rahi hai…” Tabhi recorder apne aap band ho gaya. Haveli ke andar ka temperature achanak bahut thanda ho gaya. Uski saansein dikhne lagi, jaise sardiyon ki raat ho. Tabhi seedhiyon se kisi ke dheere-dheere neeche utarne ki awaaz aayi… thak… thak… thak…
-
-Kabir himmat jod kar seedhiyon ki taraf badha. Har kadam par use lag raha tha ki koi usse dekh raha hai. Jaise hi woh upar pahucha, usne ek kamra dekha jiska darwaza aadha khula tha. Andar se halki si roshni aa rahi thi. Kabir ne darwaza dhakka dekar khola… aur uski aankhen phat gayi. Kamre ke beech mein ek purana aaina tha… aur us aaine mein uska reflection khud se alag chal raha tha. Reflection usse dekh kar muskura raha tha, jabki Kabir ka chehra dara hua tha.
-
-“Tum yahan phir aa hi gaye…” reflection ne kaha. Kabir peeche hat gaya, lekin uska reflection aaine ke andar se bahar aane laga. Dheere-dheere woh ek alag insaan ban gaya… bilkul Kabir jaisa. “Main tum hoon… aur tum main ho,” usne thandi awaaz mein kaha. Kabir ko achanak yaad aaya — bachpan mein woh isi haveli mein kho gaya tha, aur tab se usse ajeeb sapne aate the. Shayad uska ek hissa yahin reh gaya tha… ya shayad kabhi gaya hi nahi.
-
-Aakhri pal mein Kabir ne bhaagne ki koshish ki, lekin uske pair jaise jam gaye. Uska dusra roop dheere-dheere uske kareeb aaya… aur use chhoo liya. Ek tez cheekh haveli mein goonj uthi… aur phir sab kuch shaant ho gaya. Agle din logon ne dekha ki haveli ka darwaza khula hai, lekin andar koi nahi tha. Bas deewar par ek nayi tasveer latak rahi thi… usmein Kabir khada tha… aur uske peeche ek aur Kabir muskura raha tha. Tab se, har amavas ki raat, koi naya mehmaan us haveli ki taraf kheechta chala aata hai… jaise koi uska intezaar kar raha ho.
-</textarea>
-<button onclick="addStory()">➕ Add Story</button>
+<div class="controls">
+<button onclick="speakHindi()">🔊 Hindi Voice</button>
+<button onclick="speakEnglish()">🔊 English Voice</button>
+<button onclick="translateText()">🌐 Translate</button>
+<button onclick="zoomIn()">🔍 Zoom +</button>
+<button onclick="zoomOut()">🔍 Zoom -</button>
 </div>
+
 <script>
-let stories = JSON.parse(localStorage.getItem("stories")) || {};
-let current=null, part=0;
+let zoom = 16;
+let isHindi = true;
 
-// 🔥 Render stories
- 
-function render(){
-let box=document.getElementById("storyList");
-box.innerHTML="";
-
-Object.keys(stories).forEach(i=>{
-let s=stories[i];
-
-box.innerHTML += `
-<div class='card' onclick='openS(${i})'>
-<img src='${s.img}'>
-<p>${s.title}</p>
-</div>`;
-});
+// 🔊 STOP PREVIOUS VOICE
+function stopVoice(){
+  speechSynthesis.cancel();
 }
 
-// 🔥 Open story
-function openS(id){
-current=id;
-part=0;
-show();
+// 🔊 Hindi Voice
+function speakHindi(){
+  stopVoice();
+  let text = document.getElementById("storyBox").innerText;
+  let speech = new SpeechSynthesisUtterance(text);
+  speech.lang = "hi-IN";
+  speech.rate = 1;
+  speech.pitch = 1;
+  speechSynthesis.speak(speech);
 }
 
-// 🔥 Show story part
-function show(){
-let s = stories[current];
-document.getElementById("storyBox").innerText = s.parts[part];
+// 🔊 English Voice
+function speakEnglish(){
+  stopVoice();
+  let text = document.getElementById("storyBox").innerText;
+  let speech = new SpeechSynthesisUtterance(text);
+  speech.lang = "en-US";
+  speechSynthesis.speak(speech);
 }
 
-// 🔥 Next / Prev (optional future use)
-function nextPart(){
-if(!current) return;
-if(part < stories[current].parts.length-1){
-part++;
-show();
-}
-}
+// 🌐 Translate (FULL TEXT - NO CUT)
+function translateText(){
+  let text = document.getElementById("storyBox").innerText;
 
-function prevPart(){
-if(!current) return;
-if(part > 0){
-part--;
-show();
-}
+  fetch(`https://api.mymemory.translated.net/get?q=${encodeURIComponent(text)}&langpair=${isHindi?'hi|en':'en|hi'}`)
+  .then(res=>res.json())
+  .then(data=>{
+    document.getElementById("storyBox").innerText = data.responseData.translatedText;
+    isHindi = !isHindi;
+  });
 }
 
-// 🔥 MAIN FIXED FUNCTION
-function addStory(){
-let t = document.getElementById("title").value;
-let c = document.getElementById("content").value;
-let img = document.getElementById("img").value;
-
-// 👉 FIXED INTRO
-let intro = [
-"A dark night changed everything",
-"Suddenly lights started blinking"
-];
-
-// 👉 USER STORY (yaha tu likhega)
-let userParts = c ? c.split("|") : [];
-
-// 👉 FIXED ENDING
-let end = [
-"Something was behind him",
-"And then silence"
-];
-
-// 👉 FINAL MERGE
-let finalStory = [...intro, ...userParts, ...end];
-
-let id = Date.now();
-
-stories[id] = {
-title: t || "Untitled Story",
-img: img || "https://i.imgur.com/3ZQ3ZQm.jpg",
-parts: finalStory
-};
-
-localStorage.setItem("stories", JSON.stringify(stories));
-render();
-alert("Story Added!");
+// 🔍 Zoom
+function zoomIn(){
+  zoom += 2;
+  document.getElementById("storyBox").style.fontSize = zoom + "px";
 }
 
-render();
+function zoomOut(){
+  zoom -= 2;
+  document.getElementById("storyBox").style.fontSize = zoom + "px";
+}
 </script>
 
 </body>
