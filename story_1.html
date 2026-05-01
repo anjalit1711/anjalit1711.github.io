@@ -1,3 +1,6 @@
+# Updated Story Universe PRO AI Code
+
+```html
 <!DOCTYPE html>
 <html>
 <head>
@@ -70,6 +73,9 @@ button{
 <div class="controls">
 <button onclick="startStory(1)">Story 1</button>
 <button onclick="startStory(2)">Story 2</button>
+<button onclick="startStory(3)">Story 3</button>
+<button onclick="startStory(4)">Story 4</button>
+<button onclick="startStory(5)">Story 5</button>
 </div>
 
 <div class="story-box" id="storyBox">Select a story</div>
@@ -91,7 +97,7 @@ let zoom = 16;
 let isHindi = true;
 
 /* =========================
-   FULL STORIES (NO CUT)
+   STORY 1
 ========================= */
 
 let story1 = `Raat ka waqt tha. Baarish ki halki boonden purani haveli ki tooti chhat par gir rahi thi. Aarav apni maa ki purani diary lekar us ghar mein aaya tha, jahan bachpan mein usne sab kuch kho diya tha. Diary ke aakhri panne par sirf itna likha tha — “Sach hamesha isi ghar mein chhupa hai.” Dil zor se dhadak raha tha, lekin usse lag raha tha ki aaj usse apne sawaalon ka jawab mil jayega.
@@ -108,9 +114,8 @@ Aarav ka dil jaise ruk gaya. Use yaad aaya… bachpan ki woh raat… gusse mein 
 
 Aakhri baar usne maa ki taraf dekha… aur phir sab kuch andhere mein kho gaya… sirf ek awaaz gunji — “Sach se kabhi bhaagna mat…”`;
 
-
 /* =========================
-   STORY 2 (FULL)
+   STORY 2
 ========================= */
 
 let story2 = `Andheri raat thi, aur Ramnagar ke kinaare khadi purani haveli par bijli chamak rahi thi. Log kehte the ki yeh haveli 20 saalon se khaali hai, lekin har amavas ki raat wahan se kisi ke chalne ki awaaz aati hai. Kabir, jo ek curious journalist tha, in afwaahon ko jhooth sabit karna chahta tha. Apni camera aur recorder lekar woh us haveli ke darwaze tak pahunch gaya. Darwaza dheere se khola… aur ek thandi hawa ka jhonka uske chehre se takraaya.
@@ -131,6 +136,35 @@ Aur dheere-dheere reflection bahar aa gaya… real Kabir ban gaya.
 
 Aakhri pal mein dono ek ho gaye… aur haveli phir se khamosh ho gayi.`;
 
+/* =========================
+   STORY 3
+========================= */
+
+let story3 = `Vivaan bachpan se game developer banna chahta tha. Log haste the, lekin usne coding seekhna nahi chhoda. Pehla game fail hua, dusra bhi perfect nahi tha, lekin woh roz improve karta gaya.
+
+Usne purane laptop par coding ki, bugs fix kiye aur har problem se seekha. Ek din uska game viral ho gaya aur hazaaron log uska game khelne lage.
+
+Vivaan ne samjha ki success talent se nahi, consistency se milti hai. Agar insaan haar na maane, toh woh kuch bhi achieve kar sakta hai.`;
+
+/* =========================
+   STORY 4
+========================= */
+
+let story4 = `Riya ko drawing aur animation ka bahut shauk tha. Financial problems aur logon ke taane usse rok nahi paaye. Usne free software se animation banana shuru kiya.
+
+Kai baar laptop crash hua, kaam delete hua, lekin usne mehnat nahi chhodi. Dheere-dheere uske animations famous hone lage.
+
+Aaj Riya ka khud ka animation studio hai aur woh doosron ko inspire karti hai ki sapne kabhi mat chhodo.`;
+
+/* =========================
+   STORY 5
+========================= */
+
+let story5 = `Arjun bahut shy ladka tha aur stage par bolne se darta tha. Ek din usne speech competition mein participate kiya.
+
+Shuru mein uski awaaz kaanp rahi thi, lekin dheere-dheere usne confidence gain kiya. Logon ne uski speech ko bahut pasand kiya.
+
+Baad mein wahi Arjun ek motivational speaker bana aur hazaaron logon ko inspire karne laga. Usne samjha ki fear ko harana hi asli success hai.`;
 
 /* =========================
    BACKGROUND MUSIC
@@ -142,9 +176,11 @@ audio.volume = 0.6;
 
 let sounds = {
   1: "https://cdn.pixabay.com/download/audio/2023/03/06/audio_3b7f8d9c2c.mp3",
-  2: "https://cdn.pixabay.com/download/audio/2022/10/25/audio_946f1c0c1b.mp3"
+  2: "https://cdn.pixabay.com/download/audio/2022/10/25/audio_946f1c0c1b.mp3",
+  3: "https://cdn.pixabay.com/download/audio/2022/03/15/audio_c8c8a73467.mp3",
+  4: "https://cdn.pixabay.com/download/audio/2022/08/02/audio_88447d1468.mp3",
+  5: "https://cdn.pixabay.com/download/audio/2022/10/30/audio_946962f7f6.mp3"
 };
-
 
 /* =========================
    IMAGES
@@ -152,34 +188,62 @@ let sounds = {
 
 let images = {
   1: [
+    "https://images.unsplash.com/photo-1506744038136-46273834b3fb",
+    "https://images.unsplash.com/photo-1512453979798-5ea266f8880c",
     "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee",
-    "https://images.unsplash.com/photo-1501785888041-af3ef285b470"
+    "https://images.unsplash.com/photo-1493246507139-91e8fad9978e",
+    "https://images.unsplash.com/photo-1473773508845-188df298d2d1"
   ],
+
   2: [
-    "https://images.unsplash.com/photo-1495567720989-cebdbdd97913",
-    "https://images.unsplash.com/photo-1470770841072-f978cf4d019e"
+    "https://images.unsplash.com/photo-1500375592092-40eb2168fd21",
+    "https://images.unsplash.com/photo-1501785888041-af3ef285b470",
+    "https://images.unsplash.com/photo-1500534623283-312aade485b7",
+    "https://images.unsplash.com/photo-1441974231531-c6227db76b6e",
+    "https://images.unsplash.com/photo-1500534314209-a25ddb2bd429"
+  ],
+
+  3: [
+    "https://images.unsplash.com/photo-1498050108023-c5249f4df085",
+    "https://images.unsplash.com/photo-1516321318423-f06f85e504b3",
+    "https://images.unsplash.com/photo-1518770660439-4636190af475",
+    "https://images.unsplash.com/photo-1515879218367-8466d910aaa4",
+    "https://images.unsplash.com/photo-1555066931-4365d14bab8c"
+  ],
+
+  4: [
+    "https://images.unsplash.com/photo-1516321497487-e288fb19713f",
+    "https://images.unsplash.com/photo-1522202176988-66273c2fd55f",
+    "https://images.unsplash.com/photo-1517694712202-14dd9538aa97",
+    "https://images.unsplash.com/photo-1498050108023-c5249f4df085",
+    "https://images.unsplash.com/photo-1521737604893-d14cc237f11d"
+  ],
+
+  5: [
+    "https://images.unsplash.com/photo-1519389950473-47ba0277781c",
+    "https://images.unsplash.com/photo-1523240795612-9a054b0db644",
+    "https://images.unsplash.com/photo-1517048676732-d65bc937f952",
+    "https://images.unsplash.com/photo-1504384308090-c894fdcc538d",
+    "https://images.unsplash.com/photo-1521791136064-7986c2920216"
   ]
 };
 
 let imgInterval;
 
-
-/* =========================
-   STORY LOAD
-========================= */
-
 function startStory(n){
 
   stopAll();
 
-  storyBox.innerText = (n===1)?story1:story2;
+  if(n===1) storyBox.innerText = story1;
+  if(n===2) storyBox.innerText = story2;
+  if(n===3) storyBox.innerText = story3;
+  if(n===4) storyBox.innerText = story4;
+  if(n===5) storyBox.innerText = story5;
 
-  // MUSIC
   audio = new Audio(sounds[n]);
   audio.loop = true;
   audio.play().catch(()=>console.log("click needed"));
 
-  // IMAGES
   let imgs = images[n];
   let i = 0;
   bg.style.backgroundImage = `url(${imgs[0]})`;
@@ -190,11 +254,6 @@ function startStory(n){
     bg.style.backgroundImage = `url(${imgs[i]})`;
   },3000);
 }
-
-
-/* =========================
-   VOICE
-========================= */
 
 function speakHindi(){
   speechSynthesis.cancel();
@@ -219,11 +278,6 @@ function stopAll(){
   clearInterval(imgInterval);
 }
 
-
-/* =========================
-   TRANSLATE (simple toggle)
-========================= */
-
 function translateText(){
   let text = storyBox.innerText;
 
@@ -234,11 +288,6 @@ function translateText(){
     isHindi=!isHindi;
   });
 }
-
-
-/* =========================
-   ZOOM
-========================= */
 
 function zoomIn(){
   zoom += 2;
@@ -254,3 +303,4 @@ function zoomOut(){
 
 </body>
 </html>
+```
